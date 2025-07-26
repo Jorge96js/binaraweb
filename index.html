@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Binaraweb - Sitio en mantenimiento</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2e0fc5c36.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body {
+      background: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #111;
+      color: #fff;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #00c3ff;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    .aviso-mantenimiento {
+      background: #ffcc00;
+      color: #111;
+      text-align: center;
+      padding: 1rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    nav {
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    .servicios {
+      background: #fff;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    .servicios h3 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #111;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .card {
+      background: #f1f1f1;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card i {
+      font-size: 2rem;
+      color: #00c3ff;
+      margin-bottom: 1rem;
+    }
+
+    .card h4 {
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    footer {
+      background: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .cards {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="aviso-mantenimiento">
+    ⚠️ Este sitio está en mantenimiento. Pronto estará disponible.
+  </div>
+
+  <header>
+    <h1>Binaraweb</h1>
+    <p>Soluciones web a medida para tu negocio digital</p>
+  </header>
+
+  <nav>
+    <a href="#servicios">Servicios</a>
+  </nav>
+
+  <section class="hero">
+    <h2>Transformamos tu presencia digital</h2>
+    <p>Ofrecemos desarrollo web, diseño responsive, mantenimiento, optimización SEO y más. Todo adaptado a vos.</p>
+  </section>
+
+  <section class="servicios" id="servicios">
+    <h3>Nuestros Servicios</h3>
+    <div class="cards">
+      <div class="card">
+        <i class="fas fa-laptop-code"></i>
+        <h4>Desarrollo Web</h4>
+        <p>Sitios modernos, rápidos y seguros. Desde landing hasta e-commerce o sistemas.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-mobile-alt"></i>
+        <h4>Diseño Responsive</h4>
+        <p>Tu web se verá perfecta en celulares, tablets y computadoras.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-search"></i>
+        <h4>Optimización SEO</h4>
+        <p>Mejoramos tu visibilidad en Google para atraer más visitas reales.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-cogs"></i>
+        <h4>Mantenimiento</h4>
+        <p>Actualizaciones, seguridad, soporte y mejoras continuas.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Binaraweb. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
