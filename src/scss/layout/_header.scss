@@ -1,0 +1,86 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+.header{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 5rem;
+    gap: 5rem;
+    //background-color: color.adjust(v.$black, $lightness: 10%);
+    border-radius: 3rem;
+    padding: 5rem;
+
+        &::before{
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: rgba(16 18 27 / 40%);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        left: 0;
+        bottom: 0;
+        z-index: 0;
+        border: 1px solid v.$border-color;
+        border-radius: 1rem;
+
+    }
+
+
+    @include m.desktop{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        justify-content: space-between;
+        column-gap: 2rem;
+    }
+
+    &__title{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        position: relative;
+        z-index: 2;
+        h1{
+            color: v.$white;
+            width: 90%;
+            font-size: 3.8rem;
+            font-weight: v.$font-bold;
+            font-family: v.$fuente-titulos;
+            margin: 0;
+            text-align: left;
+            span{
+                color: v.$purple;
+            }
+            @include m.desktop{
+                font-size: 5.5rem;
+            }
+
+        }
+        p{
+            color: v.$white;
+            font-weight: v.$font-regular;
+            font-family: v.$fuente-principal;
+            margin-bottom: 5rem;
+        }
+    }
+
+    &__imagen{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        position: relative;
+        z-index: 2;
+        picture{
+        width: 80%;
+        border-radius: 3rem;
+        }
+    }
+    
+}

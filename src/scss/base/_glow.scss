@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: #0a0a1f; // fondo base
+  position: relative;
+  font-family: Arial, sans-serif;
+  color: white;
+  
+
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    z-index: 10;
+  }
+}
+// ---- ANIMACIONES ----
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(.8);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+// ---- DESTELLOS ----
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.6;
+  z-index: -1;
+  animation: pulse 5s ease-in-out infinite alternate, float 12s ease-in-out infinite;
+
+  &.glow1 {
+    width: 35%;
+    height: 35%;
+    background: radial-gradient(circle, rgba(150, 80, 255, 0.7), transparent 70%);
+    top: 10%;
+    left: 15%;
+    animation-delay: 0s, 0s;
+  }
+
+  &.glow2 {
+    width: 30%;
+    height: 30%;
+    background: radial-gradient(circle, rgba(80, 200, 255, 0.6), transparent 70%);
+    top: 60%;
+    left: 30%;
+    animation-delay: 2s, 4s;
+  }
+
+  &.glow3 {
+    width: 30%;
+    height: 30%;
+    background: radial-gradient(circle, rgba(255, 80, 150, 0.5), transparent 70%);
+    top: 30%;
+    left: 50%;
+    animation-delay: 1s, 6s;
+  }
+
+  &.glow4 {
+    width: 25%;
+    height: 25%;
+    background: radial-gradient(circle, rgba(255, 200, 80, 0.4), transparent 70%);
+    top: 75%;
+    left: 20%;
+    animation-delay: 3s, 8s;
+  }
+
+  &.glow5 {
+    width: 28%;
+    height: 28%;
+    background: radial-gradient(circle, rgba(100, 255, 180, 0.4), transparent 70%);
+    top: 40%;
+    left: 10%;
+    animation-delay: 4s, 10s;
+  }
+
+  &.glow6 {
+    width: 22%;
+    height: 22%;
+    background: radial-gradient(circle, rgba(255, 100, 255, 0.5), transparent 70%);
+    top: 5%;
+    left: 60%;
+    animation-delay: 5s, 12s;
+  }
+}
