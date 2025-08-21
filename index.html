@@ -14,13 +14,13 @@
     <script src="/public/build/js/bundle.min.js" defer></script>
     <link rel="stylesheet" href="/public/build/css/app.css">
 </head>
-<body>
+<body id="home">
 
     <nav class="navbar">
         <div class="navbar__menu">
-            <a href="" class="navbar__menu--item active">Inicio</a>
-            <a href="" class="navbar__menu--item">Servicios</a>
-            <a href="" class="navbar__menu--item">Nosotros</a>
+            <a href="#home" class="navbar__menu--item">Inicio</a>
+            <a href="#services" class="navbar__menu--item">Servicios</a>
+            <a href="#about" class="navbar__menu--item">Nosotros</a>
         </div>
         
         <div class="logo">
@@ -34,7 +34,7 @@
             <h1>Transformamos tu <span>presencia</span> digital</h1>
             <p>Ofrecemos desarrollo web, diseño responsive, mantenimiento, optimización SEO y más. Todo adaptado a vos.</p>
             
-            <a href="" class="button contact-button">Contactame</a>
+            <a href="https://api.whatsapp.com/send?phone=5492364727477&text=Hola%20%F0%9F%91%8B%2C%20quiero%20contratar%20un%20servicio%20de%20desarrollo%20web" target="_blank" class="button contact-button">Contactame</a>
         </div>
 
         <div class="header__imagen">
@@ -47,8 +47,8 @@
    </header>
 
    <main class="contenedor">
-        <section class="contenido-principal">
-                    <div class="services__cards">
+        <section id="services" class="contenido-principal">
+        <div class="services__cards">
 
             <article class="services__card">
                 <i class="fas fa-code"></i>
@@ -72,7 +72,7 @@
     </section>
 
         <section class="tecnologias">
-            <h3 class="tecnologias__titulo">Tecnologias que usamos</h3>
+            <h3 class="tecnologias__titulo">Tecnologías con las que trabajamos</h3>
             <p class="tecnologias__parrafo">Utilizamos herramientas modernas y potentes para construir soluciones escalables, seguras y de alto rendimiento:</p>
 
                 <div class="tecnologias__lista">
@@ -101,11 +101,76 @@
                     <div class="tecnologias__nombre"><i class="fab fa-laravel"></i> <p>Laravel</p></div>
                     <div class="tecnologias__nombre">
                         <i><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0,0,256,256">
-<g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M24,4c-11.028,0 -20,8.972 -20,20c0,11.028 8.972,20 20,20c11.028,0 20,-8.972 20,-20c0,-11.028 -8.972,-20 -20,-20zM24,7c9.374,0 17,7.626 17,17c0,5.852 -2.97233,11.02008 -7.48633,14.08008l-13.77148,-20.41992c-0.367,-0.547 -1.05464,-0.7857 -1.68164,-0.5957c-0.63,0.194 -1.06055,0.77655 -1.06055,1.43555v13c0,0.828 0.672,1.5 1.5,1.5c0.828,0 1.5,-0.672 1.5,-1.5v-8.09375l10.87695,16.12695c-2.106,0.935 -4.42895,1.4668 -6.87695,1.4668c-9.374,0 -17,-7.626 -17,-17c0,-9.374 7.626,-17 17,-17zM29.5,15c-0.828,0 -1.5,0.672 -1.5,1.5v8.48633l3,4.30273v-12.78906c0,-0.828 -0.672,-1.5 -1.5,-1.5z"></path></g></g>
+                        <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M24,4c-11.028,0 -20,8.972 -20,20c0,11.028 8.972,20 20,20c11.028,0 20,-8.972 20,-20c0,-11.028 -8.972,-20 -20,-20zM24,7c9.374,0 17,7.626 17,17c0,5.852 -2.97233,11.02008 -7.48633,14.08008l-13.77148,-20.41992c-0.367,-0.547 -1.05464,-0.7857 -1.68164,-0.5957c-0.63,0.194 -1.06055,0.77655 -1.06055,1.43555v13c0,0.828 0.672,1.5 1.5,1.5c0.828,0 1.5,-0.672 1.5,-1.5v-8.09375l10.87695,16.12695c-2.106,0.935 -4.42895,1.4668 -6.87695,1.4668c-9.374,0 -17,-7.626 -17,-17c0,-9.374 7.626,-17 17,-17zM29.5,15c-0.828,0 -1.5,0.672 -1.5,1.5v8.48633l3,4.30273v-12.78906c0,-0.828 -0.672,-1.5 -1.5,-1.5z"></path></g></g>
                     </svg></i><p>NextJS</p></div>
                     <div class="tecnologias__nombre"><i class="fab fa-node-js"></i> <p>Node.js</p></div>
                 </div>
 
+                <section class="about" id="about">
+                <h2 class="about__title">Sobre nosotros</h2>
+                <p class="about__subtitle">Impulsamos tu presencia digital con soluciones a medida y compromiso real.</p>
+                    <section>
+                        <h3>Nuestra forma de trabajar</h3>
+                            <p>
+                                En <strong>Binaraweb</strong> entendemos que cada proyecto representa un desafío único. 
+                                Por eso, iniciamos cada proceso con una etapa de análisis en la que escuchamos y comprendemos 
+                                las necesidades específicas de cada cliente.
+                            </p>
+                            <p>
+                                A partir de allí, diseñamos una estrategia digital a medida, combinando creatividad, 
+                                innovación tecnológica y las mejores prácticas del sector. 
+                                Trabajamos de manera ágil y transparente, manteniendo una comunicación constante 
+                                que garantiza la alineación de objetivos en cada etapa del desarrollo.
+                            </p>
+                            <p>
+                                Nuestro enfoque se centra en entregar soluciones que no solo sean visualmente atractivas, 
+                                sino también <strong>funcionales, seguras y escalables</strong>, acompañando el crecimiento de tu negocio 
+                                y aportando valor real en el mundo digital.
+                            </p>
+                        
+                        </section>
+                <section>
+                    <h3 class="valores__title">Nuestros valores y compromisos</h3>
+                    <p class="valores__subtitle">La esencia de nuestro trabajo</p>
+                    <div class="valores__lista">
+                        <article class="valor">
+                            <i class="fas fa-eye"></i>
+                            <h3>Transparencia</h3>
+                        <p>
+                            Mantenemos una comunicación clara y honesta en cada etapa del proyecto, 
+                            asegurando que nuestros clientes conozcan los avances, tiempos y resultados.
+                        </p>
+                        </article>
+
+                        <article class="valor">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Compromiso</h3>
+                        <p>
+                            Nos involucramos plenamente en cada desafío, trabajando con dedicación para cumplir 
+                            los objetivos y superar las expectativas de quienes confían en nosotros.
+                        </p>
+                        </article>
+
+                        <article class="valor">
+                            <i class="fas fa-paint-brush"></i>
+                            <h3>Creatividad</h3>
+                            <p>
+                                Apostamos a soluciones innovadoras y originales que potencien la identidad digital 
+                                de cada cliente, diferenciándolos en un entorno cada vez más competitivo.
+                            </p>
+                        </article>
+
+                        <article class="valor">
+                            <i class="fas fa-lightbulb"></i>
+                            <h3>Innovación</h3>
+                            <p>
+                                Incorporamos tecnologías emergentes y metodologías ágiles para ofrecer soluciones 
+                                actuales y escalables, anticipándonos a las tendencias del mercado digital.
+                            </p>
+                            </article>
+                    </div>
+                    </section>
+                </section>
         </section>
    </main>
 

@@ -36,6 +36,11 @@
         margin-left: 3rem;
         position: relative;
         z-index: 2;
+        text-align: center;
+    }
+    &__parrafo{
+        color: v.$purple;
+        font-weight: bold;
     }
     &__lista{
 

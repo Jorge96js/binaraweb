@@ -35,9 +35,9 @@
     border-bottom: 1px solid v.$border-color;
 }
     &__menu{
+        display: none;
         position: relative;
         z-index: 2;
-        display: flex;
         flex-direction: column;
         list-style: none;
         gap: 3rem;
@@ -45,11 +45,16 @@
         padding: 0;
         width: 100%;
         @include m.tablet{
+            display: flex;
             flex-direction: row;
             width: auto;
         }
         &--item{
             color: v.$white;
+        }
+
+        &.visible{
+            display: flex;
         }
     }
     
