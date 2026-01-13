@@ -1,189 +1,529 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="scroll-smooth" lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Binaraweb </title>
-
-    <!--swiper-->
-        <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-
-    <script src="/public/build/js/bundle.min.js" defer></script>
-    <link rel="stylesheet" href="/public/build/css/app.css">
-</head>
-<body id="home">
-
-    <nav class="navbar">
-        <div class="navbar__menu">
-            <a href="#home" class="navbar__menu--item">Inicio</a>
-            <a href="#services" class="navbar__menu--item">Servicios</a>
-            <a href="#about" class="navbar__menu--item">Nosotros</a>
-        </div>
-        
-        <div class="logo">
-            <img class="logo__image" src="/public/build/img/binara-logo.png" alt="">
-        </div>
-    </nav> 
+    <!-- Metadata -->
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Binaraweb - Agencia de Desarrollo Web</title>
     
-    <div class="wrapper">
-   <header class="header">
-        <div class="header__title">
-            <h1>Transformamos tu <span>presencia</span> digital</h1>
-            <p>Ofrecemos desarrollo web, diseño responsive, mantenimiento, optimización SEO y más. Todo adaptado a vos.</p>
-            
-            <a href="https://api.whatsapp.com/send?phone=5492364727477&text=Hola%20%F0%9F%91%8B%2C%20quiero%20contratar%20un%20servicio%20de%20desarrollo%20web" target="_blank" class="button contact-button">Contactame</a>
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><polygon points=%2250 5, 95 27, 95 73, 50 95, 5 73, 5 27%22 fill=%22%23007bff%22/></svg>">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&amp;family=Rajdhani:wght@300;400;500;600;700&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet" />
+    
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+    <!-- Tailwind Configuration -->
+    <script src="js/tailwind.config.js"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-cyber-black text-slate-300 antialiased selection:bg-cyber-blue selection:text-white overflow-x-hidden font-sans">
+    
+    <!-- Background Effects -->
+    <div class="scanlines"></div>
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <div class="absolute inset-0 bg-cyber-noise opacity-30 mix-blend-overlay z-10"></div>
+        <div class="absolute top-[-10%] right-[-5%] w-[60vw] h-[60vw] bg-cyber-purple/20 rounded-full blur-[120px] mix-blend-screen animate-pulse-fast"></div>
+        <div class="absolute bottom-[10%] left-[-10%] w-[50vw] h-[50vw] bg-cyber-cyan/10 rounded-full blur-[100px] mix-blend-screen"></div>
+        <div id="particles-js" class="absolute inset-0 z-0"></div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="fixed md:p-0 w-full z-50 top-0 transition-all duration-300 bg-cyber-black/95 backdrop-blur-lg border-b border-cyber-blue/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex h-auto md:gap-0 gap-3 bg-cyber-black/95 backdrop-blur-lg  items-center md:flex-row flex-col pt-5 pb-3 justify-between h-20">
+                <!-- Logo -->
+                <a href="/">
+                    <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer group">
+                        <div class="relative w-10 h-10 flex items-center justify-center bg-cyber-blue clip-path-polygon" style="clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%);">
+                            <!--<i class="fas fa-biohazard text-white text-xl"></i>-->
+                            <p class="font-display font-black text-white text-shadow-md text-xl">B</p>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-2xl font-display font-black tracking-widest text-white uppercase glitch-text" data-text="BINARAWEB">BINARAWEB</span>
+                            <span class="text-[9px] font-mono text-cyber-blue tracking-[0.3em] uppercase leading-none">Agencia Digital</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block bg-cyber-black/95" id="desktop-menu">
+                    <ul class="ml-10 md:gap-0 gap-8 md:p-0 py-10 w-full flex md:flex-row flex-col items-baseline space-x-8">
+                        <li><a class="text-slate-400 hover:text-cyber-blue font-mono text-sm tracking-wider uppercase transition-all duration-300 hover:text-glow-blue" href="#home">Inicio</a></li>
+                        <li><a class="text-slate-400 hover:text-cyber-cyan font-mono text-sm tracking-wider uppercase transition-all duration-300 hover:text-glow-cyan" href="#services">Servicios</a></li>
+                        <li><a class="text-slate-400 hover:text-cyber-pink font-mono text-sm tracking-wider uppercase transition-all duration-300 hover:text-glow-red" href="#technologies">Tecnologías</a></li>
+                        <li><a class="text-slate-400 hover:text-white font-mono text-sm tracking-wider uppercase transition-all duration-300" href="#about">Nosotros</a></li>
+                        <li>
+                            <a class="m-0 md:ml-4 px-6 py-2 bg-cyber-blue text-white font-display font-bold tracking-wider text-sm hover:bg-white hover:text-black hover:shadow-neon-cyan transition-all duration-300" href="#contact" style="clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);">
+                                CONTACTAR
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-cyber-blue hover:text-white p-2">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-
-        <div class="header__imagen">
-            <picture>
-                <source srcset="/public/build/img/56191.avif" type="image/avif">
-                <source srcset="/public/build/img/56191.webp" type="image/webp">
-                <img src="/public/build/img/56191.jpg" alt="imagen header" loading="lazy">
-            </picture>
-        </div>
-   </header>
-
-   <main class="contenedor">
-        <section id="services" class="contenido-principal">
-        <div class="services__cards">
-
-            <article class="services__card">
-                <i class="fas fa-code"></i>
-                <h3>Desarrollow web</h3>
-                <p>Sitios modernos, rápidos y seguros. Desde landing hasta e-commerce o sistemas.</p>
-            </article>
-
-            <article class="services__card">
-                <i class="fas fa-laptop-code"></i>
-                <h3>Diseño responsive</h3>
-                <p>Tu web se verá perfecta en celulares, tablets y computadoras.</p>
-            </article>
-
-            <article class="services__card">
-                <i class="fas fa-chart-line"></i>
-                <h3>Optimización SEO</h3>
-                <p>Mejoramos tu visibilidad en Google para atraer más visitas reales.</p>
-            </article>
-
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="relative z-10 min-h-screen flex items-center pt-20 overflow-hidden" id="home">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-20 mix-blend-overlay"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Text Content -->
+                <div class="text-center lg:text-left space-y-8 relative mb:mt-0 mt-20">
+                    <div class="inline-flex items-center px-2 py-0 bg-cyber-blue text-white transform skew-x-[-10deg] mb-4">
+                        <span class="font-mono text-xs font-bold uppercase tracking-widest transform skew-x-[10deg] px-2">Soluciones Digitales</span>
+                    </div>
+                    <h1 class="text-5xl lg:text-8xl font-display font-black tracking-tighter text-white leading-[0.9] uppercase relative z-10">
+                        TRANSFORMA <br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-blue via-white to-cyber-cyan text-glow-blue">TU NEGOCIO</span>
+                    </h1>
+                    <p class="text-lg text-slate-400 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal font-mono border-l-4 border-cyber-blue pl-6 bg-gradient-to-r from-cyber-blue/10 to-transparent py-2">
+                        Desarrollo web a medida, diseño innovador y estrategias digitales que impulsan tu crecimiento.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start pt-6">
+                        <a class="cyber-button group" href="#contact">
+                            <span class="flex items-center gap-2">
+                                INICIAR PROYECTO <i class="fas fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform"></i>
+                            </span>
+                        </a>
+                        <a class="cyber-button-secondary group" href="#services">
+                            <span class="flex items-center gap-2">
+                                VER SERVICIOS
+                            </span>
+                        </a>
+                    </div>
+                    <!-- Decorative Lines -->
+                    <div class="absolute -left-10 top-0 h-full w-[1px] bg-cyber-dark hidden lg:block">
+                        <div class="absolute top-[20%] left-[-4px] w-2 h-2 bg-cyber-blue"></div>
+                        <div class="absolute top-[50%] left-[-4px] w-2 h-2 bg-cyber-red"></div>
+                        <div class="absolute top-[80%] left-[-4px] w-2 h-2 bg-cyber-cyan"></div>
+                    </div>
+                </div>
+                
+                <!-- Terminal Visualization -->
+                <div class="relative flex justify-center lg:justify-end">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-cyber-blue/5 blur-[60px] rounded-full -z-10 animate-pulse"></div>
+                    <div class="relative w-full max-w-lg aspect-[4/5] border-2 border-cyber-blue/30 bg-cyber-black p-1">
+                        <!-- Corners -->
+                        <div class="absolute -top-2 -left-2 w-4 h-4 border-t-2 border-l-2 border-cyber-blue"></div>
+                        <div class="absolute -top-2 -right-2 w-4 h-4 border-t-2 border-r-2 border-cyber-blue"></div>
+                        <div class="absolute -bottom-2 -left-2 w-4 h-4 border-b-2 border-l-2 border-cyber-blue"></div>
+                        <div class="absolute -bottom-2 -right-2 w-4 h-4 border-b-2 border-r-2 border-cyber-blue"></div>
+                        
+                        <!-- Terminal Content -->
+                        <div class="cyber-terminal">
+                            <div class="ascii-art">
+  ____  _                                         _     
+ | __ )(_)_ __   __ _ _ __ __ ___      _____| |__  
+ |  _ \| | '_ \ / _` | '__/ _` \ \ /\ / / _ \ '_ \ 
+ | |_) | | | | | (_| | | | (_| |\ V  V /  __/ |_) |
+ |____/|_|_| |_|\__,_|_|  \__,_| \_/\_/ \___|_.__/ 
+                            </div>
+                            <div class="terminal-content">
+                                <span class="terminal-line">> INITIALIZING KERNEL...</span>
+                                <span class="terminal-line info">> LOADING MODULES...</span>
+                                <span class="terminal-line">> OPTIMIZING ASSETS...</span>
+                                <span class="terminal-line warning">> SECURITY PROTOCOLS: ACTIVE</span>
+                                <div class="progress-container">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill"></div>
+                                    </div>
+                                    <div class="progress-text">
+                                        <span>LOADING SYSTEM</span>
+                                        <span class="percentage"></span>
+                                    </div>
+                                </div>
+                                <span class="terminal-line info" style="animation-delay: 4.5s;">> ACCESS GRANTED. WELCOME USER.<span class="cursor"></span></span>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute bottom-10 left-[-20px] bg-cyber-blue text-white px-4 py-1 font-mono text-sm font-bold transform -rotate-90 origin-bottom-left shadow-neon-blue">
+                            ESTADO: ONLINE
+                        </div>
+                        <div class="absolute top-0 left-0 w-full h-1 bg-cyber-cyan opacity-50 animate-[scan_3s_linear_infinite]"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-        <section class="tecnologias">
-            <h3 class="tecnologias__titulo">Tecnologías con las que trabajamos</h3>
-            <p class="tecnologias__parrafo">Utilizamos herramientas modernas y potentes para construir soluciones escalables, seguras y de alto rendimiento:</p>
-
-                <div class="tecnologias__lista">
-
-                    <div class="tecnologias__nombre"><i style="font-size: 0;">
-                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0,0,256,256">
-                    <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M43.03,27.802c-1.747,0.009 -3.261,0.429 -4.53,1.054c-0.464,-0.926 -0.934,-1.741 -1.013,-2.347c-0.092,-0.707 -0.199,-1.129 -0.088,-1.972c0.111,-0.843 0.599,-2.036 0.591,-2.125c-0.007,-0.089 -0.109,-0.518 -1.117,-0.526c-1.008,-0.007 -1.87,0.194 -1.972,0.46c-0.102,0.266 -0.296,0.865 -0.416,1.49c-0.177,0.914 -2.012,4.174 -3.055,5.879c-0.341,-0.666 -0.631,-1.252 -0.691,-1.716c-0.092,-0.707 -0.199,-1.129 -0.088,-1.972c0.111,-0.843 0.599,-2.036 0.591,-2.125c-0.007,-0.089 -0.109,-0.518 -1.117,-0.526c-1.008,-0.007 -1.87,0.194 -1.972,0.46c-0.102,0.266 -0.21,0.888 -0.416,1.49c-0.207,0.602 -2.647,6.039 -3.286,7.448c-0.326,0.718 -0.609,1.295 -0.809,1.689c-0.001,-0.001 -0.001,-0.002 -0.001,-0.002c0,0 -0.012,0.026 -0.034,0.071c-0.171,0.335 -0.273,0.521 -0.273,0.521c0,0 0.001,0.003 0.003,0.007c-0.136,0.246 -0.281,0.475 -0.353,0.475c-0.05,0 -0.151,-0.656 0.022,-1.555c0.363,-1.886 1.235,-4.828 1.227,-4.929c-0.004,-0.052 0.162,-0.564 -0.57,-0.833c-0.711,-0.26 -0.965,0.174 -1.03,0.175c-0.063,0.001 -0.11,0.153 -0.11,0.153c0,0 0.793,-3.308 -1.512,-3.308c-1.44,0 -3.436,1.576 -4.42,3.004c-0.62,0.338 -1.948,1.063 -3.357,1.837c-0.541,0.297 -1.093,0.601 -1.617,0.89c-0.036,-0.039 -0.071,-0.079 -0.108,-0.118c-2.794,-2.981 -7.958,-5.089 -7.739,-9.096c0.08,-1.457 0.586,-5.293 9.924,-9.946c7.649,-3.812 13.773,-2.763 14.831,-0.438c1.512,3.321 -3.273,9.494 -11.216,10.384c-3.027,0.339 -4.62,-0.834 -5.017,-1.271c-0.417,-0.46 -0.479,-0.481 -0.635,-0.394c-0.254,0.141 -0.093,0.547 0,0.789c0.237,0.617 1.21,1.712 2.87,2.256c1.46,0.479 5.013,0.742 9.311,-0.92c4.813,-1.862 8.571,-7.041 7.468,-11.37c-1.123,-4.403 -8.423,-5.85 -15.332,-3.396c-4.112,1.461 -8.563,3.754 -11.764,6.747c-3.806,3.56 -4.412,6.658 -4.162,7.952c0.889,4.6 7.228,7.595 9.767,9.815c-0.125,0.069 -0.243,0.134 -0.35,0.193c-1.273,0.63 -6.105,3.159 -7.314,5.831c-1.371,3.031 0.218,5.206 1.271,5.499c3.26,0.907 6.606,-0.725 8.404,-3.407c1.798,-2.681 1.578,-6.172 0.753,-7.766c-0.01,-0.02 -0.022,-0.039 -0.032,-0.059c0.329,-0.195 0.664,-0.392 0.996,-0.587c0.648,-0.38 1.284,-0.735 1.836,-1.036c-0.309,0.846 -0.535,1.86 -0.653,3.325c-0.138,1.721 0.567,3.945 1.49,4.82c0.406,0.385 0.895,0.394 1.205,0.394c1.074,0 1.564,-0.893 2.103,-1.95c0.662,-1.296 1.249,-2.804 1.249,-2.804c0,0 -0.737,4.075 1.271,4.075c0.731,0 1.467,-0.949 1.795,-1.432c0.001,0.005 0.001,0.008 0.001,0.008c0,0 0.019,-0.031 0.056,-0.095c0.076,-0.116 0.119,-0.19 0.119,-0.19c0,0 0.002,-0.008 0.004,-0.021c0.294,-0.51 0.946,-1.674 1.924,-3.594c1.263,-2.48 2.475,-5.586 2.475,-5.586c0,0 0.113,0.76 0.482,2.015c0.217,0.739 0.679,1.556 1.043,2.339c-0.293,0.407 -0.473,0.64 -0.473,0.64c0,0 0.002,0.004 0.005,0.012c-0.234,0.311 -0.497,0.646 -0.772,0.974c-0.997,1.188 -2.185,2.544 -2.344,2.936c-0.187,0.461 -0.143,0.801 0.219,1.073c0.264,0.199 0.735,0.23 1.227,0.197c0.896,-0.06 1.527,-0.283 1.838,-0.418c0.485,-0.171 1.05,-0.441 1.58,-0.831c0.978,-0.719 1.568,-1.748 1.512,-3.111c-0.031,-0.751 -0.271,-1.495 -0.574,-2.198c0.089,-0.128 0.178,-0.256 0.267,-0.387c1.542,-2.255 2.738,-4.732 2.738,-4.732c0,0 0.113,0.76 0.482,2.015c0.187,0.636 0.556,1.329 0.887,2.009c-1.45,1.178 -2.349,2.547 -2.662,3.445c-0.577,1.661 -0.125,2.414 0.723,2.585c0.384,0.078 0.927,-0.098 1.335,-0.271c0.508,-0.168 1.118,-0.449 1.688,-0.868c0.978,-0.719 1.919,-1.726 1.862,-3.089c-0.026,-0.62 -0.194,-1.236 -0.422,-1.828c1.229,-0.512 2.821,-0.797 4.848,-0.56c4.349,0.508 5.202,3.223 5.039,4.359c-0.163,1.137 -1.075,1.761 -1.38,1.95c-0.305,0.189 -0.398,0.254 -0.372,0.394c0.037,0.204 0.178,0.196 0.438,0.152c0.358,-0.06 2.283,-0.924 2.366,-3.022c0.104,-2.658 -2.448,-5.583 -6.968,-5.559zM9.512,39.102c-1.44,1.571 -3.453,2.165 -4.316,1.665c-0.932,-0.54 -0.563,-2.854 1.205,-4.521c1.077,-1.016 2.468,-1.952 3.391,-2.529c0.21,-0.126 0.518,-0.312 0.893,-0.537c0.062,-0.035 0.097,-0.055 0.097,-0.055l-0.001,-0.002c0.072,-0.043 0.147,-0.088 0.223,-0.134c0.643,2.374 0.02,4.464 -1.492,6.113zM20.005,31.968c-0.502,1.223 -1.552,4.352 -2.191,4.184c-0.549,-0.144 -0.883,-2.523 -0.11,-4.863c0.389,-1.178 1.22,-2.586 1.709,-3.133c0.786,-0.879 1.652,-1.167 1.862,-0.81c0.269,0.454 -0.955,3.855 -1.27,4.622zM28.675,36.105c-0.213,0.111 -0.408,0.181 -0.498,0.127c-0.067,-0.04 0.088,-0.186 0.088,-0.186c0,0 1.084,-1.167 1.512,-1.698c0.248,-0.309 0.537,-0.676 0.85,-1.086c0.003,0.041 0.004,0.082 0.004,0.122c-0.004,1.398 -1.354,2.341 -1.956,2.721zM35.354,34.582c-0.159,-0.113 -0.132,-0.478 0.389,-1.614c0.205,-0.446 0.672,-1.198 1.485,-1.916c0.094,0.295 0.152,0.578 0.15,0.842c-0.011,1.759 -1.266,2.416 -2.024,2.688z"></path></g></g>
-                    </svg>
-                    </i> <p>SCSS</p>
-                    </div>
-
-                    <div class="tecnologias__nombre"><i>
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0,0,256,256">
-                        <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M43.33594,4h-36.66797c-1.47266,0 -2.66797,1.19531 -2.66797,2.66797v36.66406c0,1.47266 1.19531,2.66797 2.66797,2.66797h36.66406c1.47266,0 2.66797,-1.19531 2.66797,-2.66406v-36.66797c0,-1.47266 -1.19531,-2.66797 -2.66406,-2.66797zM27,36.18359c0,3.99609 -2.34375,5.81641 -5.76562,5.81641c-3.09375,0 -5.32422,-2.07422 -6.23437,-4l3.14453,-1.90234c0.60547,1.07422 1.52734,1.90234 2.85547,1.90234c1.26953,0 2,-0.49609 2,-2.42578v-12.57422h4zM35.67578,42c-3.54297,0 -5.55469,-1.78516 -6.67578,-4l3,-2c0.81641,1.33594 1.70703,2.61328 3.58984,2.61328c1.58203,0 2.41016,-0.78906 2.41016,-1.88281c0,-1.30469 -0.85937,-1.76953 -2.59766,-2.53125l-0.95312,-0.41016c-2.75391,-1.17187 -4.58594,-2.64062 -4.58594,-5.75c0,-2.85937 2.18359,-5.03906 5.58984,-5.03906c2.42578,0 4.16797,0.84375 5.42578,3.05469l-2.96875,1.91016c-0.65625,-1.17578 -1.35937,-1.63672 -2.45703,-1.63672c-1.11719,0 -1.82422,0.71094 -1.82422,1.63672c0,1.14453 0.70703,1.60547 2.34375,2.31641l0.95313,0.41016c3.24609,1.38672 5.07422,2.80469 5.07422,5.99219c0,3.43359 -2.69922,5.31641 -6.32422,5.31641z"></path></g></g>
-                        </svg>
-                    </i> <p>JavaScript</p>
-                    </div>
-
-                    <div class="tecnologias__nombre"><i>
-                        <i class="fa-brands fa-react"></i>
-                    </i> <p>React</p>
-                    </div>
-
-                    <div class="tecnologias__nombre"><i class="fab fa-php"></i> <p>PHP</p></div>
-                    <div class="tecnologias__nombre"><i class="fas fa-database"></i> <p></p>MySQL</p></div>
-                    <div class="tecnologias__nombre"><i class="fab fa-laravel"></i> <p>Laravel</p></div>
-                    <div class="tecnologias__nombre">
-                        <i><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0,0,256,256">
-                        <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M24,4c-11.028,0 -20,8.972 -20,20c0,11.028 8.972,20 20,20c11.028,0 20,-8.972 20,-20c0,-11.028 -8.972,-20 -20,-20zM24,7c9.374,0 17,7.626 17,17c0,5.852 -2.97233,11.02008 -7.48633,14.08008l-13.77148,-20.41992c-0.367,-0.547 -1.05464,-0.7857 -1.68164,-0.5957c-0.63,0.194 -1.06055,0.77655 -1.06055,1.43555v13c0,0.828 0.672,1.5 1.5,1.5c0.828,0 1.5,-0.672 1.5,-1.5v-8.09375l10.87695,16.12695c-2.106,0.935 -4.42895,1.4668 -6.87695,1.4668c-9.374,0 -17,-7.626 -17,-17c0,-9.374 7.626,-17 17,-17zM29.5,15c-0.828,0 -1.5,0.672 -1.5,1.5v8.48633l3,4.30273v-12.78906c0,-0.828 -0.672,-1.5 -1.5,-1.5z"></path></g></g>
-                    </svg></i><p>NextJS</p></div>
-                    <div class="tecnologias__nombre"><i class="fab fa-node-js"></i> <p>Node.js</p></div>
+    <!-- Services Section -->
+    <section class="section-padding relative z-10 bg-cyber-dark/80" id="services">
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyber-blue/50 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6 border-b border-cyber-blue/10 pb-8">
+                <div class="max-w-2xl">
+                    <h2 class="text-cyber-blue font-mono tracking-widest uppercase text-xs mb-3 flex items-center gap-2">
+                        <i class="fas fa-terminal text-[10px]"></i> NUESTROS SERVICIOS
+                    </h2>
+                    <h3 class="text-4xl md:text-5xl font-display font-bold text-white uppercase leading-none">
+                        SOLUCIONES <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-cyan to-white">DIGITALES</span>
+                    </h3>
                 </div>
-
-                <section class="about" id="about">
-                <h2 class="about__title">Sobre nosotros</h2>
-                <p class="about__subtitle">Impulsamos tu presencia digital con soluciones a medida y compromiso real.</p>
-                    <section>
-                        <h3>Nuestra forma de trabajar</h3>
-                            <p>
-                                En <strong>Binaraweb</strong> entendemos que cada proyecto representa un desafío único. 
-                                Por eso, iniciamos cada proceso con una etapa de análisis en la que escuchamos y comprendemos 
-                                las necesidades específicas de cada cliente.
-                            </p>
-                            <p>
-                                A partir de allí, diseñamos una estrategia digital a medida, combinando creatividad, 
-                                innovación tecnológica y las mejores prácticas del sector. 
-                                Trabajamos de manera ágil y transparente, manteniendo una comunicación constante 
-                                que garantiza la alineación de objetivos en cada etapa del desarrollo.
-                            </p>
-                            <p>
-                                Nuestro enfoque se centra en entregar soluciones que no solo sean visualmente atractivas, 
-                                sino también <strong>funcionales, seguras y escalables</strong>, acompañando el crecimiento de tu negocio 
-                                y aportando valor real en el mundo digital.
-                            </p>
-                        
-                        </section>
-                <section>
-                    <h3 class="valores__title">Nuestros valores y compromisos</h3>
-                    <p class="valores__subtitle">La esencia de nuestro trabajo</p>
-                    <div class="valores__lista">
-                        <article class="valor">
-                            <i class="fas fa-eye"></i>
-                            <h3>Transparencia</h3>
-                        <p>
-                            Mantenemos una comunicación clara y honesta en cada etapa del proyecto, 
-                            asegurando que nuestros clientes conozcan los avances, tiempos y resultados.
+                <p class="text-slate-400 font-mono text-sm max-w-md text-right md:text-left leading-relaxed">
+                    Estrategias de diseño y desarrollo enfocadas en resultados tangibles para tu empresa.
+                </p>
+            </div>
+            
+            <!-- Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="group cyber-card p-8 hover:border-l-4 hover:border-cyber-cyan">
+                    <div class="absolute top-4 right-4 text-cyber-blue/10 font-display text-4xl font-bold group-hover:text-cyber-cyan/20 transition-colors">01</div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-cyber-surface border border-cyber-blue flex items-center justify-center mb-8 group-hover:bg-cyber-cyan group-hover:text-black group-hover:border-cyber-cyan transition-colors duration-200">
+                            <i class="fas fa-code text-2xl text-cyber-blue group-hover:text-black"></i>
+                        </div>
+                        <h4 class="text-xl font-display font-bold text-white mb-4 uppercase tracking-wider group-hover:text-cyber-cyan transition-colors">Desarrollo A Medida</h4>
+                        <p class="text-slate-400 mb-6 font-mono text-sm leading-relaxed">
+                            Sitios web rápidos, seguros y escalables, desarrollados específicamente para cumplir tus objetivos comerciales.
                         </p>
-                        </article>
-
-                        <article class="valor">
-                        <i class="fas fa-handshake"></i>
-                        <h3>Compromiso</h3>
-                        <p>
-                            Nos involucramos plenamente en cada desafío, trabajando con dedicación para cumplir 
-                            los objetivos y superar las expectativas de quienes confían en nosotros.
-                        </p>
-                        </article>
-
-                        <article class="valor">
-                            <i class="fas fa-paint-brush"></i>
-                            <h3>Creatividad</h3>
-                            <p>
-                                Apostamos a soluciones innovadoras y originales que potencien la identidad digital 
-                                de cada cliente, diferenciándolos en un entorno cada vez más competitivo.
-                            </p>
-                        </article>
-
-                        <article class="valor">
-                            <i class="fas fa-lightbulb"></i>
-                            <h3>Innovación</h3>
-                            <p>
-                                Incorporamos tecnologías emergentes y metodologías ágiles para ofrecer soluciones 
-                                actuales y escalables, anticipándonos a las tendencias del mercado digital.
-                            </p>
-                            </article>
+                        <a class="inline-flex items-center text-cyber-blue font-bold font-mono text-xs hover:text-white transition-all uppercase gap-2" href="#">
+                            <span class="w-2 h-2 bg-cyber-blue group-hover:bg-cyber-cyan"></span> LEER MÁS
+                        </a>
                     </div>
-                    </section>
-                </section>
-        </section>
-   </main>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="group cyber-card p-8 border-l-cyber-pink hover:border-l-4 hover:border-cyber-pink">
+                    <div class="absolute top-4 right-4 text-cyber-pink/10 font-display text-4xl font-bold group-hover:text-cyber-pink/20 transition-colors">02</div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-cyber-surface border border-cyber-pink flex items-center justify-center mb-8 group-hover:bg-cyber-pink group-hover:text-white group-hover:border-cyber-pink transition-colors duration-200">
+                            <i class="fas fa-vr-cardboard text-2xl text-cyber-pink group-hover:text-white"></i>
+                        </div>
+                        <h4 class="text-xl font-display font-bold text-white mb-4 uppercase tracking-wider group-hover:text-cyber-pink transition-colors">Diseño UX/UI</h4>
+                        <p class="text-slate-400 mb-6 font-mono text-sm leading-relaxed">
+                            Experiencias de usuario intuitivas y atractivas que maximizan la retención y aumentan las conversiones.
+                        </p>
+                        <a class="inline-flex items-center text-cyber-pink font-bold font-mono text-xs hover:text-white transition-all uppercase gap-2" href="#">
+                            <span class="w-2 h-2 bg-cyber-pink"></span> LEER MÁS
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="group cyber-card p-8 border-l-cyber-purple hover:border-l-4 hover:border-cyber-purple">
+                    <div class="absolute top-4 right-4 text-cyber-purple/10 font-display text-4xl font-bold group-hover:text-cyber-purple/20 transition-colors">03</div>
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 bg-cyber-surface border border-cyber-purple flex items-center justify-center mb-8 group-hover:bg-cyber-purple group-hover:text-white group-hover:border-cyber-purple transition-colors duration-200">
+                            <i class="fas fa-rocket text-2xl text-cyber-purple group-hover:text-white"></i>
+                        </div>
+                        <h4 class="text-xl font-display font-bold text-white mb-4 uppercase tracking-wider group-hover:text-cyber-purple transition-colors">Marketing &amp; SEO</h4>
+                        <p class="text-slate-400 mb-6 font-mono text-sm leading-relaxed">
+                            Estrategias integrales para mejorar tu posicionamiento en buscadores y alcanzar a tu público ideal.
+                        </p>
+                        <a class="inline-flex items-center text-cyber-purple font-bold font-mono text-xs hover:text-white transition-all uppercase gap-2" href="#">
+                            <span class="w-2 h-2 bg-cyber-purple"></span> LEER MÁS
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Technologies Section -->
+    <section class="py-24 bg-cyber-black border-y border-cyber-blue/20 relative overflow-hidden" id="technologies">
+        <div class="absolute inset-0 bg-cyber-grid bg-[length:20px_20px] opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 relative">
+                <div class="inline-block border border-cyber-red px-4 py-1 mb-4 transform skew-x-[-20deg]">
+                    <span class="text-cyber-red font-mono text-xs font-bold tracking-widest uppercase transform skew-x-[20deg] block">Stack Tecnológico</span>
+                </div>
+                <h2 class="text-3xl md:text-5xl font-display font-bold text-white uppercase tracking-widest">
+                    TECNOLOGÍAS <span class="text-cyber-blue text-glow-blue">QUE UTILIZAMOS</span>
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 mb-16">
+                <!-- Tech Icons -->
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-20 h-20 bg-cyber-surface border border-white/10 flex items-center justify-center group-hover:border-pink-500 group-hover:bg-pink-500/10 transition-all duration-200 relative overflow-hidden" style="clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);">
+                        <i class="fab fa-sass text-3xl text-slate-400 group-hover:text-pink-500 transition-colors"></i>
+                    </div>
+                    <span class="text-[10px] font-mono font-bold text-slate-500 uppercase group-hover:text-pink-500 tracking-widest transition-colors">SCSS</span>
+                </div>
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-20 h-20 bg-cyber-surface border border-white/10 flex items-center justify-center group-hover:border-yellow-400 group-hover:bg-yellow-400/10 transition-all duration-200 relative overflow-hidden" style="clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);">
+                        <i class="fab fa-js text-3xl text-slate-400 group-hover:text-yellow-400 transition-colors"></i>
+                    </div>
+                    <span class="text-[10px] font-mono font-bold text-slate-500 uppercase group-hover:text-yellow-400 tracking-widest transition-colors">JavaScript</span>
+                </div>
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-20 h-20 bg-cyber-surface border border-white/10 flex items-center justify-center group-hover:border-cyber-cyan group-hover:bg-cyber-cyan/10 transition-all duration-200 relative overflow-hidden" style="clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);">
+                        <i class="fab fa-react text-3xl text-slate-400 group-hover:text-cyber-cyan transition-colors"></i>
+                    </div>
+                    <span class="text-[10px] font-mono font-bold text-slate-500 uppercase group-hover:text-cyber-cyan tracking-widest transition-colors">React</span>
+                </div>
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-20 h-20 bg-cyber-surface border border-white/10 flex items-center justify-center group-hover:border-indigo-400 group-hover:bg-indigo-400/10 transition-all duration-200 relative overflow-hidden" style="clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);">
+                        <i class="fab fa-php text-3xl text-slate-400 group-hover:text-indigo-400 transition-colors"></i>
+                    </div>
+                    <span class="text-[10px] font-mono font-bold text-slate-500 uppercase group-hover:text-indigo-400 tracking-widest transition-colors">PHP</span>
+                </div>
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-20 h-20 bg-cyber-surface border border-white/10 flex items-center justify-center group-hover:border-blue-400 group-hover:bg-blue-400/10 transition-all duration-200 relative overflow-hidden" style="clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);">
+                        <i class="fas fa-database text-3xl text-slate-400 group-hover:text-blue-400 transition-colors"></i>
+                    </div>
+                    <span class="text-[10px] font-mono font-bold text-slate-500 uppercase group-hover:text-blue-400 tracking-widest transition-colors">MySQL</span>
+                </div>
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-20 h-20 bg-cyber-surface border border-white/10 flex items-center justify-center group-hover:border-red-500 group-hover:bg-red-500/10 transition-all duration-200 relative overflow-hidden" style="clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);">
+                        <i class="fab fa-laravel text-3xl text-slate-400 group-hover:text-red-500 transition-colors"></i>
+                    </div>
+                    <span class="text-[10px] font-mono font-bold text-slate-500 uppercase group-hover:text-red-500 tracking-widest transition-colors">Laravel</span>
+                </div>
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-20 h-20 bg-cyber-surface border border-white/10 flex items-center justify-center group-hover:border-white group-hover:bg-white/10 transition-all duration-200 relative overflow-hidden" style="clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);">
+                        <span class="text-3xl font-display font-bold text-slate-400 group-hover:text-white">N</span>
+                    </div>
+                    <span class="text-[10px] font-mono font-bold text-slate-500 uppercase group-hover:text-white tracking-widest transition-colors">Next.js</span>
+                </div>
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-20 h-20 bg-cyber-surface border border-white/10 flex items-center justify-center group-hover:border-green-500 group-hover:bg-green-500/10 transition-all duration-200 relative overflow-hidden" style="clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);">
+                        <i class="fab fa-node-js text-3xl text-slate-400 group-hover:text-green-500 transition-colors"></i>
+                    </div>
+                    <span class="text-[10px] font-mono font-bold text-slate-500 uppercase group-hover:text-green-500 tracking-widest transition-colors">Node.js</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="glow glow1"></div>
-  <div class="glow glow2"></div>
-  <div class="glow glow3"></div>
-  <div class="glow glow4"></div>
-  <div class="glow glow5"></div>
-  <div class="glow glow6"></div>
-</div>
-  
-<script src="https://kit.fontawesome.com/e437e95637.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-
+    <!-- About / Process Section -->
+    <section class="section-padding relative z-10" id="about">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <!-- Process Steps -->
+                <div class="order-2 lg:order-1 relative">
+                    <div class="absolute -top-6 -left-6 w-16 h-16 border-t-4 border-l-4 border-cyber-blue"></div>
+                    <div class="absolute -bottom-6 -right-6 w-16 h-16 border-b-4 border-r-4 border-cyber-cyan"></div>
+                    <div class="bg-cyber-surface p-10 relative z-10 border border-white/5 backdrop-blur-xl" style="clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%);">
+                        <h4 class="text-2xl font-display font-bold text-white mb-8 border-b-2 border-cyber-blue pb-4 uppercase">
+                            PROCESO DE <span class="text-cyber-blue">TRABAJO</span>
+                        </h4>
+                        <div class="space-y-8">
+                            <div class="flex group items-start">
+                                <div class="flex-shrink-0 w-12 h-12 bg-cyber-blue text-white flex items-center justify-center font-display font-bold text-xl clip-path-polygon shadow-neon-blue" style="clip-path: polygon(20% 0, 100% 0, 100% 80%, 80% 100%, 0 100%, 0 20%);">01</div>
+                                <div class="ml-6">
+                                    <h5 class="text-white font-display uppercase tracking-wider font-bold mb-1 group-hover:text-cyber-blue transition-colors">Análisis Inicial</h5>
+                                    <p class="text-slate-500 font-mono text-xs uppercase tracking-wide">Definición de objetivos y estrategia.</p>
+                                </div>
+                            </div>
+                            <div class="flex group items-start">
+                                <div class="flex-shrink-0 w-12 h-12 bg-transparent border-2 border-cyber-cyan text-cyber-cyan flex items-center justify-center font-display font-bold text-xl clip-path-polygon group-hover:bg-cyber-cyan group-hover:text-black transition-all" style="clip-path: polygon(20% 0, 100% 0, 100% 80%, 80% 100%, 0 100%, 0 20%);">02</div>
+                                <div class="ml-6">
+                                    <h5 class="text-white font-display uppercase tracking-wider font-bold mb-1 group-hover:text-cyber-cyan transition-colors">Desarrollo</h5>
+                                    <p class="text-slate-500 font-mono text-xs uppercase tracking-wide">Construcción de la solución digital.</p>
+                                </div>
+                            </div>
+                            <div class="flex group items-start">
+                                <div class="flex-shrink-0 w-12 h-12 bg-transparent border-2 border-cyber-cyan text-cyber-cyan flex items-center justify-center font-display font-bold text-xl clip-path-polygon group-hover:bg-cyber-cyan group-hover:text-black transition-all" style="clip-path: polygon(20% 0, 100% 0, 100% 80%, 80% 100%, 0 100%, 0 20%);">03</div>
+                                <div class="ml-6">
+                                    <h5 class="text-white font-display uppercase tracking-wider font-bold mb-1 group-hover:text-cyber-cyan transition-colors">Lanzamiento</h5>
+                                    <p class="text-slate-500 font-mono text-xs uppercase tracking-wide">Publicación y optimización final.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- About Text -->
+                <div class="order-1 lg:order-2 space-y-8">
+                    <div class="inline-block px-3 py-1 bg-cyber-blue/10 border-l-2 border-cyber-blue text-cyber-blue text-xs font-mono uppercase tracking-widest mb-2">
+                        &gt; Binaraweb Agencia Digital
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-[0.9] uppercase">
+                        MÁS ALLÁ DEL <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-blue via-white to-cyber-blue animate-pulse">CÓDIGO</span>
+                    </h2>
+                    <div class="space-y-6 text-slate-400 text-lg font-light leading-relaxed font-mono">
+                        <p>
+                            Somos <strong class="text-cyber-blue">expertos</strong> en desarrollo web. Creamos soluciones digitales que impulsan tu negocio al siguiente nivel, combinando diseño y funcionalidad.
+                        </p>
+                        <p>
+                            En un mercado competitivo, destacamos por la calidad y el rendimiento. Tu éxito es nuestra prioridad y trabajamos para superar tus expectativas.
+                        </p>
+                    </div>
+                    <div class="pt-6">
+                        <div class="flex items-center gap-4 border border-cyber-blue/30 p-4 bg-cyber-black max-w-max skew-x-[-10deg]">
+                            <div class="skew-x-[10deg] flex items-center gap-4">
+                                <div class="flex -space-x-4">
+                                    <div class="w-10 h-10 border border-cyber-blue bg-slate-900 flex items-center justify-center text-[10px] text-white font-mono rounded-none">WEB</div>
+                                    <div class="w-10 h-10 border border-cyber-cyan bg-slate-800 flex items-center justify-center text-[10px] text-white font-mono rounded-none">DEV</div>
+                                    <div class="w-10 h-10 border border-cyber-red bg-slate-700 flex items-center justify-center text-[10px] text-white font-mono rounded-none">PRO</div>
+                                </div>
+                                <div>
+                                    <p class="text-white font-bold text-sm font-display uppercase">Equipo Profesional</p>
+                                    <p class="text-cyber-green text-xs font-mono text-cyber-blue">Status: ONLINE</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Values Section -->
+    <section class="py-20 bg-cyber-dark relative border-t border-cyber-blue/20">
+        <div class="absolute inset-0 bg-cyber-grid opacity-20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-display font-bold text-white uppercase tracking-widest">Nuestros Valores</h2>
+                <div class="w-24 h-1 bg-cyber-blue mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-cyber-surface border border-white/5 p-8 cursor-pointer hover:border-cyber-blue transition-all group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-8 h-8 bg-cyber-blue clip-path-polygon opacity-0 group-hover:opacity-100 transition-opacity" style="clip-path: polygon(0 0, 100% 0, 100% 100%);"></div>
+                    <i class="far fa-eye text-3xl text-slate-500 group-hover:text-cyber-blue mb-6 transition-colors"></i>
+                    <h3 class="text-lg font-bold font-display text-white mb-2 uppercase">Transparencia</h3>
+                    <p class="text-xs font-mono text-slate-400">Comunicación clara y honesta en todo momento.</p>
+                </div>
+                <div class="bg-cyber-surface border border-white/5 p-8 cursor-pointer hover:border-cyber-cyan transition-all group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-8 h-8 bg-cyber-cyan clip-path-polygon opacity-0 group-hover:opacity-100 transition-opacity" style="clip-path: polygon(0 0, 100% 0, 100% 100%);"></div>
+                    <i class="fas fa-microchip text-3xl text-slate-500 group-hover:text-cyber-cyan mb-6 transition-colors"></i>
+                    <h3 class="text-lg font-bold font-display text-white mb-2 uppercase">Innovación</h3>
+                    <p class="text-xs font-mono text-slate-400">Implementación de las últimas tecnologías web.</p>
+                </div>
+                <div class="bg-cyber-surface border border-white/5 p-8 cursor-pointer hover:border-cyber-pink transition-all group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-8 h-8 bg-cyber-pink clip-path-polygon opacity-0 group-hover:opacity-100 transition-opacity" style="clip-path: polygon(0 0, 100% 0, 100% 100%);"></div>
+                    <i class="fas fa-bolt text-3xl text-slate-500 group-hover:text-cyber-pink mb-6 transition-colors"></i>
+                    <h3 class="text-lg font-bold font-display text-white mb-2 uppercase">Rendimiento</h3>
+                    <p class="text-xs font-mono text-slate-400">Sitios web ultrarrápidos y optimizados.</p>
+                </div>
+                <div class="bg-cyber-surface border border-white/5 p-8 cursor-pointer hover:border-white transition-all group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-8 h-8 bg-white clip-path-polygon opacity-0 group-hover:opacity-100 transition-opacity" style="clip-path: polygon(0 0, 100% 0, 100% 100%);"></div>
+                    <i class="fas fa-heart text-3xl text-slate-500 group-hover:text-white mb-6 transition-colors"></i>
+                    <h3 class="text-lg font-bold font-display text-white mb-2 uppercase">Compromiso</h3>
+                    <p class="text-xs font-mono text-slate-400">Tu proyecto es nuestra máxima prioridad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="py-24 relative overflow-hidden bg-cyber-black">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-5"></div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-cyber-surface border-2 border-cyber-blue p-12 md:p-16 text-center relative overflow-hidden shadow-neon-blue" style="clip-path: polygon(5% 0, 100% 0, 100% 90%, 95% 100%, 0 100%, 0 10%);">
+                <!-- Background Decoration -->
+                <div class="absolute top-0 left-0 w-full h-2 bg-[repeating-linear-gradient(45deg,#007bff,#007bff_10px,#000_10px,#000_20px)]"></div>
+                <div class="absolute bottom-0 left-0 w-full h-2 bg-[repeating-linear-gradient(45deg,#007bff,#007bff_10px,#000_10px,#000_20px)]"></div>
+                
+                <h2 class="text-3xl md:text-5xl font-display font-black text-white mb-6 uppercase tracking-tight relative inline-block">
+                    <span class="absolute -inset-1 bg-cyber-blue blur opacity-20"></span>
+                    <span class="relative">¿Listo para comenzar tu proyecto?</span>
+                </h2>
+                <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-10 font-mono">
+                    El mundo digital avanza rápido. Agenda una reunión y comencemos a trabajar en tu éxito hoy mismo.
+                </p>
+                
+                <!-- CTA Actions -->
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a class="cyber-button group" href="mailto:binaraweb@gmail.com?subject=Solicitud%20de%20presupuesto%20para%20desarrollo%20web&body=Hola,%20estoy%20interesado%20en%20desarrollar%20un%20sitio%20web%20y%20me%20gustaría%20recibir%20información%20sobre%20tus%20servicios%20y%20tarifas.%0D%0A%0D%0AUn%20saludo.">
+                        <span class="flex items-center gap-2 text-white">
+                            <i class="far fa-calendar-alt"></i> AGENDAR REUNIÓN
+                        </span>
+                    </a>
+                    <a class="px-8 py-3 bg-transparent text-white font-display font-bold uppercase tracking-wider border-2 border-white/20 hover:bg-white hover:text-black hover:border-white transition-all duration-200 skew-x-[-10deg]" href="#portfolio">
+                        <span class="block skew-x-[10deg]">VER PROYECTOS</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-cyber-dark pt-20 pb-10 border-t border-cyber-blue/30 relative" id="contact">
+        <div class="absolute inset-0 bg-cyber-grid opacity-10 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <!-- Brand Info -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-8 h-8 flex items-center justify-center bg-cyber-blue text-white font-bold transform skew-x-[-10deg]">
+                            <!--<i class="fas fa-biohazard transform skew-x-[10deg]"></i>-->
+                            <p class="font-display font-black text-white text-shadow-md text-xl skew-x-[10deg]">B</p>
+                        </div>
+                        <span class="text-2xl font-display font-bold text-white tracking-widest uppercase">Binaraweb</span>
+                    </div>
+                    <p class="text-slate-400 text-sm max-w-sm mb-6 leading-relaxed font-mono">
+                        Agencia especializada en desarrollo web de alto impacto. Creamos experiencias digitales únicas para marcas visionarias.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a class="w-10 h-10 border border-cyber-cyan/30 flex items-center justify-center text-cyber-cyan hover:bg-cyber-cyan hover:text-black transition-all duration-300 shadow-neon-cyan" href="#">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a class="w-10 h-10 border border-cyber-blue/30 flex items-center justify-center text-cyber-blue hover:bg-cyber-blue hover:text-white transition-all duration-300 shadow-neon-blue" href="https://www.facebook.com/profile.php?id=61586083521392">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a class="w-10 h-10 border border-cyber-pink/30 flex items-center justify-center text-cyber-pink hover:bg-cyber-pink hover:text-black transition-all duration-300 shadow-neon-red" href="https://www.instagram.com/binaraweb/">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-display font-bold mb-6 text-lg uppercase tracking-wider border-b border-cyber-blue/30 inline-block pb-1">Navegación</h4>
+                    <ul class="space-y-3 text-sm text-slate-400 font-mono">
+                        <li><a class="hover:text-cyber-blue transition-colors flex items-center gap-2" href="#home"><span class="text-cyber-blue">&gt;</span> Inicio</a></li>
+                        <li><a class="hover:text-cyber-blue transition-colors flex items-center gap-2" href="#services"><span class="text-cyber-blue">&gt;</span> Servicios</a></li>
+                        <li><a class="hover:text-cyber-blue transition-colors flex items-center gap-2" href="#about"><span class="text-cyber-blue">&gt;</span> Nosotros</a></li>
+                        <li><a class="hover:text-cyber-blue transition-colors flex items-center gap-2" href="#technologies"><span class="text-cyber-blue">&gt;</span> Tech Stack</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-white font-display font-bold mb-6 text-lg uppercase tracking-wider border-b border-cyber-blue/30 inline-block pb-1">Contacto</h4>
+                    <ul class="space-y-4 text-sm text-slate-400 font-mono">
+                        <li class="flex items-start gap-3 group">
+                            <div class="mt-1 w-4 h-4 flex items-center justify-center flex-shrink-0 text-cyber-blue"><i class="fas fa-envelope text-xs"></i></div>
+                            <span class="group-hover:text-white transition-colors">binaraweb@gmail.com</span>
+                        </li>
+                        <li class="flex items-center gap-3 group">
+                            <i class="fas fa-phone text-cyber-cyan"></i>
+                            <span class="group-hover:text-white transition-colors">+54 2364727477</span>
+                        </li>
+                        <!--<li class="flex items-center gap-3 group">
+                            <div class="w-4 h-4 flex items-center justify-center flex-shrink-0 text-cyber-pink"><i class="fas fa-map-marker-alt text-xs"></i></div>
+                            <span class="group-hover:text-white transition-colors">Oficina Central</span>
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 font-mono">
+                <p class="text-xs text-slate-600 uppercase tracking-wider">© 2025 Binaraweb Agency. Todos los derechos reservados.</p>
+                <div class="flex gap-6 text-xs text-slate-500 uppercase">
+                    <!--<a class="hover:text-cyber-blue transition-colors" href="#">Privacidad</a>
+                    <a class="hover:text-cyber-blue transition-colors" href="#">Términos</a>-->
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
