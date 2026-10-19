@@ -1,529 +1,188 @@
-<!DOCTYPE html>
-<html class="scroll-smooth" lang="es">
-
-<head>
-    <!-- Metadata -->
+<!doctype html>
+<html lang="es">
+  <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Binaraweb - Agencia de Desarrollo Web</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><polygon points=%2250 5, 95 27, 95 73, 50 95, 5 73, 5 27%22 fill=%22%23007bff%22/></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <title>Desarrollo web a medida en Argentina | BINARAWEB</title>
+    <meta
+      name="description"
+      content="Diseño y desarrollo de sitios y plataformas web a medida. Código propio, SEO técnico y rendimiento, con trato directo."
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="canonical" href="https://www.binaraweb.com.ar/" />
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&amp;family=Rajdhani:wght@300;400;500;600;700&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet" />
-    
-    <!-- FontAwesome Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <script>
+      // Aplica el tema antes del primer pintado para evitar destellos.
+      (function () {
+        try {
+          var stored = localStorage.getItem('binaraweb-theme');
+          var dark =
+            stored === 'dark' ||
+            (stored !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          var theme = dark ? 'dark' : 'light';
+          document.documentElement.dataset.theme = theme;
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', theme === 'dark' ? '#0a0a0a' : '#ffffff');
+        } catch (error) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
 
-    <!-- Tailwind Configuration -->
-    <script src="js/tailwind.config.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:site_name" content="BINARAWEB" />
+    <meta property="og:url" content="https://www.binaraweb.com.ar/" />
+    <meta property="og:title" content="Desarrollo web a medida en Argentina | BINARAWEB" />
+    <meta
+      property="og:description"
+      content="Diseño y desarrollo de sitios y plataformas web a medida. Código propio, SEO técnico y rendimiento, con trato directo."
+    />
+    <meta property="og:image" content="https://www.binaraweb.com.ar/img/og-cover.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="BINARAWEB — Agencia digital" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.binaraweb.com.ar/img/og-cover.png" />
 
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="css/style.css">
-</head>
+    <link rel="icon" type="image/png" href="/img/logo-mark.png" />
+    <link rel="apple-touch-icon" href="/img/logo-mark.png" />
 
-<body class="bg-cyber-black text-slate-300 antialiased selection:bg-cyber-blue selection:text-white overflow-x-hidden font-sans">
-    
-    <!-- Background Effects -->
-    <div class="scanlines"></div>
-    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <div class="absolute inset-0 bg-cyber-noise opacity-30 mix-blend-overlay z-10"></div>
-        <div class="absolute top-[-10%] right-[-5%] w-[60vw] h-[60vw] bg-cyber-purple/20 rounded-full blur-[120px] mix-blend-screen animate-pulse-fast"></div>
-        <div class="absolute bottom-[10%] left-[-10%] w-[50vw] h-[50vw] bg-cyber-cyan/10 rounded-full blur-[100px] mix-blend-screen"></div>
-        <div id="particles-js" class="absolute inset-0 z-0"></div>
+    <link
+      rel="preload"
+      href="/fonts/sora-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/manrope-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "BINARAWEB",
+        "url": "https://www.binaraweb.com.ar/",
+        "logo": "https://www.binaraweb.com.ar/img/logo-mark.png",
+        "image": "https://www.binaraweb.com.ar/img/og-cover.png",
+        "description": "Agencia digital e ingeniería de software: desarrollo web a medida, diseño UX/UI y SEO técnico.",
+        "email": "binaraweb@gmail.com",
+        "telephone": "+542364727477",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Buenos Aires",
+          "addressCountry": "AR"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Argentina"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Servicios",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "Desarrollo web y SaaS a medida" }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "Diseño UX/UI y product design" }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "Marketing y SEO de rendimiento" }
+            }
+          ]
+        }
+      }
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cómo empieza un proyecto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Con una reunión para entender el objetivo y el alcance. Después recibís una propuesta con entregables, plazos y precio antes de empezar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Trabajás con plantillas o temas prefabricados?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Cada sitio se desarrolla a medida, con código propio, para que se adapte a tu negocio y no cargue funciones que no usás."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué incluye el desarrollo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Diseño de interfaz, desarrollo front-end, buenas prácticas de SEO técnico, accesibilidad y rendimiento, publicación y acompañamiento después del lanzamiento."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se puede ajustar el alcance durante el proceso?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Trabajamos por etapas con entregas parciales, así podés revisar y ajustar antes del lanzamiento."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Trabajás con clientes de otras provincias o países?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, de forma remota. Coordinamos reuniones y entregas en el horario que te resulte cómodo."
+      }
+    }
+  ]
+}
+    </script>
+
+    <noscript><style>#page-loader{display:none}</style></noscript>
+    <script type="module" crossorigin src="/assets/main-BtNb9nAq.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/theme-B8wJqbpR.js">
+    <link rel="modulepreload" crossorigin href="/assets/loader-CJbRkPiY.js">
+    <style>/*! tailwindcss v4.3.3 | MIT License | https://tailwindcss.com */
+@layer theme{:root,:host{--font-sans:"Manrope Variable", "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;--font-mono:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;--spacing:.25rem;--default-font-family:var(--font-sans);--default-mono-font-family:var(--font-mono);--font-display:"Sora Variable", "Sora", "Manrope Variable", system-ui, sans-serif;--color-paper:#fff;--color-paper-2:#f3f3f0;--color-ink:#0a0a0a;--color-muted:#565a63;--color-line:#e3e3df;--color-accent:#0a0a0a;--color-card:#fff;--color-elevated:#fff;--color-success:#34d399}}@layer base{*,:after,:before,::backdrop{box-sizing:border-box;border:0 solid;margin:0;padding:0}::file-selector-button{box-sizing:border-box;border:0 solid;margin:0;padding:0}html,:host{-webkit-text-size-adjust:100%;tab-size:4;line-height:1.5;font-family:var(--default-font-family,-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");font-feature-settings:var(--default-font-feature-settings,normal);font-variation-settings:var(--default-font-variation-settings,normal);-webkit-tap-highlight-color:transparent}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;-webkit-text-decoration:inherit;-webkit-text-decoration:inherit;-webkit-text-decoration:inherit;-webkit-text-decoration:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:var(--default-mono-font-family,ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);font-feature-settings:var(--default-mono-font-feature-settings,normal);font-variation-settings:var(--default-mono-font-variation-settings,normal);font-size:1em}small{font-size:80%}sub,sup{vertical-align:baseline;font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}:-moz-focusring:where(:not(iframe)){outline:auto}progress{vertical-align:baseline}summary{display:list-item}ol,ul,menu{list-style:none}img,svg,video,canvas,audio,iframe,embed,object{vertical-align:middle;display:block}img,video{max-width:100%;height:auto}button,input,select,optgroup,textarea{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}::file-selector-button{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}:where(select:is([multiple],[size])) optgroup{font-weight:bolder}:where(select:is([multiple],[size])) optgroup option{padding-inline-start:20px}::file-selector-button{margin-inline-end:4px}::placeholder{opacity:1}@supports (not ((-webkit-appearance:-apple-pay-button))) or (contain-intrinsic-size:1px){::placeholder{color:currentColor}@supports (color:color-mix(in lab, red, red)){::placeholder{color:color-mix(in oklab, currentcolor 50%, transparent)}}}textarea{resize:vertical}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-date-and-time-value{min-height:1lh;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-datetime-edit{padding-block:0}::-webkit-datetime-edit-year-field{padding-block:0}::-webkit-datetime-edit-month-field{padding-block:0}::-webkit-datetime-edit-day-field{padding-block:0}::-webkit-datetime-edit-hour-field{padding-block:0}::-webkit-datetime-edit-minute-field{padding-block:0}::-webkit-datetime-edit-second-field{padding-block:0}::-webkit-datetime-edit-millisecond-field{padding-block:0}::-webkit-datetime-edit-meridiem-field{padding-block:0}::-webkit-calendar-picker-indicator{line-height:1}:-moz-ui-invalid{box-shadow:none}button,input:where([type=button],[type=reset],[type=submit]){appearance:button}::file-selector-button{appearance:button}::-webkit-inner-spin-button{height:auto}::-webkit-outer-spin-button{height:auto}[hidden]:where(:not([hidden=until-found])){display:none!important}}@layer components;@layer utilities{.visible{visibility:visible}.relative{position:relative}.z-10{z-index:10}.mb-14{margin-bottom:calc(var(--spacing) * 14)}.flex{display:flex}.hidden{display:none}.max-w-\[13em\]{max-width:13em}.max-w-\[15em\]{max-width:15em}.max-w-\[28em\]{max-width:28em}.resize{resize:both}.flex-wrap{flex-wrap:wrap}.items-end{align-items:flex-end}.justify-between{justify-content:space-between}.gap-8{gap:calc(var(--spacing) * 8)}.bg-paper{background-color:var(--color-paper)}.font-sans{font-family:var(--font-sans)}.text-ink{color:var(--color-ink)}.text-muted{color:var(--color-muted)}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}}@font-face{font-family:Manrope Variable;font-style:normal;font-display:swap;font-weight:200 800;src:url(/fonts/manrope-latin-wght-normal.woff2)format("woff2-variations")}@font-face{font-family:Sora Variable;font-style:normal;font-display:swap;font-weight:100 800;src:url(/fonts/sora-latin-wght-normal.woff2)format("woff2-variations")}:root{--header-height:72px;--shell-width:1180px;--shell-gutter:40px;--header-bg:#ffffffd1;--header-bg-solid:#fffffff5;--lightningcss-light:initial;--lightningcss-dark: ;color-scheme:light}:root[data-theme=dark]{--color-paper:#0a0a0a;--color-paper-2:#141414;--color-ink:#f4f4f1;--color-muted:#a3a3aa;--color-line:#ffffff1f;--color-accent:#6cc7ff;--color-card:#ffffff0a;--color-elevated:#161616;--header-bg:#0a0a0ad1;--header-bg-solid:#0a0a0af5;--lightningcss-light: ;--lightningcss-dark:initial;color-scheme:dark}html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-height) + 4px + env(safe-area-inset-top,0px));background-color:var(--color-paper)}body{background-color:var(--color-paper);color:var(--color-ink);font-family:var(--font-sans);-webkit-font-smoothing:antialiased;margin:0;font-size:16px;line-height:1.65;transition:background-color .3s,color .3s;overflow-x:clip}::selection{background-color:#0a0a0a40}@supports (color:color-mix(in lab, red, red)){::selection{background-color:color-mix(in srgb, var(--color-accent) 25%, transparent)}}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}h1,h2,h3{font-family:var(--font-display);letter-spacing:-.02em;margin:0;font-weight:600;line-height:1.1}h2{font-size:clamp(28px,3.8vw,42px)}:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px}.wrap{width:min(var(--shell-width), 100% - var(--shell-gutter));margin-inline:auto}.theme-dark{--color-paper:#0a0a0a;--color-paper-2:#161616;--color-ink:#f4f4f1;--color-muted:#a3a3aa;--color-line:#ffffff1f;--color-accent:#6cc7ff;--color-card:#ffffff0a;--color-elevated:#1b1b1b;background-color:var(--color-paper);color:var(--color-ink);transition:background-color .3s,color .3s}:root[data-theme=dark] .theme-dark{--color-paper:#101011;--color-paper-2:#18181b;--color-line:#ffffff24;--color-card:#ffffff0d;--color-elevated:#1d1e21}.section{padding:clamp(72px,10vw,120px) 0;position:relative;overflow:clip}.btn{cursor:pointer;border:1px solid #0000;border-radius:8px;justify-content:center;align-items:center;padding:14px 24px;font-family:inherit;font-size:15px;font-weight:600;line-height:1.2;transition:transform .25s,box-shadow .25s,border-color .25s,background-color .25s;display:inline-flex}.btn--primary{background-color:var(--color-ink);color:var(--color-paper)}.btn--primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px -12px #0000008c}.btn--ghost{border-color:var(--color-line);color:var(--color-ink)}.btn--ghost:hover{border-color:var(--color-ink)}.btn--sm{padding:10px 18px;font-size:14px}.skip-link{z-index:100;background-color:var(--color-ink);color:var(--color-paper);border-radius:0 0 8px;padding:12px 18px;position:absolute;top:0;left:-9999px}.skip-link:focus{left:0}.noscript{border:1px solid var(--color-line);border-radius:12px;width:min(60ch,100% - 40px);margin:40px auto;padding:24px;font-size:15px}.noscript a{text-decoration:underline}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,:before,:after{transition-duration:.001ms!important;animation-duration:.001ms!important;animation-iteration-count:1!important;animation-delay:0s!important}.hero__intro>*,.hero__visual{opacity:1!important}.marquee{animation:none!important}}.site-header{top:env(safe-area-inset-top,0px);z-index:50;border-bottom:1px solid var(--color-line);background-color:var(--header-bg);-webkit-backdrop-filter:blur(14px);transition:background-color .3s;position:sticky}.site-header.is-scrolled{background-color:var(--header-bg-solid)}.site-header__inner{height:var(--header-height);justify-content:space-between;align-items:center;gap:24px;display:flex}.site-header__actions{align-items:center;gap:12px;display:flex}.brand{font-family:var(--font-display);letter-spacing:.06em;align-items:center;gap:12px;font-size:16px;font-weight:700;line-height:1.1;display:flex}.brand img{border-radius:50%;width:40px;height:40px}.brand small{color:var(--color-muted);font-family:var(--font-sans);letter-spacing:.04em;margin-top:4px;font-size:11px;font-weight:500;line-height:1;display:block}.brand--footer{color:var(--color-ink);font-size:14px}.brand--footer img{width:32px;height:32px}.site-nav{color:var(--color-muted);gap:32px;font-size:14px;font-weight:500;display:flex}.site-nav a{transition:color .2s}.site-nav a:hover,.site-nav a[aria-current=page]{color:var(--color-ink)}.nav-toggle{border:1px solid var(--color-line);cursor:pointer;background-color:#0000;border-radius:8px;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;padding:0;display:none}.nav-toggle span{background-color:var(--color-ink);width:18px;height:2px;transition:transform .25s,opacity .25s;display:block}.nav-toggle[aria-expanded=true] span:first-child{transform:translateY(7px)rotate(45deg)}.nav-toggle[aria-expanded=true] span:nth-child(2){opacity:0}.nav-toggle[aria-expanded=true] span:nth-child(3){transform:translateY(-7px)rotate(-45deg)}@media (width<=860px){.site-nav{border-bottom:1px solid var(--color-line);background-color:var(--color-paper);flex-direction:column;gap:0;padding:8px 0 16px;display:none;position:absolute;top:100%;left:0;right:0;box-shadow:0 24px 40px -32px #00000073}.site-nav.is-open{display:flex}.site-nav a{padding:12px 24px;font-size:15px}.nav-toggle{display:inline-flex}}@media (width<=640px){.site-header__actions .btn{display:none}}@media (width<=480px){.brand small{display:none}}.site-footer{border-top:1px solid var(--color-line);color:var(--color-muted);padding:40px 0;font-size:14px}.site-footer__inner{flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px 40px;display:flex}.site-footer nav{gap:24px;display:flex}.field label{color:var(--color-muted);margin-bottom:8px;font-size:13px;font-weight:600;display:block}.contact__form input,.contact__form select,.contact__form textarea{border:1px solid var(--color-line);width:100%;color:var(--color-ink);background-color:#ffffff0a;border-radius:8px;padding:13px 14px;font-family:inherit;font-size:15px;transition:border-color .2s,box-shadow .2s}.contact__form input:focus,.contact__form select:focus,.contact__form textarea:focus{border-color:var(--color-accent);outline:none;box-shadow:0 0 0 3px #38bdf82e}.contact__form select option{background-color:var(--color-paper);color:var(--color-ink)}.contact__form textarea{resize:vertical;min-height:88px}.form-row{grid-template-columns:1fr 1fr;gap:18px;display:grid}@media (width<=860px){.form-row{grid-template-columns:1fr}}.icon-button{border:1px solid var(--color-line);width:40px;height:40px;color:var(--color-ink);cursor:pointer;background-color:#0000;border-radius:8px;justify-content:center;align-items:center;padding:0;transition:border-color .2s,background-color .2s,color .2s;display:inline-flex}.icon-button:hover{border-color:var(--color-ink)}.icon-button svg{width:18px;height:18px}.theme-toggle__sun{display:none}:root[data-theme=dark] .theme-toggle__sun{display:block}:root[data-theme=dark] .theme-toggle__moon{display:none}.page-loader{z-index:200;background-color:var(--color-paper);color:var(--color-muted);place-content:center;justify-items:center;gap:16px;transition:opacity .4s,visibility .4s;display:grid;position:fixed;inset:0}.page-loader.is-hidden{visibility:hidden;opacity:0;pointer-events:none}.page-loader__mark{place-items:center;width:68px;height:68px;display:grid;position:relative}.page-loader__mark img{border-radius:50%;width:44px;height:44px}.page-loader__ring{border:2px solid var(--color-line);border-top-color:var(--color-accent);border-radius:50%;animation:.9s linear infinite page-loader-spin;position:absolute;inset:0}.page-loader__label{letter-spacing:.04em;font-size:13px}@keyframes page-loader-spin{to{transform:rotate(360deg)}}.whatsapp-fab{right:max(20px, env(safe-area-inset-right));bottom:max(20px, env(safe-area-inset-bottom));z-index:70;color:#fff;background-color:#1da851;border-radius:50%;justify-content:center;align-items:center;width:56px;height:56px;transition:transform .25s,box-shadow .25s;display:inline-flex;position:fixed;box-shadow:0 16px 32px -12px #00000073}.whatsapp-fab:hover{transform:translateY(-2px);box-shadow:0 20px 38px -12px #0000008c}.whatsapp-fab:focus-visible{outline-color:#1da851}.whatsapp-fab svg{fill:#fff;stroke:none;width:30px;height:30px;display:block}.whatsapp-fab:before{content:"";border:2px solid #1da8518c;border-radius:50%;animation:2.8s ease-out infinite whatsapp-pulse;position:absolute;inset:0}@keyframes whatsapp-pulse{0%{opacity:.7;transform:scale(1)}70%,to{opacity:0;transform:scale(1.55)}}@media (prefers-reduced-motion:reduce){.whatsapp-fab:before{animation:none}.page-loader__ring{border-top-color:var(--color-line);animation:none}}.section-media{z-index:0;pointer-events:none;-webkit-user-select:none;user-select:none;will-change:translate;position:absolute}.section-media img{width:100%;height:auto;display:block}.section-media--hero{opacity:.9;width:min(54vw,760px);top:2%;right:-8%}.section-media--right{opacity:.65;width:min(50vw,640px);top:-10%;right:-12%}.section-media--left{opacity:.6;width:min(46vw,600px);bottom:-14%;left:-12%}@media (width<=900px){.section-media--hero{width:82vw;top:6%;right:-22%}.section-media--right{width:78vw;top:-6%;right:-26%}.section-media--left{width:76vw;bottom:-8%;left:-26%}}.hero{min-height:calc(100svh - var(--header-height));--particle-rgb:10 10 10;align-items:center;padding:72px 0 96px;display:flex;position:relative;overflow:hidden}:root[data-theme=dark] .hero{--particle-rgb:244 244 241}.hero__canvas{pointer-events:none;width:100%;height:100%;position:absolute;inset:0}.hero__grid{z-index:2;grid-template-columns:1.15fr .85fr;align-items:center;gap:56px;display:grid;position:relative}.code{color:#0a0a0a14;margin:0;position:absolute;top:-6%;right:-2%}@supports (color:color-mix(in lab, red, red)){.code{color:color-mix(in srgb, var(--color-ink) 8%, transparent)}}.code{white-space:pre;pointer-events:none;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:15px;font-weight:500;line-height:1.9;-webkit-mask-image:linear-gradient(90deg,#0000,#000 45%);mask-image:linear-gradient(90deg,#0000,#000 45%)}.theme-dark .code{color:#0a0a0a0e}@supports (color:color-mix(in lab, red, red)){.theme-dark .code{color:color-mix(in srgb, var(--color-ink) 5.5%, transparent)}}.status{border:1px solid var(--color-line);background-color:var(--color-card);color:var(--color-muted);border-radius:999px;align-items:center;gap:10px;padding:7px 14px;font-size:13px;display:inline-flex}.status__dot{background-color:var(--color-success);border-radius:50%;width:7px;height:7px;animation:2.2s infinite status-ping;box-shadow:0 0 #34d39999}@keyframes status-ping{70%,to{box-shadow:0 0 0 9px #34d39900}}.hero h1{margin:24px 0;font-size:clamp(38px,5.6vw,68px);font-weight:700}.hero__lead{max-width:33em;color:var(--color-muted);margin:0 0 34px;font-size:clamp(17px,1.5vw,19px)}.hero__cta{flex-wrap:wrap;gap:14px;display:flex}.hero__proof{border-top:1px solid var(--color-line);color:var(--color-muted);flex-wrap:wrap;gap:40px;margin-top:52px;padding-top:26px;font-size:14px;display:flex}.hero__proof b{color:var(--color-ink);font-family:var(--font-display);font-size:20px;font-weight:600;display:block}.hero__intro>*{opacity:0;animation:.9s cubic-bezier(.2,.7,.2,1) forwards hero-rise}.hero__intro>:nth-child(2){animation-delay:.12s}.hero__intro>:nth-child(3){animation-delay:.24s}.hero__intro>:nth-child(4){animation-delay:.36s}.hero__intro>:nth-child(5){animation-delay:.48s}@keyframes hero-rise{0%{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}.hero__visual{opacity:0;width:100%;max-width:460px;margin-inline:auto;animation:1.4s .3s forwards hero-fade;position:relative}@keyframes hero-fade{to{opacity:1}}.mv{transform:translate3d(calc(var(--mx,0) * var(--depth,0) * 1px), calc(var(--my,0) * var(--depth,0) * 1px), 0);transition:transform .3s ease-out}.browser{border:1px solid var(--color-line);background-color:var(--color-elevated);border-radius:12px;overflow:hidden;box-shadow:0 40px 80px -30px #00000059}.browser__bar{border-bottom:1px solid var(--color-line);background-color:var(--color-paper-2);align-items:center;gap:6px;padding:12px 14px;display:flex}.browser__dot{background-color:var(--color-line);border-radius:50%;width:9px;height:9px}.browser__url{border:1px solid var(--color-line);background-color:var(--color-elevated);color:var(--color-muted);border-radius:6px;flex:1;margin-left:12px;padding:4px 12px;font-size:12px}.browser__page{gap:12px;padding:22px;display:grid}.browser__nav{align-items:center;gap:10px;margin-bottom:14px;display:flex}.browser__avatar{background-color:var(--color-ink);border-radius:50%;width:22px;height:22px;margin-right:auto}.browser__navlink{background-color:var(--color-line);border-radius:3px;width:34px;height:6px}.browser__title{background-color:var(--color-ink);border-radius:4px;width:78%;height:20px}.browser__line{background-color:var(--color-line);border-radius:4px;height:8px}.browser__line--short{width:60%}.browser__button{background-color:var(--color-ink);border-radius:6px;width:110px;height:32px;margin:6px 0 10px}.browser__cards{grid-template-columns:repeat(3,1fr);gap:10px;display:grid}.browser__cards span{border:1px solid var(--color-line);background-color:var(--color-paper-2);border-radius:8px;height:64px}.hero__logo{border-radius:50%;width:34%;height:auto;position:absolute;top:-11%;right:-7%;box-shadow:0 20px 50px -14px #0000008c}.chip{border:1px solid var(--color-line);background-color:var(--color-elevated);color:var(--color-muted);white-space:nowrap;border-radius:10px;padding:11px 15px;font-size:12px;line-height:1.35;position:absolute;box-shadow:0 18px 40px -16px #00000059}.chip b{color:var(--color-ink);font-family:var(--font-display);font-size:16px;font-weight:600;display:block}.chip--load{bottom:12%;left:-8%}.chip--lighthouse{top:54%;right:-4%}@media (width<=900px){.hero__grid{grid-template-columns:1fr;gap:64px}.hero{padding-top:48px}.hero__visual{max-width:340px}}.metrics{padding:0}.metrics__grid{grid-template-columns:repeat(4,1fr);display:grid}.metric{padding:44px 28px 44px 0}.metric+.metric{border-left:1px solid var(--color-line);padding-left:28px}.metric b{font-family:var(--font-display);letter-spacing:-.03em;overflow-wrap:anywhere;font-size:clamp(22px,3vw,36px);font-weight:600;line-height:1.05;display:block}.metric span{max-width:16em;color:var(--color-muted);margin-top:10px;font-size:14px;display:block}@media (width<=760px){.metrics__grid{grid-template-columns:1fr 1fr}.metric:nth-child(3){border-left:0;padding-left:0}.metric:nth-child(n+3){border-top:1px solid var(--color-line)}}@media (width<=420px){.metric{padding-right:18px}.metric+.metric{padding-left:18px}}.service-row{border-top:1px solid var(--color-line);grid-template-columns:1.1fr 1fr 40px;align-items:start;gap:48px;padding:40px 0;display:grid;position:relative}.service-row:last-child{border-bottom:1px solid var(--color-line)}.service-row:before{content:"";background-color:var(--color-accent);width:0;height:1px;transition:width .6s cubic-bezier(.2,.7,.2,1);position:absolute;top:-1px;left:0}.service-row:hover:before{width:100%}.service-row h3{margin-bottom:12px;font-size:24px}.service-row p{max-width:30em;color:var(--color-muted);margin:0;font-size:15px}.service-row ul{gap:10px;margin:0;padding:0;font-size:15px;list-style:none;display:grid}.service-row li{align-items:baseline;gap:12px;display:flex}.service-row li:before{content:"";background-color:var(--color-accent);border-radius:1px;flex:none;width:6px;height:6px;transform:translateY(-2px)}.service-row svg{fill:none;width:22px;height:22px;stroke:var(--color-muted);stroke-width:1.6px;transition:transform .3s,stroke .3s}.service-row:hover svg{stroke:var(--color-accent);transform:translate(4px,-4px)}@media (width<=820px){.service-row{grid-template-columns:1fr;gap:20px}.service-row svg{display:none}}.stack{border-block:1px solid var(--color-line);background-color:var(--color-paper-2);padding:30px 0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,#0000,#000 8% 92%,#0000);mask-image:linear-gradient(90deg,#0000,#000 8% 92%,#0000)}.marquee{gap:56px;width:max-content;animation:40s linear infinite marquee;display:flex}.stack:hover .marquee{animation-play-state:paused}.marquee__group{gap:56px;margin:0;padding:0;list-style:none;display:flex}.marquee__group li{color:var(--color-muted);font-family:var(--font-display);white-space:nowrap;align-items:center;gap:56px;font-size:18px;font-weight:600;display:flex}.marquee__group li:after{content:"";background-color:var(--color-accent);border-radius:50%;width:5px;height:5px}@keyframes marquee{to{transform:translate(-50%)}}.ai-band{padding:clamp(40px,5vw,64px) 0 0;position:relative}.ai-band__inner{border:1px solid var(--color-line);background-color:var(--color-paper-2);border-radius:16px;flex-wrap:wrap;align-items:center;gap:14px 20px;padding:22px 26px;display:flex}.ai-band__icon{background-color:var(--color-ink);width:40px;height:40px;color:var(--color-paper);border-radius:12px;flex:none;place-items:center;display:grid}.ai-band__icon svg{width:20px;height:20px}.ai-band__text{margin:0;font-size:clamp(16px,1.7vw,18px)}.ai-band__text strong{font-family:var(--font-display);font-weight:600}.ai-band__hint{max-width:34em;color:var(--color-muted);margin:0 0 0 auto;font-size:14px}@media (width<=820px){.ai-band__hint{margin-left:0}}.process{background-color:var(--color-paper)}.process__grid{grid-template-columns:.9fr 1.1fr;align-items:start;gap:80px;display:grid}.process__intro{position:sticky;top:120px}.process__intro h2{margin-bottom:20px}.process__intro p{max-width:26em;color:var(--color-muted);margin:0 0 14px}.steps{margin:0;padding:0 0 0 52px;list-style:none;position:relative}.steps:before,.steps:after{content:"";background-color:var(--color-line);width:2px;position:absolute;top:6px;left:11px}.steps:before{bottom:6px}.steps:after{height:var(--timeline-progress,0px);background-color:var(--color-accent)}.step{padding-bottom:64px;position:relative}.step:last-child{padding-bottom:0}.step h3{color:var(--color-muted);margin:0 0 10px;font-size:22px;transition:color .4s}.step.is-active h3{color:var(--color-ink)}.step__dot{z-index:1;border:2px solid var(--color-line);background-color:var(--color-paper);width:24px;height:24px;color:var(--color-paper);border-radius:50%;place-items:center;transition:background-color .4s,border-color .4s,box-shadow .4s;display:grid;position:absolute;top:0;left:-52px}.step__dot svg{opacity:0;width:14px;height:14px;transition:opacity .3s,transform .3s;transform:scale(.4)}.step.is-active .step__dot{border-color:var(--color-accent);background-color:var(--color-accent);box-shadow:0 0 0 6px #0a0a0a29}@supports (color:color-mix(in lab, red, red)){.step.is-active .step__dot{box-shadow:0 0 0 6px color-mix(in srgb, var(--color-accent) 16%, transparent)}}.step.is-active .step__dot svg{opacity:1;transform:scale(1)}.step p{max-width:30em;color:var(--color-muted);margin:0;font-size:15px}@media (width<=860px){.process__grid{grid-template-columns:1fr;gap:48px}.process__intro{position:static}}.values{border-top:1px solid var(--color-line);background-color:var(--color-paper-2)}.values__grid{grid-template-columns:repeat(4,1fr);margin-top:8px;display:grid}.values__item{padding:8px 32px 8px 0}.values__item+.values__item{border-left:1px solid var(--color-line);padding-left:32px}.values__item h3{margin-bottom:10px;font-size:19px}.values__item p{color:var(--color-muted);margin:0;font-size:15px}@media (width<=860px){.values__grid{grid-template-columns:1fr 1fr;row-gap:36px}.values__item:nth-child(odd){border-left:0;padding-left:0}}@media (width<=520px){.values__grid{grid-template-columns:1fr}.values__item+.values__item{border-left:0;padding-left:0}}.faq{background-color:var(--color-paper)}.faq__list{border-top:1px solid var(--color-line)}.faq__item{border-bottom:1px solid var(--color-line)}.faq__question{color:var(--color-ink);font-family:var(--font-display);cursor:pointer;padding:22px 48px 22px 0;font-size:clamp(17px,2vw,20px);font-weight:600;line-height:1.3;list-style:none;position:relative}.faq__question::-webkit-details-marker{display:none}.faq__question:after{content:"+";color:var(--color-muted);font-size:24px;font-weight:400;line-height:1;position:absolute;top:50%;right:10px;transform:translateY(-50%)}.faq__item[open] .faq__question:after{content:"–"}.faq__answer{max-width:46em;color:var(--color-muted);margin:0;padding:0 0 24px;font-size:15px}.contact{position:relative;overflow:hidden}.contact__grid{z-index:2;grid-template-columns:1.2fr .8fr;align-items:start;gap:32px;display:grid;position:relative}.contact__head{grid-column:1/-1;margin-bottom:24px}.contact__head h2{max-width:14em;margin-bottom:16px}.contact__head p{max-width:34em;color:var(--color-muted);margin:0}.panel{border:1px solid var(--color-line);background-color:var(--color-card);border-radius:14px;padding:32px}.contact__form{gap:18px;display:grid}.form-status{color:#6ee7b7;background-color:#34d3991a;border:1px solid #34d39959;border-radius:8px;margin:0;padding:12px 14px;font-size:14px}.form-status__link{color:#a7f3d0;margin-top:6px;text-decoration:underline;display:block}.contact__channels{gap:12px;display:grid}.contact__channels a{border:1px solid var(--color-line);border-radius:10px;padding:16px 18px;transition:border-color .25s,background-color .25s;display:block}.contact__channels a:hover{border-color:var(--color-accent);background-color:#38bdf80d}.contact__channels small{color:var(--color-muted);font-size:13px;display:block}.contact__channels b{font-family:var(--font-display);font-size:16px;font-weight:600}.note{color:var(--color-muted);margin:6px 0 0;font-size:14px}@media (width<=860px){.contact__grid{grid-template-columns:1fr}}.tools-intro{padding:clamp(72px,9vw,110px) 0 56px;position:relative;overflow:clip}.tools-intro h1{margin-bottom:20px;font-size:clamp(38px,5.4vw,64px)}.tools-intro p{max-width:36em;color:var(--color-muted);margin:0}.tag{border:1px solid var(--color-line);color:var(--color-accent);border-radius:999px;margin-bottom:18px;padding:4px 12px;font-size:13px;display:inline-block}.tool-grid{grid-template-columns:repeat(2,1fr);gap:24px;display:grid}.tool-card{border:1px solid var(--color-line);background-color:var(--color-card);border-radius:14px;align-content:start;gap:16px;padding:32px;display:grid}.tool-card h3{font-size:22px}.tool-card>p{color:var(--color-muted);margin:0;font-size:15px}.tool-card--soon{background-color:#0000;border-style:dashed}.tool-card--soon .tag{justify-self:start;margin:0}.tools-note{margin-top:40px;font-size:16px}.tools-note a{text-decoration:underline}@media (width<=860px){.tool-grid{grid-template-columns:1fr}}.product-grid{grid-template-columns:repeat(3,1fr);gap:24px;display:grid}.product-card{border:1px solid var(--color-line);background-color:var(--color-card);border-radius:16px;flex-direction:column;gap:14px;padding:24px;transition:transform .25s,border-color .25s,background-color .25s;display:flex}.product-card:hover{border-color:var(--color-accent);transform:translateY(-4px)}.product-card__cover{border:1px solid var(--color-line);background:radial-gradient(120% 120% at 18% 18%, #6cc7ff42, transparent 62%), radial-gradient(110% 110% at 82% 84%, #3878ff33, transparent 66%), var(--color-paper-2);height:132px;color:var(--color-accent);border-radius:12px;place-items:center;display:grid}.product-card__cover svg{width:44px;height:44px}.product-card h3{font-size:21px}.product-card p{color:var(--color-muted);margin:0;font-size:15px}.product-card .tag{align-self:flex-start;margin:0}.product-card__link{align-items:center;gap:8px;margin-top:auto;padding-top:6px;font-size:14px;font-weight:600;display:inline-flex}.product-card__link svg{width:16px;height:16px;transition:transform .25s}.product-card:hover .product-card__link svg{transform:translate(3px,-3px)}@media (width<=980px){.product-grid{grid-template-columns:1fr}}.not-found{padding-top:clamp(96px,14vw,160px);padding-bottom:clamp(96px,14vw,160px)}.not-found__code{color:var(--color-accent);font-family:var(--font-display);letter-spacing:.08em;text-transform:uppercase;margin:0 0 16px;font-size:14px;font-weight:600}.not-found h1{max-width:18em;margin-bottom:18px;font-size:clamp(32px,5vw,56px)}.not-found__text{max-width:34em;color:var(--color-muted);margin:0 0 32px;font-size:17px}.not-found__actions{flex-wrap:wrap;gap:14px;display:flex}
+</style>
+  </head>
+
+  <body class="bg-paper font-sans text-ink antialiased">
+    <div class="page-loader" id="page-loader" role="status" aria-live="polite">
+      <span class="page-loader__mark">
+        <img src="/img/logo-mark.webp" alt="" width="44" height="44" />
+        <span class="page-loader__ring" aria-hidden="true"></span>
+      </span>
+      <span class="page-loader__label">Cargando…</span>
     </div>
-    
-    <!-- Navigation -->
-    <nav class="fixed md:p-0 w-full z-50 top-0 transition-all duration-300 bg-cyber-black/95 backdrop-blur-lg border-b border-cyber-blue/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex h-auto md:gap-0 gap-3 bg-cyber-black/95 backdrop-blur-lg  items-center md:flex-row flex-col pt-5 pb-3 justify-between h-20">
-                <!-- Logo -->
-                <a href="/">
-                    <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer group">
-                        <div class="relative w-10 h-10 flex items-center justify-center bg-cyber-blue clip-path-polygon" style="clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%);">
-                            <!--<i class="fas fa-biohazard text-white text-xl"></i>-->
-                            <p class="font-display font-black text-white text-shadow-md text-xl">B</p>
-                        </div>
-                        <div class="flex flex-col">
-                            <span class="text-2xl font-display font-black tracking-widest text-white uppercase glitch-text" data-text="BINARAWEB">BINARAWEB</span>
-                            <span class="text-[9px] font-mono text-cyber-blue tracking-[0.3em] uppercase leading-none">Agencia Digital</span>
-                        </div>
-                    </div>
-                </a>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:block bg-cyber-black/95" id="desktop-menu">
-                    <ul class="ml-10 md:gap-0 gap-8 md:p-0 py-10 w-full flex md:flex-row flex-col items-baseline space-x-8">
-                        <li><a class="text-slate-400 hover:text-cyber-blue font-mono text-sm tracking-wider uppercase transition-all duration-300 hover:text-glow-blue" href="#home">Inicio</a></li>
-                        <li><a class="text-slate-400 hover:text-cyber-cyan font-mono text-sm tracking-wider uppercase transition-all duration-300 hover:text-glow-cyan" href="#services">Servicios</a></li>
-                        <li><a class="text-slate-400 hover:text-cyber-pink font-mono text-sm tracking-wider uppercase transition-all duration-300 hover:text-glow-red" href="#technologies">Tecnologías</a></li>
-                        <li><a class="text-slate-400 hover:text-white font-mono text-sm tracking-wider uppercase transition-all duration-300" href="#about">Nosotros</a></li>
-                        <li>
-                            <a class="m-0 md:ml-4 px-6 py-2 bg-cyber-blue text-white font-display font-bold tracking-wider text-sm hover:bg-white hover:text-black hover:shadow-neon-cyan transition-all duration-300" href="#contact" style="clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);">
-                                CONTACTAR
-                            </a>
-                        </li>
-                    </ul>
-                </div>
 
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-cyber-blue hover:text-white p-2">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
-    
-    <!-- Hero Section -->
-    <section class="relative z-10 min-h-screen flex items-center pt-20 overflow-hidden" id="home">
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-20 mix-blend-overlay"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <!-- Text Content -->
-                <div class="text-center lg:text-left space-y-8 relative mb:mt-0 mt-20">
-                    <div class="inline-flex items-center px-2 py-0 bg-cyber-blue text-white transform skew-x-[-10deg] mb-4">
-                        <span class="font-mono text-xs font-bold uppercase tracking-widest transform skew-x-[10deg] px-2">Soluciones Digitales</span>
-                    </div>
-                    <h1 class="text-5xl lg:text-8xl font-display font-black tracking-tighter text-white leading-[0.9] uppercase relative z-10">
-                        TRANSFORMA <br/>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-blue via-white to-cyber-cyan text-glow-blue">TU NEGOCIO</span>
-                    </h1>
-                    <p class="text-lg text-slate-400 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal font-mono border-l-4 border-cyber-blue pl-6 bg-gradient-to-r from-cyber-blue/10 to-transparent py-2">
-                        Desarrollo web a medida, diseño innovador y estrategias digitales que impulsan tu crecimiento.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start pt-6">
-                        <a class="cyber-button group" href="#contact">
-                            <span class="flex items-center gap-2">
-                                INICIAR PROYECTO <i class="fas fa-arrow-right transform -rotate-45 group-hover:rotate-0 transition-transform"></i>
-                            </span>
-                        </a>
-                        <a class="cyber-button-secondary group" href="#services">
-                            <span class="flex items-center gap-2">
-                                VER SERVICIOS
-                            </span>
-                        </a>
-                    </div>
-                    <!-- Decorative Lines -->
-                    <div class="absolute -left-10 top-0 h-full w-[1px] bg-cyber-dark hidden lg:block">
-                        <div class="absolute top-[20%] left-[-4px] w-2 h-2 bg-cyber-blue"></div>
-                        <div class="absolute top-[50%] left-[-4px] w-2 h-2 bg-cyber-red"></div>
-                        <div class="absolute top-[80%] left-[-4px] w-2 h-2 bg-cyber-cyan"></div>
-                    </div>
-                </div>
-                
-                <!-- Terminal Visualization -->
-                <div class="relative flex justify-center lg:justify-end">
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-cyber-blue/5 blur-[60px] rounded-full -z-10 animate-pulse"></div>
-                    <div class="relative w-full max-w-lg aspect-[4/5] border-2 border-cyber-blue/30 bg-cyber-black p-1">
-                        <!-- Corners -->
-                        <div class="absolute -top-2 -left-2 w-4 h-4 border-t-2 border-l-2 border-cyber-blue"></div>
-                        <div class="absolute -top-2 -right-2 w-4 h-4 border-t-2 border-r-2 border-cyber-blue"></div>
-                        <div class="absolute -bottom-2 -left-2 w-4 h-4 border-b-2 border-l-2 border-cyber-blue"></div>
-                        <div class="absolute -bottom-2 -right-2 w-4 h-4 border-b-2 border-r-2 border-cyber-blue"></div>
-                        
-                        <!-- Terminal Content -->
-                        <div class="cyber-terminal">
-                            <div class="ascii-art">
-  ____  _                                         _     
- | __ )(_)_ __   __ _ _ __ __ ___      _____| |__  
- |  _ \| | '_ \ / _` | '__/ _` \ \ /\ / / _ \ '_ \ 
- | |_) | | | | | (_| | | | (_| |\ V  V /  __/ |_) |
- |____/|_|_| |_|\__,_|_|  \__,_| \_/\_/ \___|_.__/ 
-                            </div>
-                            <div class="terminal-content">
-                                <span class="terminal-line">> INITIALIZING KERNEL...</span>
-                                <span class="terminal-line info">> LOADING MODULES...</span>
-                                <span class="terminal-line">> OPTIMIZING ASSETS...</span>
-                                <span class="terminal-line warning">> SECURITY PROTOCOLS: ACTIVE</span>
-                                <div class="progress-container">
-                                    <div class="progress-bar">
-                                        <div class="progress-fill"></div>
-                                    </div>
-                                    <div class="progress-text">
-                                        <span>LOADING SYSTEM</span>
-                                        <span class="percentage"></span>
-                                    </div>
-                                </div>
-                                <span class="terminal-line info" style="animation-delay: 4.5s;">> ACCESS GRANTED. WELCOME USER.<span class="cursor"></span></span>
-                            </div>
-                        </div>
-                        
-                        <div class="absolute bottom-10 left-[-20px] bg-cyber-blue text-white px-4 py-1 font-mono text-sm font-bold transform -rotate-90 origin-bottom-left shadow-neon-blue">
-                            ESTADO: ONLINE
-                        </div>
-                        <div class="absolute top-0 left-0 w-full h-1 bg-cyber-cyan opacity-50 animate-[scan_3s_linear_infinite]"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <a class="skip-link" href="#home">Saltar al contenido</a>
+    <div id="app"></div>
 
-    <!-- Services Section -->
-    <section class="section-padding relative z-10 bg-cyber-dark/80" id="services">
-        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyber-blue/50 to-transparent"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Header -->
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6 border-b border-cyber-blue/10 pb-8">
-                <div class="max-w-2xl">
-                    <h2 class="text-cyber-blue font-mono tracking-widest uppercase text-xs mb-3 flex items-center gap-2">
-                        <i class="fas fa-terminal text-[10px]"></i> NUESTROS SERVICIOS
-                    </h2>
-                    <h3 class="text-4xl md:text-5xl font-display font-bold text-white uppercase leading-none">
-                        SOLUCIONES <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-cyan to-white">DIGITALES</span>
-                    </h3>
-                </div>
-                <p class="text-slate-400 font-mono text-sm max-w-md text-right md:text-left leading-relaxed">
-                    Estrategias de diseño y desarrollo enfocadas en resultados tangibles para tu empresa.
-                </p>
-            </div>
-            
-            <!-- Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="group cyber-card p-8 hover:border-l-4 hover:border-cyber-cyan">
-                    <div class="absolute top-4 right-4 text-cyber-blue/10 font-display text-4xl font-bold group-hover:text-cyber-cyan/20 transition-colors">01</div>
-                    <div class="relative z-10">
-                        <div class="w-14 h-14 bg-cyber-surface border border-cyber-blue flex items-center justify-center mb-8 group-hover:bg-cyber-cyan group-hover:text-black group-hover:border-cyber-cyan transition-colors duration-200">
-                            <i class="fas fa-code text-2xl text-cyber-blue group-hover:text-black"></i>
-                        </div>
-                        <h4 class="text-xl font-display font-bold text-white mb-4 uppercase tracking-wider group-hover:text-cyber-cyan transition-colors">Desarrollo A Medida</h4>
-                        <p class="text-slate-400 mb-6 font-mono text-sm leading-relaxed">
-                            Sitios web rápidos, seguros y escalables, desarrollados específicamente para cumplir tus objetivos comerciales.
-                        </p>
-                        <a class="inline-flex items-center text-cyber-blue font-bold font-mono text-xs hover:text-white transition-all uppercase gap-2" href="#">
-                            <span class="w-2 h-2 bg-cyber-blue group-hover:bg-cyber-cyan"></span> LEER MÁS
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Service 2 -->
-                <div class="group cyber-card p-8 border-l-cyber-pink hover:border-l-4 hover:border-cyber-pink">
-                    <div class="absolute top-4 right-4 text-cyber-pink/10 font-display text-4xl font-bold group-hover:text-cyber-pink/20 transition-colors">02</div>
-                    <div class="relative z-10">
-                        <div class="w-14 h-14 bg-cyber-surface border border-cyber-pink flex items-center justify-center mb-8 group-hover:bg-cyber-pink group-hover:text-white group-hover:border-cyber-pink transition-colors duration-200">
-                            <i class="fas fa-vr-cardboard text-2xl text-cyber-pink group-hover:text-white"></i>
-                        </div>
-                        <h4 class="text-xl font-display font-bold text-white mb-4 uppercase tracking-wider group-hover:text-cyber-pink transition-colors">Diseño UX/UI</h4>
-                        <p class="text-slate-400 mb-6 font-mono text-sm leading-relaxed">
-                            Experiencias de usuario intuitivas y atractivas que maximizan la retención y aumentan las conversiones.
-                        </p>
-                        <a class="inline-flex items-center text-cyber-pink font-bold font-mono text-xs hover:text-white transition-all uppercase gap-2" href="#">
-                            <span class="w-2 h-2 bg-cyber-pink"></span> LEER MÁS
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Service 3 -->
-                <div class="group cyber-card p-8 border-l-cyber-purple hover:border-l-4 hover:border-cyber-purple">
-                    <div class="absolute top-4 right-4 text-cyber-purple/10 font-display text-4xl font-bold group-hover:text-cyber-purple/20 transition-colors">03</div>
-                    <div class="relative z-10">
-                        <div class="w-14 h-14 bg-cyber-surface border border-cyber-purple flex items-center justify-center mb-8 group-hover:bg-cyber-purple group-hover:text-white group-hover:border-cyber-purple transition-colors duration-200">
-                            <i class="fas fa-rocket text-2xl text-cyber-purple group-hover:text-white"></i>
-                        </div>
-                        <h4 class="text-xl font-display font-bold text-white mb-4 uppercase tracking-wider group-hover:text-cyber-purple transition-colors">Marketing &amp; SEO</h4>
-                        <p class="text-slate-400 mb-6 font-mono text-sm leading-relaxed">
-                            Estrategias integrales para mejorar tu posicionamiento en buscadores y alcanzar a tu público ideal.
-                        </p>
-                        <a class="inline-flex items-center text-cyber-purple font-bold font-mono text-xs hover:text-white transition-all uppercase gap-2" href="#">
-                            <span class="w-2 h-2 bg-cyber-purple"></span> LEER MÁS
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Technologies Section -->
-    <section class="py-24 bg-cyber-black border-y border-cyber-blue/20 relative overflow-hidden" id="technologies">
-        <div class="absolute inset-0 bg-cyber-grid bg-[length:20px_20px] opacity-10"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16 relative">
-                <div class="inline-block border border-cyber-red px-4 py-1 mb-4 transform skew-x-[-20deg]">
-                    <span class="text-cyber-red font-mono text-xs font-bold tracking-widest uppercase transform skew-x-[20deg] block">Stack Tecnológico</span>
-                </div>
-                <h2 class="text-3xl md:text-5xl font-display font-bold text-white uppercase tracking-widest">
-                    TECNOLOGÍAS <span class="text-cyber-blue text-glow-blue">QUE UTILIZAMOS</span>
-                </h2>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 mb-16">
-                <!-- Tech Icons -->
-                <div class="flex flex-col items-center gap-3 group cursor-pointer">
-                    <div class="w-20 h-20 bg-cyber-surface border border-white/10 flex items-center justify-center group-hover:border-pink-500 group-hover:bg-pink-500/10 transition-all duration-200 relative overflow-hidden" style="clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);">
-                        <i class="fab fa-sass text-3xl text-slate-400 group-hover:text-pink-500 transition-colors"></i>
-                    </div>
-                    <span class="text-[10px] font-mono font-bold text-slate-500 uppercase group-hover:text-pink-500 tracking-widest transition-colors">SCSS</span>
-                </div>
-                <div class="flex flex-col items-center gap-3 group cursor-pointer">
-                    <div class="w-20 h-20 bg-cyber-surface border border-white/10 flex items-center justify-center group-hover:border-yellow-400 group-hover:bg-yellow-400/10 transition-all duration-200 relative overflow-hidden" style="clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);">
-                        <i class="fab fa-js text-3xl text-slate-400 group-hover:text-yellow-400 transition-colors"></i>
-                    </div>
-                    <span class="text-[10px] font-mono font-bold text-slate-500 uppercase group-hover:text-yellow-400 tracking-widest transition-colors">JavaScript</span>
-                </div>
-                <div class="flex flex-col items-center gap-3 group cursor-pointer">
-                    <div class="w-20 h-20 bg-cyber-surface border border-white/10 flex items-center justify-center group-hover:border-cyber-cyan group-hover:bg-cyber-cyan/10 transition-all duration-200 relative overflow-hidden" style="clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);">
-                        <i class="fab fa-react text-3xl text-slate-400 group-hover:text-cyber-cyan transition-colors"></i>
-                    </div>
-                    <span class="text-[10px] font-mono font-bold text-slate-500 uppercase group-hover:text-cyber-cyan tracking-widest transition-colors">React</span>
-                </div>
-                <div class="flex flex-col items-center gap-3 group cursor-pointer">
-                    <div class="w-20 h-20 bg-cyber-surface border border-white/10 flex items-center justify-center group-hover:border-indigo-400 group-hover:bg-indigo-400/10 transition-all duration-200 relative overflow-hidden" style="clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);">
-                        <i class="fab fa-php text-3xl text-slate-400 group-hover:text-indigo-400 transition-colors"></i>
-                    </div>
-                    <span class="text-[10px] font-mono font-bold text-slate-500 uppercase group-hover:text-indigo-400 tracking-widest transition-colors">PHP</span>
-                </div>
-                <div class="flex flex-col items-center gap-3 group cursor-pointer">
-                    <div class="w-20 h-20 bg-cyber-surface border border-white/10 flex items-center justify-center group-hover:border-blue-400 group-hover:bg-blue-400/10 transition-all duration-200 relative overflow-hidden" style="clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);">
-                        <i class="fas fa-database text-3xl text-slate-400 group-hover:text-blue-400 transition-colors"></i>
-                    </div>
-                    <span class="text-[10px] font-mono font-bold text-slate-500 uppercase group-hover:text-blue-400 tracking-widest transition-colors">MySQL</span>
-                </div>
-                <div class="flex flex-col items-center gap-3 group cursor-pointer">
-                    <div class="w-20 h-20 bg-cyber-surface border border-white/10 flex items-center justify-center group-hover:border-red-500 group-hover:bg-red-500/10 transition-all duration-200 relative overflow-hidden" style="clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);">
-                        <i class="fab fa-laravel text-3xl text-slate-400 group-hover:text-red-500 transition-colors"></i>
-                    </div>
-                    <span class="text-[10px] font-mono font-bold text-slate-500 uppercase group-hover:text-red-500 tracking-widest transition-colors">Laravel</span>
-                </div>
-                <div class="flex flex-col items-center gap-3 group cursor-pointer">
-                    <div class="w-20 h-20 bg-cyber-surface border border-white/10 flex items-center justify-center group-hover:border-white group-hover:bg-white/10 transition-all duration-200 relative overflow-hidden" style="clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);">
-                        <span class="text-3xl font-display font-bold text-slate-400 group-hover:text-white">N</span>
-                    </div>
-                    <span class="text-[10px] font-mono font-bold text-slate-500 uppercase group-hover:text-white tracking-widest transition-colors">Next.js</span>
-                </div>
-                <div class="flex flex-col items-center gap-3 group cursor-pointer">
-                    <div class="w-20 h-20 bg-cyber-surface border border-white/10 flex items-center justify-center group-hover:border-green-500 group-hover:bg-green-500/10 transition-all duration-200 relative overflow-hidden" style="clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);">
-                        <i class="fab fa-node-js text-3xl text-slate-400 group-hover:text-green-500 transition-colors"></i>
-                    </div>
-                    <span class="text-[10px] font-mono font-bold text-slate-500 uppercase group-hover:text-green-500 tracking-widest transition-colors">Node.js</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About / Process Section -->
-    <section class="section-padding relative z-10" id="about">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                <!-- Process Steps -->
-                <div class="order-2 lg:order-1 relative">
-                    <div class="absolute -top-6 -left-6 w-16 h-16 border-t-4 border-l-4 border-cyber-blue"></div>
-                    <div class="absolute -bottom-6 -right-6 w-16 h-16 border-b-4 border-r-4 border-cyber-cyan"></div>
-                    <div class="bg-cyber-surface p-10 relative z-10 border border-white/5 backdrop-blur-xl" style="clip-path: polygon(0 0, 100% 0, 100% 90%, 90% 100%, 0 100%);">
-                        <h4 class="text-2xl font-display font-bold text-white mb-8 border-b-2 border-cyber-blue pb-4 uppercase">
-                            PROCESO DE <span class="text-cyber-blue">TRABAJO</span>
-                        </h4>
-                        <div class="space-y-8">
-                            <div class="flex group items-start">
-                                <div class="flex-shrink-0 w-12 h-12 bg-cyber-blue text-white flex items-center justify-center font-display font-bold text-xl clip-path-polygon shadow-neon-blue" style="clip-path: polygon(20% 0, 100% 0, 100% 80%, 80% 100%, 0 100%, 0 20%);">01</div>
-                                <div class="ml-6">
-                                    <h5 class="text-white font-display uppercase tracking-wider font-bold mb-1 group-hover:text-cyber-blue transition-colors">Análisis Inicial</h5>
-                                    <p class="text-slate-500 font-mono text-xs uppercase tracking-wide">Definición de objetivos y estrategia.</p>
-                                </div>
-                            </div>
-                            <div class="flex group items-start">
-                                <div class="flex-shrink-0 w-12 h-12 bg-transparent border-2 border-cyber-cyan text-cyber-cyan flex items-center justify-center font-display font-bold text-xl clip-path-polygon group-hover:bg-cyber-cyan group-hover:text-black transition-all" style="clip-path: polygon(20% 0, 100% 0, 100% 80%, 80% 100%, 0 100%, 0 20%);">02</div>
-                                <div class="ml-6">
-                                    <h5 class="text-white font-display uppercase tracking-wider font-bold mb-1 group-hover:text-cyber-cyan transition-colors">Desarrollo</h5>
-                                    <p class="text-slate-500 font-mono text-xs uppercase tracking-wide">Construcción de la solución digital.</p>
-                                </div>
-                            </div>
-                            <div class="flex group items-start">
-                                <div class="flex-shrink-0 w-12 h-12 bg-transparent border-2 border-cyber-cyan text-cyber-cyan flex items-center justify-center font-display font-bold text-xl clip-path-polygon group-hover:bg-cyber-cyan group-hover:text-black transition-all" style="clip-path: polygon(20% 0, 100% 0, 100% 80%, 80% 100%, 0 100%, 0 20%);">03</div>
-                                <div class="ml-6">
-                                    <h5 class="text-white font-display uppercase tracking-wider font-bold mb-1 group-hover:text-cyber-cyan transition-colors">Lanzamiento</h5>
-                                    <p class="text-slate-500 font-mono text-xs uppercase tracking-wide">Publicación y optimización final.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- About Text -->
-                <div class="order-1 lg:order-2 space-y-8">
-                    <div class="inline-block px-3 py-1 bg-cyber-blue/10 border-l-2 border-cyber-blue text-cyber-blue text-xs font-mono uppercase tracking-widest mb-2">
-                        &gt; Binaraweb Agencia Digital
-                    </div>
-                    <h2 class="text-4xl md:text-5xl font-display font-bold text-white leading-[0.9] uppercase">
-                        MÁS ALLÁ DEL <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-blue via-white to-cyber-blue animate-pulse">CÓDIGO</span>
-                    </h2>
-                    <div class="space-y-6 text-slate-400 text-lg font-light leading-relaxed font-mono">
-                        <p>
-                            Somos <strong class="text-cyber-blue">expertos</strong> en desarrollo web. Creamos soluciones digitales que impulsan tu negocio al siguiente nivel, combinando diseño y funcionalidad.
-                        </p>
-                        <p>
-                            En un mercado competitivo, destacamos por la calidad y el rendimiento. Tu éxito es nuestra prioridad y trabajamos para superar tus expectativas.
-                        </p>
-                    </div>
-                    <div class="pt-6">
-                        <div class="flex items-center gap-4 border border-cyber-blue/30 p-4 bg-cyber-black max-w-max skew-x-[-10deg]">
-                            <div class="skew-x-[10deg] flex items-center gap-4">
-                                <div class="flex -space-x-4">
-                                    <div class="w-10 h-10 border border-cyber-blue bg-slate-900 flex items-center justify-center text-[10px] text-white font-mono rounded-none">WEB</div>
-                                    <div class="w-10 h-10 border border-cyber-cyan bg-slate-800 flex items-center justify-center text-[10px] text-white font-mono rounded-none">DEV</div>
-                                    <div class="w-10 h-10 border border-cyber-red bg-slate-700 flex items-center justify-center text-[10px] text-white font-mono rounded-none">PRO</div>
-                                </div>
-                                <div>
-                                    <p class="text-white font-bold text-sm font-display uppercase">Equipo Profesional</p>
-                                    <p class="text-cyber-green text-xs font-mono text-cyber-blue">Status: ONLINE</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Values Section -->
-    <section class="py-20 bg-cyber-dark relative border-t border-cyber-blue/20">
-        <div class="absolute inset-0 bg-cyber-grid opacity-20"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-display font-bold text-white uppercase tracking-widest">Nuestros Valores</h2>
-                <div class="w-24 h-1 bg-cyber-blue mx-auto mt-4"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-cyber-surface border border-white/5 p-8 cursor-pointer hover:border-cyber-blue transition-all group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-8 h-8 bg-cyber-blue clip-path-polygon opacity-0 group-hover:opacity-100 transition-opacity" style="clip-path: polygon(0 0, 100% 0, 100% 100%);"></div>
-                    <i class="far fa-eye text-3xl text-slate-500 group-hover:text-cyber-blue mb-6 transition-colors"></i>
-                    <h3 class="text-lg font-bold font-display text-white mb-2 uppercase">Transparencia</h3>
-                    <p class="text-xs font-mono text-slate-400">Comunicación clara y honesta en todo momento.</p>
-                </div>
-                <div class="bg-cyber-surface border border-white/5 p-8 cursor-pointer hover:border-cyber-cyan transition-all group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-8 h-8 bg-cyber-cyan clip-path-polygon opacity-0 group-hover:opacity-100 transition-opacity" style="clip-path: polygon(0 0, 100% 0, 100% 100%);"></div>
-                    <i class="fas fa-microchip text-3xl text-slate-500 group-hover:text-cyber-cyan mb-6 transition-colors"></i>
-                    <h3 class="text-lg font-bold font-display text-white mb-2 uppercase">Innovación</h3>
-                    <p class="text-xs font-mono text-slate-400">Implementación de las últimas tecnologías web.</p>
-                </div>
-                <div class="bg-cyber-surface border border-white/5 p-8 cursor-pointer hover:border-cyber-pink transition-all group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-8 h-8 bg-cyber-pink clip-path-polygon opacity-0 group-hover:opacity-100 transition-opacity" style="clip-path: polygon(0 0, 100% 0, 100% 100%);"></div>
-                    <i class="fas fa-bolt text-3xl text-slate-500 group-hover:text-cyber-pink mb-6 transition-colors"></i>
-                    <h3 class="text-lg font-bold font-display text-white mb-2 uppercase">Rendimiento</h3>
-                    <p class="text-xs font-mono text-slate-400">Sitios web ultrarrápidos y optimizados.</p>
-                </div>
-                <div class="bg-cyber-surface border border-white/5 p-8 cursor-pointer hover:border-white transition-all group relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-8 h-8 bg-white clip-path-polygon opacity-0 group-hover:opacity-100 transition-opacity" style="clip-path: polygon(0 0, 100% 0, 100% 100%);"></div>
-                    <i class="fas fa-heart text-3xl text-slate-500 group-hover:text-white mb-6 transition-colors"></i>
-                    <h3 class="text-lg font-bold font-display text-white mb-2 uppercase">Compromiso</h3>
-                    <p class="text-xs font-mono text-slate-400">Tu proyecto es nuestra máxima prioridad.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- CTA Section -->
-    <section class="py-24 relative overflow-hidden bg-cyber-black">
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-5"></div>
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="bg-cyber-surface border-2 border-cyber-blue p-12 md:p-16 text-center relative overflow-hidden shadow-neon-blue" style="clip-path: polygon(5% 0, 100% 0, 100% 90%, 95% 100%, 0 100%, 0 10%);">
-                <!-- Background Decoration -->
-                <div class="absolute top-0 left-0 w-full h-2 bg-[repeating-linear-gradient(45deg,#007bff,#007bff_10px,#000_10px,#000_20px)]"></div>
-                <div class="absolute bottom-0 left-0 w-full h-2 bg-[repeating-linear-gradient(45deg,#007bff,#007bff_10px,#000_10px,#000_20px)]"></div>
-                
-                <h2 class="text-3xl md:text-5xl font-display font-black text-white mb-6 uppercase tracking-tight relative inline-block">
-                    <span class="absolute -inset-1 bg-cyber-blue blur opacity-20"></span>
-                    <span class="relative">¿Listo para comenzar tu proyecto?</span>
-                </h2>
-                <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-10 font-mono">
-                    El mundo digital avanza rápido. Agenda una reunión y comencemos a trabajar en tu éxito hoy mismo.
-                </p>
-                
-                <!-- CTA Actions -->
-                <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                    <a class="cyber-button group" href="mailto:binaraweb@gmail.com?subject=Solicitud%20de%20presupuesto%20para%20desarrollo%20web&body=Hola,%20estoy%20interesado%20en%20desarrollar%20un%20sitio%20web%20y%20me%20gustaría%20recibir%20información%20sobre%20tus%20servicios%20y%20tarifas.%0D%0A%0D%0AUn%20saludo.">
-                        <span class="flex items-center gap-2 text-white">
-                            <i class="far fa-calendar-alt"></i> AGENDAR REUNIÓN
-                        </span>
-                    </a>
-                    <a class="px-8 py-3 bg-transparent text-white font-display font-bold uppercase tracking-wider border-2 border-white/20 hover:bg-white hover:text-black hover:border-white transition-all duration-200 skew-x-[-10deg]" href="#portfolio">
-                        <span class="block skew-x-[10deg]">VER PROYECTOS</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer class="bg-cyber-dark pt-20 pb-10 border-t border-cyber-blue/30 relative" id="contact">
-        <div class="absolute inset-0 bg-cyber-grid opacity-10 pointer-events-none"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <!-- Brand Info -->
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-8 h-8 flex items-center justify-center bg-cyber-blue text-white font-bold transform skew-x-[-10deg]">
-                            <!--<i class="fas fa-biohazard transform skew-x-[10deg]"></i>-->
-                            <p class="font-display font-black text-white text-shadow-md text-xl skew-x-[10deg]">B</p>
-                        </div>
-                        <span class="text-2xl font-display font-bold text-white tracking-widest uppercase">Binaraweb</span>
-                    </div>
-                    <p class="text-slate-400 text-sm max-w-sm mb-6 leading-relaxed font-mono">
-                        Agencia especializada en desarrollo web de alto impacto. Creamos experiencias digitales únicas para marcas visionarias.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a class="w-10 h-10 border border-cyber-cyan/30 flex items-center justify-center text-cyber-cyan hover:bg-cyber-cyan hover:text-black transition-all duration-300 shadow-neon-cyan" href="#">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a class="w-10 h-10 border border-cyber-blue/30 flex items-center justify-center text-cyber-blue hover:bg-cyber-blue hover:text-white transition-all duration-300 shadow-neon-blue" href="https://www.facebook.com/profile.php?id=61586083521392">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a class="w-10 h-10 border border-cyber-pink/30 flex items-center justify-center text-cyber-pink hover:bg-cyber-pink hover:text-black transition-all duration-300 shadow-neon-red" href="https://www.instagram.com/binaraweb/">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Links -->
-                <div>
-                    <h4 class="text-white font-display font-bold mb-6 text-lg uppercase tracking-wider border-b border-cyber-blue/30 inline-block pb-1">Navegación</h4>
-                    <ul class="space-y-3 text-sm text-slate-400 font-mono">
-                        <li><a class="hover:text-cyber-blue transition-colors flex items-center gap-2" href="#home"><span class="text-cyber-blue">&gt;</span> Inicio</a></li>
-                        <li><a class="hover:text-cyber-blue transition-colors flex items-center gap-2" href="#services"><span class="text-cyber-blue">&gt;</span> Servicios</a></li>
-                        <li><a class="hover:text-cyber-blue transition-colors flex items-center gap-2" href="#about"><span class="text-cyber-blue">&gt;</span> Nosotros</a></li>
-                        <li><a class="hover:text-cyber-blue transition-colors flex items-center gap-2" href="#technologies"><span class="text-cyber-blue">&gt;</span> Tech Stack</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Contact Info -->
-                <div>
-                    <h4 class="text-white font-display font-bold mb-6 text-lg uppercase tracking-wider border-b border-cyber-blue/30 inline-block pb-1">Contacto</h4>
-                    <ul class="space-y-4 text-sm text-slate-400 font-mono">
-                        <li class="flex items-start gap-3 group">
-                            <div class="mt-1 w-4 h-4 flex items-center justify-center flex-shrink-0 text-cyber-blue"><i class="fas fa-envelope text-xs"></i></div>
-                            <span class="group-hover:text-white transition-colors">binaraweb@gmail.com</span>
-                        </li>
-                        <li class="flex items-center gap-3 group">
-                            <i class="fas fa-phone text-cyber-cyan"></i>
-                            <span class="group-hover:text-white transition-colors">+54 2364727477</span>
-                        </li>
-                        <!--<li class="flex items-center gap-3 group">
-                            <div class="w-4 h-4 flex items-center justify-center flex-shrink-0 text-cyber-pink"><i class="fas fa-map-marker-alt text-xs"></i></div>
-                            <span class="group-hover:text-white transition-colors">Oficina Central</span>
-                        </li>-->
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Copyright -->
-            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 font-mono">
-                <p class="text-xs text-slate-600 uppercase tracking-wider">© 2025 Binaraweb Agency. Todos los derechos reservados.</p>
-                <div class="flex gap-6 text-xs text-slate-500 uppercase">
-                    <!--<a class="hover:text-cyber-blue transition-colors" href="#">Privacidad</a>
-                    <a class="hover:text-cyber-blue transition-colors" href="#">Términos</a>-->
-                </div>
-            </div>
-        </div>
-    </footer>
-    
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="js/main.js"></script>
-</body>
+    <noscript>
+      <div class="noscript">
+        <p><strong>BINARAWEB</strong> — Este sitio necesita JavaScript para mostrar el contenido completo.</p>
+        <p>
+          Escribinos a <a href="mailto:binaraweb@gmail.com">binaraweb@gmail.com</a> o por
+          <a href="https://wa.me/542364727477">WhatsApp</a>.
+        </p>
+      </div>
+    </noscript>
+  </body>
 </html>
