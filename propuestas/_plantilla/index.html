@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Propuesta · BINARAWEB</title>
+    <style>
+      :root {
+        --ink: #0a0a0a;
+        --muted: #565a63;
+        --line: #e3e3df;
+        --accent: #0b6bcb;
+        --paper: #ffffff;
+        --soft: #f4f4f1;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 40px 20px 72px;
+        background: var(--soft);
+        color: var(--ink);
+        font-family: "Manrope", "Manrope Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+        font-size: 15px;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .doc {
+        width: min(820px, 100%);
+        margin: 0 auto;
+        padding: 56px 56px 48px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--paper);
+      }
+
+      .top {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 24px;
+        align-items: baseline;
+        justify-content: space-between;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .brand {
+        font-family: "Sora", "Sora Variable", system-ui, sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+      }
+
+      .brand small {
+        display: block;
+        margin-top: 2px;
+        color: var(--muted);
+        font-family: inherit;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+      }
+
+      .meta {
+        color: var(--muted);
+        font-size: 13px;
+        text-align: right;
+      }
+
+      h1 {
+        margin: 40px 0 8px;
+        font-family: "Sora", "Sora Variable", system-ui, sans-serif;
+        font-size: 34px;
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+      }
+
+      .client {
+        margin: 0 0 40px;
+        color: var(--muted);
+        font-size: 17px;
+      }
+
+      h2 {
+        margin: 36px 0 12px;
+        padding-top: 20px;
+        border-top: 1px solid var(--line);
+        font-family: "Sora", "Sora Variable", system-ui, sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      p {
+        margin: 0 0 12px;
+      }
+
+      ul {
+        margin: 0 0 12px;
+        padding-left: 0;
+        list-style: none;
+      }
+
+      li {
+        position: relative;
+        margin-bottom: 6px;
+        padding-left: 20px;
+      }
+
+      li::before {
+        content: "";
+        position: absolute;
+        top: 0.65em;
+        left: 0;
+        width: 6px;
+        height: 6px;
+        border-radius: 1px;
+        background: var(--accent);
+      }
+
+      table {
+        width: 100%;
+        margin: 8px 0 12px;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      td.amount {
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+      }
+
+      tfoot td {
+        border-bottom: 0;
+        font-weight: 700;
+      }
+
+      .note {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .cta {
+        margin-top: 36px;
+        padding: 20px 22px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--soft);
+      }
+
+      .cta p {
+        margin: 0;
+      }
+
+      .print {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        padding: 12px 18px;
+        border: 0;
+        border-radius: 10px;
+        background: var(--ink);
+        color: #fff;
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      @media print {
+        body {
+          padding: 0;
+          background: #fff;
+          font-size: 11.5pt;
+        }
+
+        .doc {
+          width: 100%;
+          padding: 0;
+          border: 0;
+          border-radius: 0;
+        }
+
+        .print {
+          display: none;
+        }
+
+        h2 {
+          page-break-after: avoid;
+        }
+
+        table,
+        .cta {
+          page-break-inside: avoid;
+        }
+      }
+
+      @page {
+        size: A4;
+        margin: 18mm 16mm;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="doc">
+      <header class="top">
+        <div class="brand">BINARAWEB<small>Agencia digital</small></div>
+        <div class="meta">
+          Propuesta de sitio web<br />
+          [Mes de 2026]
+        </div>
+      </header>
+
+      <h1>Propuesta de sitio web</h1>
+      <p class="client">Preparada para <strong>[Nombre del cliente]</strong></p>
+
+      <h2>1. Objetivo</h2>
+      <p>
+        [Describí en dos o tres líneas qué necesita el cliente y qué resultado busca: más consultas,
+        presentar un servicio, vender online, ordenar la información, etc.]
+      </p>
+
+      <h2>2. Alcance</h2>
+      <ul>
+        <li>Relevamiento y definición de la arquitectura de contenido.</li>
+        <li>Diseño de la interfaz adaptado a la identidad de la marca.</li>
+        <li>Desarrollo a medida, sin plantillas.</li>
+        <li>Buenas prácticas de SEO técnico, accesibilidad y rendimiento.</li>
+        <li>Publicación y puesta en marcha.</li>
+      </ul>
+
+      <h2>3. Qué incluye</h2>
+      <ul>
+        <li>[Cantidad] secciones o páginas: [detallarlas].</li>
+        <li>Diseño responsive para celular, tablet y escritorio.</li>
+        <li>Formulario de contacto integrado con WhatsApp y correo.</li>
+        <li>Dos rondas de ajustes sobre el diseño aprobado.</li>
+        <li>Acompañamiento durante los primeros 30 días después del lanzamiento.</li>
+      </ul>
+
+      <h2>4. Qué no incluye</h2>
+      <ul>
+        <li>Dominio y hosting (a cargo del cliente; puedo gestionarlos si lo preferís).</li>
+        <li>Redacción de contenidos, salvo que se contrate aparte.</li>
+        <li>Fotografía o producción audiovisual.</li>
+        <li>Campañas de publicidad y gestión de redes.</li>
+      </ul>
+
+      <h2>5. Plazos</h2>
+      <p>
+        El proyecto se desarrolla en [cantidad] semanas desde la aprobación y el anticipo, en etapas
+        con entregas parciales para revisar el avance.
+      </p>
+
+      <h2>6. Inversión</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Concepto</th>
+            <th class="amount">Importe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Diseño y desarrollo del sitio</td>
+            <td class="amount">USD [monto]</td>
+          </tr>
+          <tr>
+            <td>[Opción adicional, ej. versión en inglés]</td>
+            <td class="amount">USD [monto]</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>Total</td>
+            <td class="amount">USD [monto]</td>
+          </tr>
+        </tfoot>
+      </table>
+      <p class="note">
+        Forma de pago: [50 %] al aprobar y [50 %] contra entrega. Precios en dólares estadounidenses,
+        con factura en pesos al tipo de cambio del día.
+      </p>
+
+      <h2>7. Próximos pasos</h2>
+      <ul>
+        <li>Aprobar esta propuesta por escrito.</li>
+        <li>Abonar el anticipo y confirmar el inicio.</li>
+        <li>Reunión de arranque para relevar contenidos y referencias.</li>
+      </ul>
+
+      <section class="cta">
+        <p>
+          ¿Avanzamos? Escribime a
+          <strong><a href="mailto:binaraweb@gmail.com">binaraweb@gmail.com</a></strong> o por
+          <strong><a href="https://wa.me/542364727477">WhatsApp</a></strong>.
+        </p>
+      </section>
+    </main>
+
+    <button class="print" type="button" onclick="window.print()">Imprimir / Guardar PDF</button>
+  </body>
+</html>

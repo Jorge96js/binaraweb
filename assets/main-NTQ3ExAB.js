@@ -1,4 +1,4 @@
-import{S as e,_ as t,a as n,b as r,c as i,d as a,f as o,g as s,h as c,i as l,m as u,n as d,o as f,p,r as m,s as h,t as g,u as _,v,x as y,y as b}from"./theme-B8wJqbpR.js";import{i as x,n as S,r as C,t as w}from"./loader-CJbRkPiY.js";var T=()=>`<span class="browser__dot"></span>`.repeat(3),E=e=>`
+import{S as e,_ as t,a as n,b as r,c as i,d as a,f as o,g as s,h as c,i as l,m as u,n as d,o as f,p,r as m,s as h,t as g,u as _,v,x as y,y as b}from"./theme-BEY4REUM.js";import{i as x,n as S,r as C,t as w}from"./loader-Cob7wS9T.js";var T=()=>`<span class="browser__dot"></span>`.repeat(3),E=e=>`
   <div class="chip chip--${e.modifier} mv" style="--depth: ${e.depth}">
     <b>${e.value}</b>${e.label}
   </div>`;function D(){return`
