@@ -111,9 +111,11 @@ Ninguna librería se carga desde un CDN: los archivos viven en `assets/vendor/`,
 | Qué | Dónde | Por qué |
 |---|---|---|
 | **Dominio** | `_build/generar.py` → `SITIO["dominio"]` | Se usa en `canonical`, Open Graph, JSON-LD y `sitemap.xml`. Con un dominio equivocado, Google indexa la URL incorrecta. |
-| **Email** | `SITIO["email"]` (generador) y `assets/js/sitio.js` si lo cambiás suelto | Hoy es un valor de ejemplo. |
-| **Instagram** | `SITIO["instagram"]` | Hoy apunta a un perfil genérico. |
+| **Instagram** | `SITIO["instagram"]` | Hoy apunta a `@capital.consultores.juridicos`. |
+| **Facebook** | `SITIO["facebook"]` | Hoy apunta a `CapitalConsultoresJuridicos`. Se usa en el pie, en la página de contacto y en el `sameAs` de los datos estructurados. |
 | **Teléfono / WhatsApp** | `_build/generar.py` → `SITIO["whatsapp"]` **y** `assets/js/sitio.js` → `var WHATSAPP` | El número cargado es **5492216424549** (0221 642-4549). Si cambia, hay que tocar los dos archivos. |
+
+> El sitio **no publica correo electrónico**: todo el contacto va por WhatsApp para no exponer una casilla a los bots de spam. Si algún día se suma, se agrega en `SITIO` del generador y en el pie.
 
 Después de editar el generador, volvé a ejecutarlo:
 

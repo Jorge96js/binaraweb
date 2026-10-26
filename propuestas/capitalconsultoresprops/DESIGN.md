@@ -1,4 +1,4 @@
-# Capital Consultores Propiedades — propuesta de sitio
+﻿# Capital Consultores Propiedades — propuesta de sitio
 
 Sitio de captación para una consultora inmobiliaria de La Plata y City Bell.
 Estático, sin frameworks, sin CDN y sin base de datos: se sube a cualquier hosting y
@@ -71,7 +71,7 @@ todas las páginas, y CTA por WhatsApp en el panel de precio de cada ficha.
 
 ## Pendientes del cliente
 
-- Dominio, email e Instagram definitivos (hoy son valores de ejemplo en `_build/generar.py`).
+- Dominio definitivo (hoy el `canonical` apunta al dominio futuro del cliente).
 - Expensas reales de las tres propiedades y aptitud crediticia de la casa.
 - Foto del baño completo con antebaño en Diagonal 77 y de la terraza privada en calle 35.
 

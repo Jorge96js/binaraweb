@@ -32,8 +32,8 @@ SITIO = {
     "dominio": "https://www.capitalconsultorespropiedades.com.ar",
     "telefono_visible": "0221 642-4549",
     "whatsapp": "5492216424549",          # formato internacional, sin + ni guiones
-    "email": "contacto@capitalconsultorespropiedades.com.ar",
-    "instagram": "https://www.instagram.com/capitalconsultores",
+    "instagram": "https://www.instagram.com/capital.consultores.juridicos/",
+    "facebook": "https://www.facebook.com/CapitalConsultoresJuridicos/",
     "zona": "La Plata, Buenos Aires",
     "horarios": "Lunes a viernes de 9 a 18 h · Sábados con cita previa",
     "fecha": date.today().isoformat(),
@@ -409,6 +409,7 @@ I = {
     "flecha": _i("fa-solid fa-arrow-right"),
     "mail": _i("fa-solid fa-envelope"),
     "insta": _i("fa-brands fa-instagram"),
+    "face": _i("fa-brands fa-facebook-f"),
     "reloj": _i("fa-solid fa-clock"),
     "aviso": _i("fa-solid fa-circle-info"),
     "telefono": _i("fa-solid fa-phone"),
@@ -590,8 +591,8 @@ def pie_html(r):
         <h3>Contacto</h3>
         <div class="pie__contacto">
           <a href="%(wa)s" target="_blank" rel="noopener">%(ico_wa)s WhatsApp %(tel)s</a>
-          <a href="mailto:%(mail)s">%(ico_mail)s %(mail)s</a>
           <a href="%(insta)s" target="_blank" rel="noopener">%(ico_ig)s Instagram</a>
+          <a href="%(fb)s" target="_blank" rel="noopener">%(ico_fb)s Facebook</a>
           <span style="display:inline-flex;gap:.6rem;align-items:center">%(ico_pin)s %(zona)s</span>
           <span style="display:inline-flex;gap:.6rem;align-items:center">%(ico_reloj)s %(horarios)s</span>
         </div>
@@ -611,8 +612,9 @@ def pie_html(r):
         "r": r,
         "wa": wa_generico(),
         "tel": e(SITIO["telefono_visible"]),
-        "mail": e(SITIO["email"]),
         "insta": SITIO["instagram"],
+        "fb": SITIO["facebook"],
+        "ico_fb": I["face"],
         "zona": e(SITIO["zona"]),
         "horarios": e(SITIO["horarios"]),
         "nombre": e(SITIO["nombre"]),
@@ -827,7 +829,6 @@ def construir_jsonld_org():
         "name": SITIO["nombre"],
         "url": SITIO["dominio"] + "/",
         "telephone": "+54" + SITIO["whatsapp"][2:],
-        "email": SITIO["email"],
         "image": SITIO["dominio"] + "/assets/img/casa-las-carolinas-city-bell/casa-las-carolinas-city-bell-01-parque-pileta.jpg",
         "priceRange": "USD 100.000 - USD 400.000",
         "areaServed": [
@@ -838,7 +839,7 @@ def construir_jsonld_org():
         "address": {"@type": "PostalAddress", "addressLocality": "La Plata",
                     "addressRegion": "Buenos Aires", "addressCountry": "AR"},
         "openingHours": "Mo-Fr 09:00-18:00",
-        "sameAs": [SITIO["instagram"]],
+        "sameAs": [SITIO["instagram"], SITIO["facebook"]],
     }, {
         "@context": "https://schema.org",
         "@type": "WebSite",
@@ -1427,14 +1428,14 @@ def pagina_contacto():
         <ul style="display:grid;gap:1rem;font-size:.95rem">
           <li style="display:flex;gap:.7rem;align-items:flex-start">%(ico_wa2)s<span><strong>WhatsApp y teléfono</strong><br>
             <a href="%(wa)s" style="color:#5d646d">%(tel)s</a></span></li>
-          <li style="display:flex;gap:.7rem;align-items:flex-start">%(ico_mail)s<span><strong>Email</strong><br>
-            <a href="mailto:%(mail)s" style="color:#5d646d">%(mail)s</a></span></li>
           <li style="display:flex;gap:.7rem;align-items:flex-start">%(ico_pin)s<span><strong>Zona de trabajo</strong><br>
             La Plata y City Bell, Buenos Aires</span></li>
           <li style="display:flex;gap:.7rem;align-items:flex-start">%(ico_reloj)s<span><strong>Horarios</strong><br>
             %(horarios)s</span></li>
           <li style="display:flex;gap:.7rem;align-items:flex-start">%(ico_ig)s<span><strong>Instagram</strong><br>
-            <a href="%(insta)s" target="_blank" rel="noopener" style="color:#5d646d">Seguinos</a></span></li>
+            <a href="%(insta)s" target="_blank" rel="noopener" style="color:#5d646d">@capital.consultores.juridicos</a></span></li>
+          <li style="display:flex;gap:.7rem;align-items:flex-start">%(ico_fb)s<span><strong>Facebook</strong><br>
+            <a href="%(fb)s" target="_blank" rel="noopener" style="color:#5d646d">Capital Consultores Jurídicos</a></span></li>
         </ul>
       </div>
     </div>
@@ -1458,12 +1459,12 @@ def pagina_contacto():
         "wa": wa_generico("hacer una consulta"),
         "wa_venta": wa_generico("pedir una valuación de mi propiedad"),
         "tel": e(SITIO["telefono_visible"]),
-        "mail": e(SITIO["email"]),
         "horarios": e(SITIO["horarios"]),
         "insta": SITIO["instagram"],
+        "fb": SITIO["facebook"],
         "ico_wa": I["whatsapp"],
         "ico_wa2": I["whatsapp"],
-        "ico_mail": I["mail"],
+        "ico_fb": I["face"],
         "ico_pin": I["pin"],
         "ico_reloj": I["reloj"],
         "ico_ig": I["insta"],
@@ -1471,7 +1472,7 @@ def pagina_contacto():
     }
     return pagina(
         "Contacto | Capital Consultores Propiedades La Plata",
-        "Contactanos por WhatsApp al 0221 642-4549 o por email. Atendemos consultas de compra y venta de casas "
+        "Contactanos por WhatsApp al 0221 642-4549. Atendemos consultas de compra y venta de casas "
         "y departamentos en La Plata y City Bell.",
         r, "contacto.html", "contacto", contenido, construir_jsonld_org(),
         SITIO["dominio"] + "/" + FOTOS["departamento-diagonal-77-la-plata"][0]["jpg"])
