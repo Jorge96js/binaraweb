@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sitemap de https://www.binaraweb.com.ar/
+  Generado: 2026-10-26
+
+  Incluye solo páginas públicas e indexables:
+    · Inicio
+    · Productos y herramientas
+
+  Excluidas a propósito:
+    · /propuestas/*  → material de presentación para clientes, bloqueado en robots.txt
+    · /404.html      → página de error, nunca debe indexarse
+  La fecha lastmod corresponde al último commit que modificó cada archivo.
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.binaraweb.com.ar/</loc></url>
-  <url><loc>https://www.binaraweb.com.ar/herramientas.html</loc></url>
+  <url>
+    <loc>https://www.binaraweb.com.ar/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.binaraweb.com.ar/herramientas.html</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
