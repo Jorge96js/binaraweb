@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /_build/
+
+Sitemap: https://www.capitalconsultorespropiedades.com.ar/sitemap.xml
