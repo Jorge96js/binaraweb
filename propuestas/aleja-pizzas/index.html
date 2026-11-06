@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="shell-type" content="web_standard">
+<title>ALEJA · Pizzas Caseras · La Plata</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M7 10 Q31 2 58 15 L34 58 Z' fill='%23ffcc33' stroke='%23b4130d' stroke-width='4' stroke-linejoin='round'/%3E%3Cpath d='M7 10 Q31 2 58 15' fill='none' stroke='%23b4130d' stroke-width='7' stroke-linecap='round'/%3E%3Ccircle cx='27' cy='19' r='3.5' fill='%23b4130d'/%3E%3Ccircle cx='43' cy='25' r='3.5' fill='%23b4130d'/%3E%3Ccircle cx='34' cy='37' r='3.5' fill='%23b4130d'/%3E%3C/svg%3E">
+<meta name="description" content="Pedí pizzas caseras listas para hornear en La Plata. Elegí entre 15 variedades, armá tu pedido y coordiná envío o retiro por WhatsApp.">
+<meta name="keywords" content="pizzas caseras, pizzas para hornear, pizza en La Plata, envío de pizzas, Aleja Pizzas">
+<meta name="robots" content="index, follow">
+<meta name="author" content="ALEJA Pizzas">
+<meta name="theme-color" content="#fff8f6">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="ALEJA · Pizzas Caseras · La Plata">
+<meta property="og:description" content="Elegí tu pizza casera favorita, armá tu pedido y coordiná envío o retiro en La Plata.">
+<meta property="og:site_name" content="ALEJA Pizzas">
+<meta property="og:image" content="https://lh3.googleusercontent.com/aida-public/AB6AXuD5na-HQojjsE8j2srHRk4iBHd9YLp3WkMMsQWeUoHGxKOt2VlusaS8rw5Z8vMvjkL5PvunPsSwzgnOtnKKMYUvhtvra2ik6s6xJ-FnA0DmQDh2y2DRxtn3Gml1CIUHVN1vOfPxOvAa-YVMo-_JUK4KoN78oNWAbVYLEOeTpRaiYCMcaYRSR6vU5BUZS7wyKjSVgVm5hSqRJXL1vX3qBaq6HZZscU0srY4V9U9GHYPb">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ALEJA · Pizzas Caseras · La Plata">
+<meta name="twitter:description" content="Pizzas caseras listas para hornear. Pedidos por WhatsApp en La Plata.">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/aida-public/AB6AXuD5na-HQojjsE8j2srHRk4iBHd9YLp3WkMMsQWeUoHGxKOt2VlusaS8rw5Z8vMvjkL5PvunPsSwzgnOtnKKMYUvhtvra2ik6s6xJ-FnA0DmQDh2y2DRxtn3Gml1CIUHVN1vOfPxOvAa-YVMo-_JUK4KoN78oNWAbVYLEOeTpRaiYCMcaYRSR6vU5BUZS7wyKjSVgVm5hSqRJXL1vX3qBaq6HZZscU0srY4V9U9GHYPb">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FoodEstablishment",
+  "name": "ALEJA Pizzas",
+  "description": "Pizzas caseras listas para hornear, con envío y retiro en La Plata.",
+  "telephone": "+5492215710516",
+  "servesCuisine": "Pizza",
+  "priceRange": "$6.500-$9.500",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "La Plata",
+    "addressRegion": "Buenos Aires",
+    "addressCountry": "AR"
+  },
+  "openingHours": "We-Su 18:00-23:30"
+}
+</script>
+
+<!-- ============================================================
+     FUENTES
+     Se conectan los dominios una sola vez y se cargan todas las
+     fuentes (iconos + tipografías) con display=swap para evitar
+     bloqueo del render.
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Iconos Material Symbols (un único pedido, con todos los ejes variables usados, incl. FILL para las estrellas) -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+<!-- Tipografías: Nunito Sans (cuerpo) y Rubik (títulos / etiquetas) -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,700;1,6..12,400&family=Rubik:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&display=swap">
+
+<!-- ============================================================
+     ESTILOS BASE
+     ============================================================ -->
+<style>
+
+  @layer base {
+    html, body { scroll-behavior: smooth; margin: 0; padding: 0; }
+    body { overscroll-behavior: none; }
+    main > :first-child { margin-top: 0 !important; }
+    main > :last-child  { margin-bottom: 0 !important; }
+  }
+  @keyframes skeleton-shimmer {
+    100% { background-position: -200% 0; }
+  }
+  .skeleton-shimmer {
+    background: linear-gradient(90deg, #f3e5e0 25%, #fff8f6 50%, #f3e5e0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.4s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .skeleton-shimmer { animation: none; }
+  }
+  /* Oculta la barra de scroll (WebKit) */
+  ::-webkit-scrollbar { display: none; }
+</style>
+
+<!-- ============================================================
+     TAILWIND (CDN) + CONFIGURACIÓN DEL TEMA
+     Paleta Material 3 (rojo arcilla / ámbar / verde), radios,
+     espaciados y escala tipográfica del sitio.
+     ============================================================ -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "on-error-container": "#93000a",
+        "tertiary-fixed-dim": "#3de273",
+        "on-tertiary-fixed-variant": "#005322",
+        "secondary-container": "#fea619",
+        "surface": "#fff8f6",
+        "surface-container-high": "#ffe2d8",
+        "outline": "#906f6a",
+        "surface-variant": "#ffdbcd",
+        "inverse-primary": "#ffb4a9",
+        "tertiary": "#00682d",
+        "surface-tint": "#bb1912",
+        "on-tertiary-fixed": "#002109",
+        "surface-dim": "#f6d2c5",
+        "on-tertiary-container": "#e7ffe5",
+        "surface-container": "#ffe9e2",
+        "on-secondary-container": "#684000",
+        "on-secondary-fixed": "#2a1700",
+        "on-tertiary": "#ffffff",
+        "surface-container-low": "#fff1ec",
+        "on-primary-fixed": "#410000",
+        "on-primary": "#ffffff",
+        "secondary": "#855300",
+        "secondary-fixed-dim": "#ffb95f",
+        "surface-container-highest": "#ffdbcd",
+        "on-primary-fixed-variant": "#930002",
+        "on-background": "#2a170f",
+        "surface-container-lowest": "#ffffff",
+        "on-secondary-fixed-variant": "#653e00",
+        "on-surface-variant": "#5c403c",
+        "on-error": "#ffffff",
+        "primary": "#b4130d",
+        "error-container": "#ffdad6",
+        "inverse-surface": "#412b22",
+        "primary-fixed-dim": "#ffb4a9",
+        "on-primary-container": "#fff7f6",
+        "surface-bright": "#fff8f6",
+        "secondary-fixed": "#ffddb8",
+        "tertiary-container": "#00843a",
+        "on-surface": "#2a170f",
+        "on-secondary": "#ffffff",
+        "background": "#fff8f6",
+        "primary-container": "#d83124",
+        "tertiary-fixed": "#66ff8e",
+        "error": "#ba1a1a",
+        "outline-variant": "#e5beb8",
+        "inverse-on-surface": "#ffede7",
+        "primary-fixed": "#ffdad5"
+      },
+      borderRadius: { DEFAULT: "1rem", lg: "2rem", xl: "3rem", full: "9999px" },
+      spacing: {
+        "space-lg": "1.25rem", "space-xl": "2rem", gutter: "1rem",
+        "space-sm": "0.5rem", "space-md": "0.875rem", "space-xs": "0.25rem",
+        margin: "1rem"
+      },
+      fontFamily: {
+        "headline-lg": ["Rubik"], "body-lg": ["Nunito Sans"], "label-sm": ["Rubik"],
+        "headline-lg-mobile": ["Rubik"], "body-sm": ["Nunito Sans"],
+        "headline-xl-mobile": ["Rubik"], "headline-md": ["Rubik"], "label-md": ["Rubik"],
+        "headline-xl": ["Rubik"], "headline-sm": ["Rubik"], "body-md": ["Nunito Sans"],
+        "label-lg": ["Rubik"]
+      },
+      fontSize: {
+        "headline-lg": ["28px", { lineHeight: "36px", fontWeight: "700" }],
+        "body-lg": ["17px", { lineHeight: "26px", fontWeight: "500" }],
+        "label-sm": ["11px", { lineHeight: "14px", fontWeight: "700" }],
+        "headline-lg-mobile": ["22px", { lineHeight: "28px", fontWeight: "700" }],
+        "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+        "headline-xl-mobile": ["30px", { lineHeight: "36px", fontWeight: "800" }],
+        "headline-md": ["20px", { lineHeight: "26px", fontWeight: "700" }],
+        "label-md": ["13px", { lineHeight: "16px", fontWeight: "700" }],
+        "headline-xl": ["40px", { lineHeight: "48px", fontWeight: "800" }],
+        "headline-sm": ["17px", { lineHeight: "22px", fontWeight: "600" }],
+        "body-md": ["15px", { lineHeight: "22px", fontWeight: "400" }],
+        "label-lg": ["16px", { lineHeight: "20px", fontWeight: "700" }]
+      }
+    }
+  }
+};
+</script>
+</head>
+
+<body class="bg-surface text-on-surface font-body-md text-body-md">
+
+<!-- ============================================================
+     DEFINICIONES SVG REUTILIZABLES (no se renderizan)
+     Los dos dibujos de fondo se declaran UNA sola vez como <symbol>
+     y se instancian 4 veces con <use>, evitando duplicar los paths.
+       · #bg-slice : rebanada de pizza con pepperoni (viewBox 486.528)
+       · #bg-pizza : pizza entera con pepperoni      (viewBox 206.917)
+     El color se hereda de "currentColor" (text-primary).
+     ============================================================ -->
+<svg width="0" height="0" class="absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- Rebanada de pizza -->
+    <symbol id="bg-slice" viewBox="0 0 486.528 486.528">
+      <path d="M471.628 61.227C402.251 21.172 323.474 0 243.813 0 163.666 0 84.595 21.148 15.148 61.157L1.909 68.869l7.851 12.981 233.641 404.678L484.618 68.727l-12.99-7.5zM183.196 322.251l-24.941-43.199a25.4 25.4 0 0 1 17.014-6.528c14.06 0 25.497 11.438 25.497 25.498 0 10.791-7.381 20.386-17.57 23.729zm15.142 26.226c19.114-8.775 32.428-28.084 32.428-50.456 0-30.602-24.896-55.498-55.497-55.498-11.682 0-22.896 3.72-32.157 10.298L73.297 131.9c52.249-27.274 110.734-41.637 170.106-41.637 59.409 0 117.883 14.38 170.072 41.687L243.401 426.528l-45.063-78.051zM428.488 105.948c-56.75-29.923-120.414-45.685-185.084-45.685-64.633 0-128.307 15.744-185.119 45.633L43.267 79.885C104.914 47.207 173.926 30 243.813 30c69.425 0 138.146 17.225 199.693 49.936l-15.018 26.012z"/>
+      <path d="M293.389 120.543c-30.602 0-55.498 24.896-55.498 55.498 0 30.602 24.896 55.498 55.498 55.498s55.498-24.896 55.498-55.498c0-30.602-24.897-55.498-55.498-55.498zm0 80.996c-14.06 0-25.498-11.438-25.498-25.498s11.438-25.498 25.498-25.498 25.498 11.438 25.498 25.498-11.439 25.498-25.498 25.498z"/>
+      <rect x="151.978" y="137.11" width="30" height="40"/>
+      <rect x="259.828" y="253.511" width="30" height="40"/>
+    </symbol>
+
+    <!-- Pizza entera -->
+    <symbol id="bg-pizza" viewBox="0 0 206.917 206.917">
+      <path d="M176.614 30.278c-40.337-40.341-105.973-40.341-146.31 0C3.646 56.936-6.401 96.018 4.083 132.267c.283.981.96 1.801 1.869 2.266.909.462 1.97.538 2.932.184l98.891-35.6-35.602 98.89c-.347.96-.278 2.021.186 2.93s1.283 1.588 2.264 1.873c9.497 2.746 19.182 4.085 28.793 4.085 27.077 0 53.524-10.63 73.198-30.306 19.541-19.539 30.303-45.519 30.303-73.155s-10.762-53.616-30.303-73.155zM117.388 94.235c.485-1.345.148-2.853-.865-3.864-1.014-1.01-2.517-1.349-3.865-.862L31.202 118.83c-5.158-24.352 2.31-49.956 20.004-67.653 28.811-28.809 75.695-28.813 104.51 0 28.813 28.813 28.813 75.699 0 104.511-17.891 17.891-43.011 25.243-67.649 19.993l29.321-61.446zM171.39 171.364c-23.826 23.822-58.334 33.359-90.901 25.366l5.052-14.032c6.056 1.368 12.14 2.071 18.166 2.071 21.246 0 41.714-8.335 57.233-23.855 31.693-31.695 31.693-83.266 0-114.961-31.695-31.695-83.264-31.695-114.959 0-19.702 19.702-27.864 48.321-21.775 75.396l-14.043 5.055C2.17 93.835 11.707 59.329 35.529 35.503c37.462-37.454 98.406-37.451 135.86 0 18.144 18.146 28.138 42.268 28.138 67.93s-9.993 49.784-28.137 67.931z"/>
+      <path d="M92.312 114.583c-1.01-1.01-2.513-1.36-3.856-.866L3.107 144.196c-1.9.678-2.903 2.753-2.257 4.666.24.707 6.074 17.547 22.853 34.329 16.78 16.779 33.619 22.61 34.328 22.852.393.133.792.195 1.185.195 1.519 0 2.941-.942 3.48-2.454l30.483-85.347c.484-1.347.147-2.848-.863-3.858zM57.038 197.657c-5.494-2.475-16.891-8.472-28.111-19.691-11.22-11.222-17.217-22.621-19.692-28.112l10.221-3.651c3.511 9.458 8.856 17.943 16.073 25.16 7.218 7.215 15.702 12.565 25.158 16.076l-3.649 10.218zm6.132-17.17c-8.419-3.143-15.98-7.915-22.416-14.348-6.435-6.435-11.204-13.994-14.346-22.417l57.187-20.424-20.425 57.189z"/>
+      <path d="M77.333 40.728c-7.202 7.202-7.202 18.926 0 26.128 3.601 3.601 8.332 5.402 13.062 5.402 4.732 0 9.463-1.801 13.064-5.402 7.202-7.202 7.202-18.926 0-26.128-7.202-7.202-18.923-7.198-26.126 0zm20.901 20.903c-4.323 4.319-11.354 4.323-15.676 0-4.321-4.323-4.321-11.355 0-15.678 4.319-4.323 11.35-4.326 15.676 0 4.322 4.323 4.322 11.355 0 15.678z"/>
+      <path d="M126.975 161.097c4.934 0 9.573-1.923 13.062-5.412 3.489-3.489 5.411-8.126 5.411-13.062s-1.921-9.573-5.411-13.062c-3.489-3.489-8.128-5.412-13.062-5.412-4.936 0-9.575 1.923-13.064 5.412-3.489 3.489-5.411 8.126-5.411 13.062 0 4.936 1.921 9.573 5.411 13.062 3.489 3.489 8.128 5.412 13.064 5.412zm-7.839-26.311c2.095-2.093 4.877-3.247 7.839-3.247 2.961 0 5.743 1.155 7.837 3.247 2.093 2.093 3.246 4.875 3.246 7.837 0 2.963-1.153 5.744-3.246 7.837-4.191 4.186-11.489 4.186-15.676 0-2.093-2.093-3.246-4.875-3.246-7.837 0-2.962 1.153-5.744 3.246-7.837z"/>
+      <path d="M134.812 103.433c3.603 3.601 8.332 5.402 13.064 5.402 4.731 0 9.463-1.801 13.064-5.402 7.202-7.202 7.202-18.926 0-26.128-7.204-7.202-18.924-7.202-26.128 0-7.202 7.203-7.202 18.926 0 26.128zm5.225-20.903c4.323-4.319 11.355-4.316 15.678 0 4.321 4.323 4.321 11.355 0 15.678-4.323 4.312-11.355 4.316-15.678 0-4.321-4.322-4.321-11.355 0-15.678z"/>
+      <path d="M60.849 67.7c-3.901.39-11.371 3.76-11.734 13.708-.074 2.039 1.519 3.753 3.558 3.825.047.004.092.004.137.004 1.979 0 3.617-1.566 3.691-3.562.202-5.542 3.965-6.473 5.127-6.625 2.008-.227 3.468-2.024 3.266-4.041-.202-2.027-2.017-3.481-4.045-3.309z"/>
+      <path d="M128.117 73.04c.837 0 1.678-.282 2.369-.862 1.566-1.31 1.774-3.637.464-5.203-3.558-4.251-1.386-7.459-.623-8.353 1.342-1.508 1.223-3.821-.276-5.185-1.506-1.378-3.848-1.263-5.219.245-2.638 2.898-5.939 10.399.449 18.035.731.873 1.781 1.323 2.836 1.323z"/>
+      <path d="M159.067 123.936c1.342-1.512 1.223-3.825-.276-5.189-1.506-1.367-3.846-1.256-5.219.249-2.638 2.901-5.939 10.403.449 18.038.731.873 1.781 1.324 2.836 1.324.837 0 1.678-.282 2.369-.862 1.566-1.31 1.774-3.637.464-5.203-3.558-4.251-1.382-7.462-.623-8.357z"/>
+      <path d="M45.918 155.422c1.402.754 3.563 1.429 6.031 1.429 3.612 0 7.879-1.451 11.363-6.231 1.202-1.649.839-3.958-.81-5.163-1.653-1.198-3.958-.834-5.162.812-3.269 4.482-6.908 3.15-7.958 2.627-1.79-.949-4.007-.263-4.965 1.523-.949 1.795-.278 4.036 1.521 5.003z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============================================================
+     FONDO DECORATIVO
+     4 figuras fijas (no interactivas) con baja opacidad:
+     rebanada / pizza entera, alternadas en las esquinas.
+     ============================================================ -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+  <!-- Rebanada · superior izquierda -->
+  <div class="absolute -left-12 top-24 select-none pointer-events-none transform -rotate-12 transition-transform duration-500">
+    <svg class="w-64 h-64 text-primary opacity-[0.04]" fill="currentColor"><use href="#bg-slice"/></svg>
+  </div>
+  <!-- Pizza entera · derecha media -->
+  <div class="absolute -right-16 top-64 select-none pointer-events-none transform rotate-12">
+    <svg class="w-72 h-72 text-primary opacity-[0.04]" fill="currentColor"><use href="#bg-pizza"/></svg>
+  </div>
+  <!-- Rebanada · inferior izquierda -->
+
+  <!-- Pizza entera · inferior derecha -->
+
+</div>
+
+<!-- ============================================================
+     HEADER FIJO
+     Logo + ubicación + navegación (desktop) + botón WhatsApp
+     ============================================================ -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_4px_20px_rgba(180,19,13,0.06)]">
+  <div class="h-20 max-w-[960px] mx-auto px-margin flex items-center justify-between gap-space-md">
+
+    <!-- Logo + etiqueta de zona -->
+    <div class="flex items-center gap-space-md">
+      <a class="flex items-center gap-space-sm group" data-path="catalogo-de-pizzas" href="#">
+        <svg class="h-9 w-9 shrink-0 text-primary" viewBox="0 0 486.528 486.528" fill="currentColor" aria-hidden="true" focusable="false">
+          <use href="#bg-slice"></use>
+        </svg>
+        <div class="flex flex-col">
+          <span class="font-headline-md text-headline-md text-primary tracking-tight leading-none">ALEJA</span>
+          <span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-bold">Pizzas para Hornear</span>
+        </div>
+      </a>
+      <div class="hidden xl:flex items-center gap-space-xs bg-surface-container px-space-md py-space-xs rounded-full shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]">
+        <span class="material-symbols-outlined text-primary text-[16px]">location_on</span>
+        <span class="font-label-sm text-label-sm text-on-surface-variant font-bold">La Plata · Envíos y Take Away</span>
+      </div>
+    </div>
+
+    <!-- Navegación principal (desktop) -->
+    <nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container rounded-full font-bold">
+      <a class="px-space-md py-space-xs rounded-full text-on-surface hover:text-primary font-label-md text-label-md font-bold transition-colors" href="#catalogo">Catálogo</a>
+      <a class="px-space-md py-space-xs rounded-full text-on-surface-variant hover:text-primary font-label-md text-label-md font-medium transition-colors" data-path="como-hornear" href="#como-hornear">Hornear</a>
+      <a class="px-space-md py-space-xs rounded-full text-on-surface-variant hover:text-primary font-label-md text-label-md font-medium transition-colors" data-path="opiniones" href="#opiniones">Opiniones</a>
+      <a class="px-space-md py-space-xs rounded-full text-on-surface-variant hover:text-primary font-label-md text-label-md font-medium transition-colors" data-path="contacto" href="#contacto">Contacto</a>
+    </nav>
+
+    <!-- Acciones del encabezado -->
+    <div class="flex items-center gap-space-xs">
+      <a class="flex items-center gap-space-xs bg-tertiary-container text-on-tertiary px-space-md py-space-sm rounded-full font-label-md text-label-md shadow-[0_3px_0_#005322,0_6px_12px_rgba(0,104,45,0.2)] hover:bg-tertiary transition-all active:translate-y-0.5 active:shadow-none" href="https://wa.me/5492215710516" rel="noopener noreferrer" target="_blank">
+        <span class="material-symbols-outlined text-[18px]">chat</span>
+        <span class="hidden sm:inline font-bold">WhatsApp</span>
+      </a>
+      <button id="mobile-menu-toggle" type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-surface-container text-primary hover:bg-surface-container-high focus:outline-none focus:ring-2 focus:ring-primary lg:hidden" aria-label="Abrir menú de navegación" aria-controls="mobile-navigation" aria-expanded="false">
+        <span id="mobile-menu-icon" class="material-symbols-outlined" aria-hidden="true">menu</span>
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-navigation" class="absolute left-0 top-full hidden w-full border-t border-outline-variant/50 bg-surface/95 px-margin py-space-sm shadow-[0_12px_20px_rgba(42,23,15,0.12)] backdrop-blur-xl lg:hidden" aria-label="Navegación móvil">
+    <a class="block rounded-lg px-space-md py-space-md font-label-md text-label-md font-bold text-on-surface hover:bg-surface-container" href="#catalogo">Catálogo</a>
+    <a class="block rounded-lg px-space-md py-space-md font-label-md text-label-md font-bold text-on-surface hover:bg-surface-container" href="#como-hornear">Cómo hornear</a>
+    <a class="block rounded-lg px-space-md py-space-md font-label-md text-label-md font-bold text-on-surface hover:bg-surface-container" href="#opiniones">Opiniones</a>
+    <a class="block rounded-lg px-space-md py-space-md font-label-md text-label-md font-bold text-on-surface hover:bg-surface-container" href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<!-- ============================================================
+     CONTENIDO PRINCIPAL
+     ============================================================ -->
+<main class="relative z-10 w-full pt-20 bg-transparent min-h-[calc(100vh-80px)]">
+  <div class="flex flex-col w-full">
+
+    <!-- ---------- 1. Barra de aviso superior ---------- -->
+    <div class="w-full bg-secondary-container text-on-secondary-container shadow-sm py-2 px-margin">
+      <div class="max-w-[960px] mx-auto flex items-center justify-between gap-space-sm text-center">
+        <div class="flex items-center gap-space-xs mx-auto font-label-md text-label-md font-bold tracking-wide">
+          <span class="material-symbols-outlined text-[18px] text-primary">local_fire_department</span>
+          <span>¡NUEVO EN LA PLATA! HORNEÁ CALENTITO EN 12 MINUTOS · PEDÍ POR WHATSAPP AL</span>
+          <a class="underline hover:text-on-secondary ml-1 inline-flex items-center gap-0.5" href="https://wa.me/5492215710516" rel="noopener noreferrer" target="_blank">
+            221 571-0516
+            <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenedor central (ancho máx. 960px) -->
+    <div class="max-w-[960px] mx-auto w-full px-margin py-space-xl flex flex-col gap-space-xl">
+
+      <!-- ---------- 2. HERO (2 columnas en desktop: 7 + 5) ---------- -->
+      <section class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center bg-surface-container-low rounded-xl p-space-xl shadow-[0_8px_24px_rgba(180,19,13,0.05)] relative overflow-hidden">
+
+        <!-- Brillos decorativos de fondo -->
+        <div class="absolute -top-24 -left-24 w-80 h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-20 -right-20 w-96 h-96 bg-secondary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Columna izquierda: textos y CTAs -->
+        <div class="lg:col-span-7 flex flex-col gap-space-md z-10">
+
+          <!-- Badges: zona y tiempo de horno -->
+          <div class="flex flex-wrap items-center gap-space-xs">
+            <div class="inline-flex items-center gap-space-xs bg-surface-container-high px-space-md py-1 rounded-full shadow-sm text-primary">
+              <span class="material-symbols-outlined text-[16px]">location_on</span>
+              <span class="font-label-sm text-label-sm font-bold tracking-tight">La Plata</span>
+            </div>
+            <div class="inline-flex items-center gap-space-xs bg-secondary-fixed text-on-secondary-fixed px-space-md py-1 rounded-full shadow-sm">
+              <span class="material-symbols-outlined text-[16px]">timer</span>
+              <span class="font-label-sm text-label-sm font-bold">12 min al horno</span>
+            </div>
+          </div>
+
+          <!-- Título principal -->
+          <div class="flex flex-col gap-1">
+            <h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight leading-tight">
+              Pizzas Caseras <br class="hidden sm:inline">
+              <span class="text-primary underline decoration-secondary-container decoration-4 underline-offset-4">Listas para Hornear</span>
+            </h1>
+          </div>
+
+          <!-- Bajada -->
+          <p class="font-headline-sm text-headline-sm text-on-surface-variant font-semibold">
+            Hechas en casa. Al horno 12 min. Directo de tu freezer.
+          </p>
+
+          <!-- Píldoras de valor -->
+          <div class="flex flex-wrap gap-space-xs pt-1">
+            <span class="bg-surface-container-lowest text-on-surface-variant px-space-sm py-1 rounded-full font-label-sm text-label-sm shadow-[0_2px_4px_rgba(42,23,15,0.04)] flex items-center gap-1 font-semibold">❄️ Sin descongelar</span>
+            <span class="bg-surface-container-lowest text-on-surface-variant px-space-sm py-1 rounded-full font-label-sm text-label-sm shadow-[0_2px_4px_rgba(42,23,15,0.04)] flex items-center gap-1 font-semibold">🍕 Piso crocante</span>
+            <span class="bg-surface-container-lowest text-on-surface-variant px-space-sm py-1 rounded-full font-label-sm text-label-sm shadow-[0_2px_4px_rgba(42,23,15,0.04)] flex items-center gap-1 font-semibold">🔥 100% Caseras</span>
+          </div>
+
+          <!-- Llamados a la acción -->
+          <div class="flex flex-row items-center gap-space-sm pt-space-xs">
+            <a class="flex items-center justify-center gap-space-xs bg-tertiary-container hover:bg-tertiary text-on-tertiary px-space-xl py-space-sm rounded-full font-label-md text-label-md shadow-[0_4px_0_#005322,0_8px_16px_rgba(0,104,45,0.25)] transition-all active:translate-y-1 active:shadow-none text-center font-bold" href="#catalogo">
+              <span class="material-symbols-outlined text-[18px]">chat</span>
+              <span>Elegir pizzas</span>
+            </a>
+            <a class="flex items-center justify-center gap-space-xs bg-surface-container-high hover:bg-surface-container-highest text-primary px-space-lg py-space-sm rounded-full font-label-md text-label-md shadow-[0_2px_6px_rgba(180,19,13,0.08)] transition-all text-center font-bold" href="#catalogo">
+              <span class="material-symbols-outlined text-[18px]">restaurant_menu</span>
+              <span>Ver Catálogo</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna derecha: foto destacada -->
+        <div class="lg:col-span-5 relative z-10">
+          <div class="relative bg-surface-container-lowest p-space-sm rounded-xl shadow-[0_12px_28px_rgba(180,19,13,0.12)]">
+            <div class="relative overflow-hidden rounded-lg aspect-square">
+              <!-- Imagen principal del hero: carga prioritaria (visible al abrir la página) -->
+              <img class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500" alt="Pizza casera recién salida del horno con muzzarella, salsa de tomate, orégano y aceitunas" fetchpriority="high" decoding="async" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5na-HQojjsE8j2srHRk4iBHd9YLp3WkMMsQWeUoHGxKOt2VlusaS8rw5Z8vMvjkL5PvunPsSwzgnOtnKKMYUvhtvra2ik6s6xJ-FnA0DmQDh2y2DRxtn3Gml1CIUHVN1vOfPxOvAa-YVMo-_JUK4KoN78oNWAbVYLEOeTpRaiYCMcaYRSR6vU5BUZS7wyKjSVgVm5hSqRJXL1vX3qBaq6HZZscU0srY4V9U9GHYPb">
+
+              <!-- Badge flotante superior derecho -->
+              <div class="absolute top-space-sm right-space-sm bg-primary text-on-primary px-space-md py-1 rounded-full font-label-sm text-label-sm shadow-[0_3px_0_#930002,0_6px_12px_rgba(180,19,13,0.3)] flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px]">local_fire_department</span>
+                <span>Horneá en 12 min</span>
+              </div>
+              <!-- Badge flotante inferior izquierdo -->
+              <div class="absolute bottom-space-sm left-space-sm bg-surface/95 backdrop-blur-md text-on-surface px-space-md py-1 rounded-full font-label-sm text-label-sm shadow-md flex items-center gap-1 font-bold">
+                <span class="material-symbols-outlined text-secondary text-[16px]">straighten</span>
+                <span>Molde 32cm · 8 porciones</span>
+              </div>
+            </div>
+
+            <!-- Franja de detalle bajo la foto -->
+            <div class="px-space-sm pt-space-sm pb-space-xs flex items-center justify-between">
+              <div class="flex items-center gap-space-xs text-on-surface">
+                <span class="material-symbols-outlined text-tertiary-container text-[20px]">check_circle</span>
+                <span class="font-label-sm text-label-sm font-bold">Envasado al Vacío Termoformado</span>
+              </div>
+              <span class="font-body-sm text-body-sm text-on-surface-variant">Dura 90 días en freezer</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- 3. MENÚ ---------- -->
+      <section class="flex flex-col gap-space-lg pt-space-sm" id="catalogo">
+        <div class="flex flex-col gap-space-xs">
+          <div class="flex items-center gap-space-xs text-primary">
+            <svg class="h-7 w-7 shrink-0" viewBox="0 0 486.528 486.528" fill="currentColor" aria-hidden="true" focusable="false">
+              <use href="#bg-slice"></use>
+            </svg>
+            <span class="font-label-md text-label-md uppercase tracking-wider font-bold">Nuestras Variedades</span>
+          </div>
+          <h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Menú – 100% Caseras</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant">Sumá tus pizzas al carrito y revisá el pedido antes de enviarlo.</p>
+        </div>
+
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-md" aria-busy="true" aria-label="Cargando menú">
+          <div class="overflow-hidden rounded-[0.5rem] border border-outline-variant/50 bg-surface-container-lowest p-space-sm" aria-hidden="true"><div class="skeleton-shimmer h-40 rounded-[0.375rem] sm:h-44"></div><div class="flex flex-col gap-space-sm py-space-md"><div class="skeleton-shimmer h-5 w-3/4 rounded"></div><div class="skeleton-shimmer h-4 w-1/2 rounded"></div><div class="skeleton-shimmer mt-2 h-10 w-full rounded-full"></div></div></div>
+          <div class="overflow-hidden rounded-[0.5rem] border border-outline-variant/50 bg-surface-container-lowest p-space-sm" aria-hidden="true"><div class="skeleton-shimmer h-40 rounded-[0.375rem] sm:h-44"></div><div class="flex flex-col gap-space-sm py-space-md"><div class="skeleton-shimmer h-5 w-2/3 rounded"></div><div class="skeleton-shimmer h-4 w-1/2 rounded"></div><div class="skeleton-shimmer mt-2 h-10 w-full rounded-full"></div></div></div>
+          <div class="overflow-hidden rounded-[0.5rem] border border-outline-variant/50 bg-surface-container-lowest p-space-sm" aria-hidden="true"><div class="skeleton-shimmer h-40 rounded-[0.375rem] sm:h-44"></div><div class="flex flex-col gap-space-sm py-space-md"><div class="skeleton-shimmer h-5 w-1/2 rounded"></div><div class="skeleton-shimmer h-4 w-2/3 rounded"></div><div class="skeleton-shimmer mt-2 h-10 w-full rounded-full"></div></div></div>
+          <div class="overflow-hidden rounded-[0.5rem] border border-outline-variant/50 bg-surface-container-lowest p-space-sm" aria-hidden="true"><div class="skeleton-shimmer h-40 rounded-[0.375rem] sm:h-44"></div><div class="flex flex-col gap-space-sm py-space-md"><div class="skeleton-shimmer h-5 w-3/4 rounded"></div><div class="skeleton-shimmer h-4 w-1/2 rounded"></div><div class="skeleton-shimmer mt-2 h-10 w-full rounded-full"></div></div></div>
+          <div class="overflow-hidden rounded-[0.5rem] border border-outline-variant/50 bg-surface-container-lowest p-space-sm" aria-hidden="true"><div class="skeleton-shimmer h-40 rounded-[0.375rem] sm:h-44"></div><div class="flex flex-col gap-space-sm py-space-md"><div class="skeleton-shimmer h-5 w-2/3 rounded"></div><div class="skeleton-shimmer h-4 w-1/2 rounded"></div><div class="skeleton-shimmer mt-2 h-10 w-full rounded-full"></div></div></div>
+          <div class="overflow-hidden rounded-[0.5rem] border border-outline-variant/50 bg-surface-container-lowest p-space-sm" aria-hidden="true"><div class="skeleton-shimmer h-40 rounded-[0.375rem] sm:h-44"></div><div class="flex flex-col gap-space-sm py-space-md"><div class="skeleton-shimmer h-5 w-1/2 rounded"></div><div class="skeleton-shimmer h-4 w-2/3 rounded"></div><div class="skeleton-shimmer mt-2 h-10 w-full rounded-full"></div></div></div>
+        </div>
+
+        <section id="pedido" class="scroll-mt-24 bg-surface-container-lowest rounded-xl p-space-lg md:p-space-xl shadow-[0_6px_20px_rgba(180,19,13,0.07)]">
+          <div class="flex flex-col gap-space-xs mb-space-lg">
+            <h3 class="font-headline-lg text-headline-lg text-on-surface">Tu pedido</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Revisá las cantidades y completá tus datos para armar el mensaje de WhatsApp.</p>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-space-xl">
+            <div>
+              <ul id="cart-items" class="flex flex-col divide-y divide-[#f3e2dd]" aria-live="polite"></ul>
+              <p id="cart-empty" class="rounded-lg bg-surface-container-low p-space-md font-body-sm text-body-sm text-on-surface-variant">Todavía no agregaste productos. Elegí tus pizzas del menú.</p>
+              <div class="flex items-center justify-between border-t border-outline-variant pt-space-md mt-space-md">
+                <span class="font-headline-sm text-headline-sm font-bold">Subtotal de productos</span>
+                <span id="cart-total" class="font-headline-md text-headline-md text-primary font-extrabold">$0</span>
+              </div>
+              <p class="mt-space-xs font-body-sm text-body-sm text-on-surface-variant">El costo de envío, si corresponde, se confirma por WhatsApp.</p>
+            </div>
+
+            <form id="checkout-form" class="flex flex-col gap-space-md">
+              <label class="flex flex-col gap-space-xs font-label-md text-label-md font-semibold" for="customer-name">
+                Tu nombre *
+                <input id="customer-name" name="name" type="text" autocomplete="name" required class="w-full rounded-lg border border-outline-variant bg-white px-space-md py-space-sm font-body-md text-body-md font-normal focus:outline-none focus:ring-2 focus:ring-primary" placeholder="¿A nombre de quién?">
+              </label>
+              <label class="flex flex-col gap-space-xs font-label-md text-label-md font-semibold" for="delivery-method">
+                ¿Cómo lo recibís? *
+                <select id="delivery-method" name="delivery" required class="w-full rounded-lg border border-outline-variant bg-white px-space-md py-space-sm font-body-md text-body-md font-normal focus:outline-none focus:ring-2 focus:ring-primary">
+                  <option value="">Elegí una opción</option>
+                  <option value="Envío a domicilio">Envío a domicilio</option>
+                  <option value="Retiro por punto de entrega">Retiro por punto de entrega</option>
+                </select>
+              </label>
+              <label id="address-field" class="hidden flex-col gap-space-xs font-label-md text-label-md font-semibold" for="delivery-address">
+                Dirección y localidad *
+                <input id="delivery-address" name="address" type="text" autocomplete="street-address" class="w-full rounded-lg border border-outline-variant bg-white px-space-md py-space-sm font-body-md text-body-md font-normal focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Calle, altura y localidad">
+              </label>
+              <label class="flex flex-col gap-space-xs font-label-md text-label-md font-semibold" for="payment-method">
+                Forma de pago
+                <select id="payment-method" name="payment" class="w-full rounded-lg border border-outline-variant bg-white px-space-md py-space-sm font-body-md text-body-md font-normal focus:outline-none focus:ring-2 focus:ring-primary">
+                  <option value="A coordinar">A coordinar</option>
+                  <option value="Efectivo">Efectivo</option>
+                  <option value="Transferencia">Transferencia</option>
+                </select>
+              </label>
+              <label class="flex flex-col gap-space-xs font-label-md text-label-md font-semibold" for="order-notes">
+                Aclaraciones <span class="font-normal text-on-surface-variant">(opcional)</span>
+                <textarea id="order-notes" name="notes" rows="2" class="w-full resize-y rounded-lg border border-outline-variant bg-white px-space-md py-space-sm font-body-md text-body-md font-normal focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Horario u otro detalle"></textarea>
+              </label>
+              <button id="checkout-button" type="submit" disabled class="flex items-center justify-center gap-space-xs rounded-full bg-tertiary-container px-space-lg py-space-md font-label-md text-label-md font-bold text-on-tertiary shadow-[0_4px_0_#005322] transition-all hover:bg-tertiary disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none">
+                <span class="material-symbols-outlined text-[20px]">chat</span>
+                <span>Enviar pedido por WhatsApp</span>
+              </button>
+              <p id="checkout-status" class="min-h-5 font-body-sm text-body-sm text-on-surface-variant" aria-live="polite"></p>
+            </form>
+          </div>
+        </section>
+      </section>
+      <!-- ---------- 4. ¿CÓMO HORNEAR EN CASA? (3 pasos) ---------- -->
+      <section class="flex flex-col gap-space-lg bg-surface-container-lowest p-space-xl rounded-xl shadow-[0_6px_20px_rgba(180,19,13,0.05)]" id="como-hornear">
+        <div class="flex flex-col items-center text-center gap-space-xs max-w-xl mx-auto">
+          <div class="flex items-center gap-space-xs">
+            <span class="bg-secondary-fixed text-on-secondary-fixed px-space-md py-0.5 rounded-full font-label-sm text-label-sm font-bold">Súper Fácil</span>
+            <span class="bg-surface-container-high text-primary px-space-md py-0.5 rounded-full font-label-sm text-label-sm font-bold">Piso Crocante Garantizado</span>
+          </div>
+          <h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">¿Cómo Hornear en Casa?</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant">
+            Sin ensuciar tu cocina, sin esperas y con resultados de pizzería profesional italiana.
+          </p>
+        </div>
+
+        <!-- Pasos -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg pt-space-xs">
+          <!-- Paso 1 -->
+          <div class="flex flex-col bg-surface-container-low p-space-lg rounded-lg gap-space-md relative overflow-hidden">
+            <div class="flex items-center justify-between">
+              <span class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-headline-sm text-headline-sm font-black shadow-sm">1</span>
+              <span class="material-symbols-outlined text-primary text-[28px]">mode_heat</span>
+            </div>
+            <div class="flex flex-col gap-1">
+              <h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Precalentá el horno al máximo</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Llevalo a <strong>220°C - 250°C</strong> durante al menos 10 minutos. Cuanto más caliente esté el horno, más crocante quedará el piso.
+              </p>
+            </div>
+          </div>
+          <!-- Paso 2 -->
+          <div class="flex flex-col bg-surface-container-low p-space-lg rounded-lg gap-space-md relative overflow-hidden">
+            <div class="flex items-center justify-between">
+              <span class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-headline-sm text-headline-sm font-black shadow-sm">2</span>
+              <span class="material-symbols-outlined text-secondary text-[28px]">ac_unit</span>
+            </div>
+            <div class="flex flex-col gap-1">
+              <h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Directo sin descongelar</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Retirá el film protector termoformado y apoyá la pizza <strong>directo sobre la rejilla</strong> o sobre una pizzera bien caliente.
+              </p>
+            </div>
+          </div>
+          <!-- Paso 3 -->
+          <div class="flex flex-col bg-surface-container-low p-space-lg rounded-lg gap-space-md relative overflow-hidden">
+            <div class="flex items-center justify-between">
+              <span class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-headline-sm text-headline-sm font-black shadow-sm">3</span>
+              <span class="material-symbols-outlined text-tertiary-container text-[28px]">timer</span>
+            </div>
+            <div class="flex flex-col gap-1">
+              <h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Horneá de 10 a 14 minutos</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Hasta que el queso burbujee con puntitas doradas y la masa logre ese crujido inconfundible. ¡Retirá y serví al instante!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Banner de tip -->
+        <div class="bg-secondary-fixed/50 p-space-md rounded-lg flex items-center gap-space-md text-on-secondary-fixed">
+          <span class="material-symbols-outlined text-secondary text-[28px] shrink-0">tips_and_updates</span>
+          <p class="font-body-md text-body-md font-semibold">
+            <strong class="font-headline-sm text-secondary">💡 TIP DE ALEJA:</strong> Si te gusta el piso extra crocante, dejala los últimos 2 minutos en la rejilla inferior del horno directo al fuego.
+          </p>
+        </div>
+      </section>
+
+      <!-- ---------- 5. OPINIONES PLATENSES (3 testimonios) ---------- -->
+      <section class="flex flex-col gap-space-lg" id="opiniones">
+        <div class="flex flex-col items-center text-center gap-space-xs">
+          <!-- 5 estrellas rellenas -->
+          <div class="flex items-center gap-1 text-secondary-container">
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings:'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-[20px]" style="font-variation-settings:'FILL' 1;">star</span>
+          </div>
+          <h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Opiniones Platenses</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant">
+            Vecinos que ya disfrutan el sabor recién horneado en sus casas
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+          <!-- Opinión 1 -->
+          <div class="bg-surface-container-lowest p-space-lg rounded-[10px] shadow-[0_4px_16px_rgba(180,19,13,0.05)] flex flex-col justify-between gap-space-md">
+            <div class="flex flex-col gap-space-sm">
+              <div class="flex items-center gap-0.5 text-secondary-container">
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings:'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings:'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings:'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings:'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings:'FILL' 1;">star</span>
+              </div>
+              <p class="font-body-md text-body-md text-on-surface italic leading-relaxed">
+                "La mejor masa que probé en La Plata. Queda súper crocante como de pizzería tradicional y tenerlas en el freezer es un golazo para cuando volvés tarde."
+              </p>
+            </div>
+            <div class="flex items-center justify-between pt-space-xs">
+              <div>
+                <p class="font-label-md text-label-md text-on-surface font-bold">Camila R.</p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Plaza Moreno, La Plata</p>
+              </div>
+              <span class="material-symbols-outlined text-tertiary-container text-[20px]">verified</span>
+            </div>
+          </div>
+          <!-- Opinión 2 -->
+          <div class="bg-surface-container-lowest p-space-lg rounded-[10px] shadow-[0_4px_16px_rgba(180,19,13,0.05)] flex flex-col justify-between gap-space-md">
+            <div class="flex flex-col gap-space-sm">
+              <div class="flex items-center gap-0.5 text-secondary-container">
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings:'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings:'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings:'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings:'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings:'FILL' 1;">star</span>
+              </div>
+              <p class="font-body-md text-body-md text-on-surface italic leading-relaxed">
+                "Salvadoras totales para los fines de semana cuando no querés cocinar ni esperar al delivery que llega frío. La fugazzeta es un 10 total, bien cargada."
+              </p>
+            </div>
+            <div class="flex items-center justify-between pt-space-xs">
+              <div>
+                <p class="font-label-md text-label-md text-on-surface font-bold">Mariano G.</p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Gonnet</p>
+              </div>
+              <span class="material-symbols-outlined text-tertiary-container text-[20px]">verified</span>
+            </div>
+          </div>
+          <!-- Opinión 3 -->
+          <div class="bg-surface-container-lowest p-space-lg rounded-[10px] shadow-[0_4px_16px_rgba(180,19,13,0.05)] flex flex-col justify-between gap-space-md">
+            <div class="flex flex-col gap-space-sm">
+              <div class="flex items-center gap-0.5 text-secondary-container">
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings:'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings:'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings:'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings:'FILL' 1;">star</span>
+                <span class="material-symbols-outlined text-[16px]" style="font-variation-settings:'FILL' 1;">star</span>
+              </div>
+              <p class="font-body-md text-body-md text-on-surface italic leading-relaxed">
+                "La atención por WhatsApp es rápida y amable, coordinás la entrega en minutos y las pizzas vienen perfectamente envasadas al vacío impecable."
+              </p>
+            </div>
+            <div class="flex items-center justify-between pt-space-xs">
+              <div>
+                <p class="font-label-md text-label-md text-on-surface font-bold">Valeria T.</p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Casco Urbano</p>
+              </div>
+              <span class="material-symbols-outlined text-tertiary-container text-[20px]">verified</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- 6. CTA DE CIERRE + INFO DE DELIVERY ---------- -->
+      <section id="contacto" class="relative overflow-hidden rounded-xl p-space-xl text-on-primary shadow-[0_14px_36px_rgba(180,19,13,0.28)] flex flex-col md:flex-row items-center justify-between gap-space-xl bg-gradient-to-br from-[#800d08] via-primary to-[#540704]">
+
+        <!-- Capas decorativas (textura y brillos) -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-secondary-container/25 via-transparent to-black/35 pointer-events-none"></div>
+        <div class="absolute -right-10 -bottom-10 w-72 h-72 bg-secondary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -left-12 -top-12 w-64 h-64 bg-primary-container/30 rounded-full blur-2xl pointer-events-none"></div>
+
+        <!-- Texto -->
+        <div class="flex flex-col gap-space-sm max-w-xl relative z-10">
+          <div class="inline-flex items-center gap-space-xs bg-black/30 backdrop-blur-md px-space-md py-1 rounded-full text-white w-fit font-label-sm text-label-sm font-bold shadow-sm ring-1 ring-white/15">
+            <span class="material-symbols-outlined text-[16px] text-secondary-fixed">schedule</span>
+            <span class="tracking-wide">Miércoles a Domingos · 18:00 a 23:30 hs</span>
+          </div>
+          <h2 class="font-headline-lg text-headline-lg text-white font-extrabold tracking-tight drop-shadow-sm">¿Hambre de pizza recién horneada?</h2>
+          <p class="font-body-md text-body-md text-[#ffdad5] leading-relaxed">Escribinos por WhatsApp y coordinamos tu pedido en el acto. Envíos en toda La Plata o retiro en punto céntrico. ¡Tené siempre Aleja lista en tu freezer!</p>
+
+          <!-- Zonas de entrega -->
+          <div class="flex flex-wrap items-center gap-space-xs pt-1">
+            <span class="text-white/90 font-label-sm text-label-sm font-bold flex items-center gap-1">
+              <span class="material-symbols-outlined text-[16px] text-secondary-fixed">moped</span> Zonas frecuentes:
+            </span>
+            <span class="bg-black/30 text-white font-semibold px-space-sm py-0.5 rounded-full font-label-sm text-label-sm ring-1 ring-white/10">Casco Urbano</span>
+            <span class="bg-black/30 text-white font-semibold px-space-sm py-0.5 rounded-full font-label-sm text-label-sm ring-1 ring-white/10">Tolosa</span>
+            <span class="bg-black/30 text-white font-semibold px-space-sm py-0.5 rounded-full font-label-sm text-label-sm ring-1 ring-white/10">City Bell</span>
+            <span class="bg-black/30 text-white font-semibold px-space-sm py-0.5 rounded-full font-label-sm text-label-sm ring-1 ring-white/10">Los Hornos</span>
+          </div>
+        </div>
+
+        <!-- Botón WhatsApp destacado -->
+        <div class="shrink-0 relative z-10 w-full md:w-auto">
+          <a class="w-full md:w-auto flex items-center justify-center gap-space-sm bg-tertiary-container hover:bg-tertiary text-white px-space-xl py-space-md rounded-full font-headline-sm text-headline-sm font-extrabold shadow-[0_4px_0_#00471c,0_12px_24px_rgba(0,104,45,0.45)] ring-2 ring-tertiary-fixed/30 active:translate-y-1 active:shadow-none transition-all tracking-wide text-center" href="#pedido">
+            <span class="material-symbols-outlined text-[24px]">chat</span>
+            <span>Armar mi pedido</span>
+          </a>
+        </div>
+      </section>
+
+    </div><!-- /contenedor central -->
+  </div>
+
+  <script>
+  (function () {
+    const products = [
+      { name: 'Muzzarella', price: 6500, badge: 'Clásica', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCX6t82IqSCHsdE8wlZ52jgtXBx_GYQnnBlLFQTkb3xppUps88hZrJEeXCd7L8W8RTyMHTAPqT1VyDYyixgPZ_wqxOvgrEKH3DIacG4ZB4orIwwH9D4NeOjwwRsVfbuYTzE2M1CfjEPe7vSrn1WW6PxMKg1tBY2qUPaJpGg20nvqyPpvEbm3T7uToDfpAVC9r3mb45oCOJMn9VrhKVwpktWiPHanzQpM7jgohUeYrwD' },
+      { name: 'Napolitana', price: 7500, badge: 'Clásica', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBmzVr6vmnK_-F5-7AIvOVwc-YQz6pECEofnxCBfS7J0c3e3MmUYZhsaVkeBLfRT3dOwOlAiyWiReAKGpYBj6kmuk7ivAJhXlO5ecwMh665-DHJ3OoY6DEhAjgmyKt6oEE99sHQM6WmxbTtlH1fuZpwy-u3__spfaYa_wZnGG70Q4b2EXM91bMl1p5MuSo13NlatcOodz-swP7xu7HpJfG6vAepgJv6oRX9dUs_lshm' },
+      { name: 'Huevo', price: 7500, badge: 'Clásica', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCX6t82IqSCHsdE8wlZ52jgtXBx_GYQnnBlLFQTkb3xppUps88hZrJEeXCd7L8W8RTyMHTAPqT1VyDYyixgPZ_wqxOvgrEKH3DIacG4ZB4orIwwH9D4NeOjwwRsVfbuYTzE2M1CfjEPe7vSrn1WW6PxMKg1tBY2qUPaJpGg20nvqyPpvEbm3T7uToDfpAVC9r3mb45oCOJMn9VrhKVwpktWiPHanzQpM7jgohUeYrwD' },
+      { name: 'Especial', price: 7500, badge: 'De la casa', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDGYmr_y8OC4zGtUtNdNtxsM0FHZr5b36uRvLjhhl7cHK41qfRrxgIfzOpjXg1WOdnULmFuLKKFXZZJwOxBB11iUKQ9WO9uCBjLTNQqAgsu0Dzvf0iQM3kCWEivnviXgpjEOfkLblwrUmM3hy6ITLjDitR-IPLSSQQIe8Oxgc_FWt6RX45s1HkX7GOR9vZWTzVrbQZ7ryJ0mnGfCanEFSmv60eQ6RqMCILBK43Zka6R' },
+      { name: 'Cebolla', price: 8000, badge: 'Especial', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDGYmr_y8OC4zGtUtNdNtxsM0FHZr5b36uRvLjhhl7cHK41qfRrxgIfzOpjXg1WOdnULmFuLKKFXZZJwOxBB11iUKQ9WO9uCBjLTNQqAgsu0Dzvf0iQM3kCWEivnviXgpjEOfkLblwrUmM3hy6ITLjDitR-IPLSSQQIe8Oxgc_FWt6RX45s1HkX7GOR9vZWTzVrbQZ7ryJ0mnGfCanEFSmv60eQ6RqMCILBK43Zka6R' },
+      { name: 'Roquefort', price: 8500, badge: 'Especial', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA-LxLDA0qm-xfuiAwAlFWY1Ja68hWyLilVAFYCB89_0OGKAnPqoZ4xEoaBa0M1RuWaOJCm1NIXxBOVFACzY35Jl6gD37pTuPWOddupfwbiBC66rwZ3Apjvt9neek1ikorTTU-naumzUgd74coimiA3bvl9XcrqdGZRBbZTs7I5heVpbdv8gqYAG8a9PaToZeLFRFknbwQfTTPRK3VinpGhSlzR_T24sr5u4Guv7Cjr' },
+      { name: 'Panceta y Verdeo', price: 8500, badge: 'Especial', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC3BlkjlMdwjEnCMGVB5xOZNtxRHTnN0ySOQ7X51JY4TDHXPsg1627WgZPQ0jL3K9YFZcHUokOwRUF0wHcevM2qC0YBI1EbyrMFRmJq1Ytn1xkNDtp-ig1DPzOFhENg_PW8VfH-BjXsrLactjzlvl4mVFN4BEECJLNofPcD0tqUtYxxl9w1zl_MqhErHb8xQ2NID_T3nd9jVsXNJKQGXgjk_G3SLl0uwAYB-KpqkCmP' },
+      { name: 'Doble Muzzarella', price: 8500, badge: 'Extra queso', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCX6t82IqSCHsdE8wlZ52jgtXBx_GYQnnBlLFQTkb3xppUps88hZrJEeXCd7L8W8RTyMHTAPqT1VyDYyixgPZ_wqxOvgrEKH3DIacG4ZB4orIwwH9D4NeOjwwRsVfbuYTzE2M1CfjEPe7vSrn1WW6PxMKg1tBY2qUPaJpGg20nvqyPpvEbm3T7uToDfpAVC9r3mb45oCOJMn9VrhKVwpktWiPHanzQpM7jgohUeYrwD' },
+      { name: 'Longaniza', price: 8500, badge: 'Especial', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC3BlkjlMdwjEnCMGVB5xOZNtxRHTnN0ySOQ7X51JY4TDHXPsg1627WgZPQ0jL3K9YFZcHUokOwRUF0wHcevM2qC0YBI1EbyrMFRmJq1Ytn1xkNDtp-ig1DPzOFhENg_PW8VfH-BjXsrLactjzlvl4mVFN4BEECJLNofPcD0tqUtYxxl9w1zl_MqhErHb8xQ2NID_T3nd9jVsXNJKQGXgjk_G3SLl0uwAYB-KpqkCmP' },
+      { name: 'Provolone', price: 9000, badge: 'Especial', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA-LxLDA0qm-xfuiAwAlFWY1Ja68hWyLilVAFYCB89_0OGKAnPqoZ4xEoaBa0M1RuWaOJCm1NIXxBOVFACzY35Jl6gD37pTuPWOddupfwbiBC66rwZ3Apjvt9neek1ikorTTU-naumzUgd74coimiA3bvl9XcrqdGZRBbZTs7I5heVpbdv8gqYAG8a9PaToZeLFRFknbwQfTTPRK3VinpGhSlzR_T24sr5u4Guv7Cjr' },
+      { name: 'Champiñón', price: 9500, badge: 'Especial', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA-LxLDA0qm-xfuiAwAlFWY1Ja68hWyLilVAFYCB89_0OGKAnPqoZ4xEoaBa0M1RuWaOJCm1NIXxBOVFACzY35Jl6gD37pTuPWOddupfwbiBC66rwZ3Apjvt9neek1ikorTTU-naumzUgd74coimiA3bvl9XcrqdGZRBbZTs7I5heVpbdv8gqYAG8a9PaToZeLFRFknbwQfTTPRK3VinpGhSlzR_T24sr5u4Guv7Cjr' },
+      { name: 'Cuatro Quesos', price: 9500, badge: 'Especial', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA-LxLDA0qm-xfuiAwAlFWY1Ja68hWyLilVAFYCB89_0OGKAnPqoZ4xEoaBa0M1RuWaOJCm1NIXxBOVFACzY35Jl6gD37pTuPWOddupfwbiBC66rwZ3Apjvt9neek1ikorTTU-naumzUgd74coimiA3bvl9XcrqdGZRBbZTs7I5heVpbdv8gqYAG8a9PaToZeLFRFknbwQfTTPRK3VinpGhSlzR_T24sr5u4Guv7Cjr' },
+      { name: 'Ananá', price: 9500, badge: 'Especial', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDGYmr_y8OC4zGtUtNdNtxsM0FHZr5b36uRvLjhhl7cHK41qfRrxgIfzOpjXg1WOdnULmFuLKKFXZZJwOxBB11iUKQ9WO9uCBjLTNQqAgsu0Dzvf0iQM3kCWEivnviXgpjEOfkLblwrUmM3hy6ITLjDitR-IPLSSQQIe8Oxgc_FWt6RX45s1HkX7GOR9vZWTzVrbQZ7ryJ0mnGfCanEFSmv60eQ6RqMCILBK43Zka6R' },
+      { name: 'Palmitos', price: 9500, badge: 'Especial', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDGYmr_y8OC4zGtUtNdNtxsM0FHZr5b36uRvLjhhl7cHK41qfRrxgIfzOpjXg1WOdnULmFuLKKFXZZJwOxBB11iUKQ9WO9uCBjLTNQqAgsu0Dzvf0iQM3kCWEivnviXgpjEOfkLblwrUmM3hy6ITLjDitR-IPLSSQQIe8Oxgc_FWt6RX45s1HkX7GOR9vZWTzVrbQZ7ryJ0mnGfCanEFSmv60eQ6RqMCILBK43Zka6R' },
+      { name: 'Cheddar y Salchicha', price: 9500, badge: 'Especial', image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC3BlkjlMdwjEnCMGVB5xOZNtxRHTnN0ySOQ7X51JY4TDHXPsg1627WgZPQ0jL3K9YFZcHUokOwRUF0wHcevM2qC0YBI1EbyrMFRmJq1Ytn1xkNDtp-ig1DPzOFhENg_PW8VfH-BjXsrLactjzlvl4mVFN4BEECJLNofPcD0tqUtYxxl9w1zl_MqhErHb8xQ2NID_T3nd9jVsXNJKQGXgjk_G3SLl0uwAYB-KpqkCmP' }
+    ];
+    const cart = new Map();
+    const productGrid = document.getElementById('product-grid');
+    const cartItems = document.getElementById('cart-items');
+    const cartEmpty = document.getElementById('cart-empty');
+    const cartTotal = document.getElementById('cart-total');
+    const checkoutForm = document.getElementById('checkout-form');
+    const checkoutButton = document.getElementById('checkout-button');
+    const checkoutStatus = document.getElementById('checkout-status');
+    const deliveryMethod = document.getElementById('delivery-method');
+    const addressField = document.getElementById('address-field');
+    const deliveryAddress = document.getElementById('delivery-address');
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileNavigation = document.getElementById('mobile-navigation');
+    const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+
+    function formatPrice(amount) {
+      return '$' + amount.toLocaleString('es-AR');
+    }
+
+    function renderProducts() {
+      productGrid.innerHTML = products.map((product, index) => `
+      <article class="group flex flex-col overflow-hidden rounded-[0.5rem] border border-outline-variant/50 bg-surface-container-lowest shadow-[0_5px_18px_rgba(180,19,13,0.08)] transition-all hover:-translate-y-1 hover:shadow-[0_12px_26px_rgba(180,19,13,0.14)]">
+        <div class="product-image-frame skeleton-shimmer relative h-40 overflow-hidden bg-surface-container sm:h-44">
+          <img class="product-image h-full w-full object-cover opacity-0 transition-all duration-300 group-hover:scale-105" src="${product.image}" alt="Pizza casera de ${product.name}" loading="lazy" decoding="async">
+          <svg class="product-image-fallback absolute inset-0 m-auto hidden h-12 w-12 text-primary/40" viewBox="0 0 486.528 486.528" fill="currentColor" aria-hidden="true" focusable="false">
+            <use href="#bg-slice"></use>
+          </svg>
+          <span class="absolute left-space-sm top-space-sm rounded-full bg-primary px-space-sm py-0.5 font-label-sm text-label-sm font-bold text-on-primary shadow-sm">${product.badge}</span>
+          <span class="absolute bottom-space-sm right-space-sm rounded-full bg-surface/95 px-space-sm py-0.5 font-label-sm text-label-sm font-bold text-on-surface shadow-sm">32 cm · 8 porciones</span>
+        </div>
+        <div class="flex flex-1 flex-col gap-space-sm p-space-md">
+          <div class="flex-1">
+            <h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">${product.name}</h3>
+            <p class="mt-1 font-body-sm text-body-sm text-on-surface-variant">Pizza casera · lista para hornear</p>
+          </div>
+          <div class="flex items-center justify-between gap-space-sm border-t border-outline-variant/50 pt-space-sm">
+            <span class="font-label-sm text-label-sm font-bold uppercase text-on-surface-variant">Precio</span>
+            <p class="font-headline-md text-headline-md font-extrabold text-primary">${formatPrice(product.price)}</p>
+          </div>
+        <button type="button" data-add-to-cart="${index}" class="flex w-full items-center justify-center gap-space-xs rounded-full bg-tertiary-container px-space-md py-space-sm font-label-md text-label-md font-bold text-on-tertiary shadow-[0_3px_0_#005322] transition-colors hover:bg-tertiary focus:outline-none focus:ring-2 focus:ring-tertiary">
+          <span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+          <span>Agregar al carrito</span>
+        </button>
+        </div>
+      </article>
+    `).join('');
+      productGrid.setAttribute('aria-busy', 'false');
+      productGrid.removeAttribute('aria-label');
+
+      productGrid.querySelectorAll('.product-image').forEach((image) => {
+        const showImage = () => {
+          image.classList.remove('opacity-0');
+          image.parentElement.classList.remove('skeleton-shimmer');
+        };
+        const showFallback = () => {
+          image.classList.add('hidden');
+          image.parentElement.classList.remove('skeleton-shimmer');
+          image.parentElement.querySelector('.product-image-fallback').classList.replace('hidden', 'flex');
+        };
+        image.addEventListener('load', showImage, { once: true });
+        image.addEventListener('error', showFallback, { once: true });
+        if (image.complete && image.naturalWidth > 0) showImage();
+      });
+    }
+
+    setTimeout(renderProducts, 250);
+
+    function renderCart() {
+      let total = 0;
+      let itemCount = 0;
+      const rows = [];
+
+      products.forEach((product, index) => {
+        const quantity = cart.get(index) || 0;
+        if (!quantity) return;
+        const lineTotal = quantity * product.price;
+        total += lineTotal;
+        itemCount += quantity;
+        rows.push(`
+          <li class="flex flex-wrap items-center justify-between gap-space-sm py-space-md">
+            <div class="min-w-0 flex-1">
+              <p class="font-label-md text-label-md font-bold text-on-surface">${product.name}</p>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">${quantity} × ${formatPrice(product.price)} <span class="font-bold text-primary">= ${formatPrice(lineTotal)}</span></p>
+            </div>
+            <div class="flex items-center gap-1">
+              <button type="button" data-cart-action="decrease" data-product="${index}" aria-label="Quitar una ${product.name}" class="flex h-9 w-9 items-center justify-center rounded-full bg-surface-container text-primary hover:bg-surface-variant">−</button>
+              <span class="min-w-6 text-center font-label-md text-label-md font-bold">${quantity}</span>
+              <button type="button" data-cart-action="increase" data-product="${index}" aria-label="Agregar una ${product.name}" class="flex h-9 w-9 items-center justify-center rounded-full bg-surface-container text-primary hover:bg-surface-variant">+</button>
+              <button type="button" data-cart-action="remove" data-product="${index}" aria-label="Eliminar ${product.name} del pedido" class="ml-1 flex h-9 w-9 items-center justify-center rounded-full text-error hover:bg-error-container">
+                <span class="material-symbols-outlined text-[18px]">delete</span>
+              </button>
+            </div>
+          </li>
+        `);
+      });
+
+      cartItems.innerHTML = rows.join('');
+      cartEmpty.classList.toggle('hidden', itemCount > 0);
+      cartItems.classList.toggle('hidden', itemCount === 0);
+      cartTotal.textContent = formatPrice(total);
+      checkoutButton.disabled = itemCount === 0;
+      checkoutButton.querySelector('span:last-child').textContent =
+        itemCount ? `Enviar pedido (${itemCount}) por WhatsApp` : 'Agregá productos para continuar';
+    }
+
+    productGrid.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-add-to-cart]');
+      if (!button) return;
+      const index = Number(button.dataset.addToCart);
+      cart.set(index, (cart.get(index) || 0) + 1);
+      checkoutStatus.textContent = `${products[index].name} se agregó al pedido.`;
+      renderCart();
+    });
+
+    cartItems.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-cart-action]');
+      if (!button) return;
+      const index = Number(button.dataset.product);
+      const quantity = cart.get(index) || 0;
+      if (button.dataset.cartAction === 'remove' || (button.dataset.cartAction === 'decrease' && quantity <= 1)) {
+        cart.delete(index);
+      } else if (button.dataset.cartAction === 'decrease') {
+        cart.set(index, quantity - 1);
+      } else if (button.dataset.cartAction === 'increase') {
+        cart.set(index, quantity + 1);
+      }
+      renderCart();
+    });
+
+    deliveryMethod.addEventListener('change', () => {
+      const needsAddress = deliveryMethod.value === 'Envío a domicilio';
+      addressField.classList.toggle('hidden', !needsAddress);
+      addressField.classList.toggle('flex', needsAddress);
+      deliveryAddress.required = needsAddress;
+      if (!needsAddress) deliveryAddress.value = '';
+    });
+
+    function setMobileMenuOpen(isOpen) {
+      mobileNavigation.classList.toggle('hidden', !isOpen);
+      mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
+      mobileMenuToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+      mobileMenuIcon.textContent = isOpen ? 'close' : 'menu';
+    }
+
+    mobileMenuToggle.addEventListener('click', () => {
+      setMobileMenuOpen(mobileMenuToggle.getAttribute('aria-expanded') !== 'true');
+    });
+    mobileNavigation.addEventListener('click', (event) => {
+      if (event.target.closest('a')) setMobileMenuOpen(false);
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') setMobileMenuOpen(false);
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024) setMobileMenuOpen(false);
+    });
+
+    checkoutForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (cart.size === 0) {
+        checkoutStatus.textContent = 'Agregá al menos una pizza antes de armar el pedido.';
+        return;
+      }
+      if (!checkoutForm.reportValidity()) return;
+
+      const formData = new FormData(checkoutForm);
+      const lines = [
+        'Hola, Aleja. Quiero realizar el siguiente pedido:',
+        '',
+        'PEDIDO'
+      ];
+      let total = 0;
+      products.forEach((product, index) => {
+        const quantity = cart.get(index) || 0;
+        if (!quantity) return;
+        const lineTotal = quantity * product.price;
+        total += lineTotal;
+        lines.push(`• ${quantity} × ${product.name} — ${formatPrice(product.price)} c/u: ${formatPrice(lineTotal)}`);
+      });
+      lines.push(
+        '',
+        `SUBTOTAL: ${formatPrice(total)}`,
+        'Envío: a confirmar, si corresponde.',
+        '',
+        'DATOS PARA COORDINAR',
+        `Nombre: ${formData.get('name').trim()}`,
+        `Entrega: ${formData.get('delivery')}`,
+        `Dirección: ${formData.get('address') || 'Retiro por punto de entrega'}`,
+        `Forma de pago: ${formData.get('payment')}`,
+        `Aclaraciones: ${formData.get('notes').trim() || 'Sin aclaraciones'}`,
+        '',
+        'Por favor, confirmen disponibilidad y total final. ¡Gracias!'
+      );
+      const whatsappUrl = `https://wa.me/5492215710516?text=${encodeURIComponent(lines.join('\n'))}`;
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      checkoutStatus.textContent = 'Si WhatsApp no se abrió, ';
+      const whatsappLink = document.createElement('a');
+      whatsappLink.href = whatsappUrl;
+      whatsappLink.target = '_blank';
+      whatsappLink.rel = 'noopener noreferrer';
+      whatsappLink.className = 'font-bold text-primary underline';
+      whatsappLink.textContent = 'abrilo desde este enlace';
+      checkoutStatus.append(whatsappLink, ' para revisar y enviar tu pedido.');
+    });
+
+    renderCart();
+  })();
+  </script>
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="w-full bg-surface-container-low text-on-surface mt-space-xl pt-space-xl pb-space-lg shadow-[inset_0_1px_0_rgba(229,190,184,0.3)]">
+  <div class="max-w-[960px] mx-auto px-margin flex flex-col gap-space-lg">
+
+    <div class="flex flex-col md:flex-row items-center justify-between gap-space-md text-center md:text-left">
+      <!-- Marca + horario -->
+      <div class="flex flex-col sm:flex-row items-center gap-space-md">
+        <div class="flex flex-col">
+          <span class="font-headline-lg text-headline-lg text-primary tracking-tight font-extrabold leading-none">ALEJA</span>
+          <span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Pizzas para Hornear</span>
+        </div>
+        <span class="hidden sm:inline text-outline-variant font-bold">·</span>
+        <div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+          <span class="material-symbols-outlined text-secondary text-[16px]">schedule</span>
+          <span>Mié a Dom 18:00 a 23:30 hs</span>
+        </div>
+      </div>
+
+      <!-- Zonas de envío + WhatsApp -->
+      <div class="flex flex-wrap items-center justify-center md:justify-end gap-space-sm">
+        <div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+          <span class="material-symbols-outlined text-primary text-[16px]">moped</span>
+          <span>Envíos: Casco · Gonnet · City Bell · Tolosa · Los Hornos</span>
+        </div>
+        <a class="flex items-center gap-1 bg-tertiary-container hover:bg-tertiary text-on-tertiary px-space-md py-1 rounded-full font-label-sm text-label-sm font-bold shadow-sm transition-all" href="https://wa.me/5492215710516" rel="noopener noreferrer" target="_blank">
+          <span class="material-symbols-outlined text-[16px]">chat</span>
+          <span>WhatsApp 221 571-0516</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Barra de créditos -->
+    <div class="pt-space-md flex flex-col sm:flex-row items-center justify-between gap-space-xs shadow-[inset_0_1px_0_rgba(229,190,184,0.4)] text-on-surface-variant font-body-sm text-body-sm">
+      <p class="text-center sm:text-left">© <span id="year"></span> ALEJA Pizzas para Hornear. La Plata, Buenos Aires.</p>
+      <div class="flex items-center gap-space-md">
+        <span class="flex items-center gap-1 text-[13px]">
+          Desarrollado por <a href="https://binaraweb.com" target="_blank" rel="noopener noreferrer" class="font-bold text-[#0047FF] hover:underline cursor-pointer ml-1">Binaraweb</a>
+        </span>
+        <span class="hidden sm:inline text-outline-variant">·</span>
+        <span class="hidden sm:flex items-center gap-1 text-[13px]">
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+  // Actualizar el año en el footer automáticamente
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
